@@ -23,45 +23,70 @@ package cmd
 
 import (
 	"fmt"
-	"math/rand"
 	"os"
-	"time"
 
 	"github.com/gdamore/tcell"
+	"github.com/gdamore/tcell/encoding"
+	"github.com/mattn/go-runewidth"
 	"github.com/spf13/cobra"
 )
 
-func makebox(s tcell.Screen) {
-	w, h := s.Size()
+var row = 0
+var style = tcell.StyleDefault
 
-	if w == 0 || h == 0 {
-		return
-	}
+func putln(s tcell.Screen, str string) {
 
-	glyphs := []rune{'@', '#', '&', '*', '=', '%', 'Z', 'A'}
+	puts(s, style, 1, row, str)
+	row++
+}
 
-	lx := rand.Int() % w
-	ly := rand.Int() % h
-	lw := rand.Int() % (w - lx)
-	lh := rand.Int() % (h - ly)
-	st := tcell.StyleDefault
-	gl := ' '
-	if s.Colors() > 256 {
-		rgb := tcell.NewHexColor(int32(rand.Int() & 0xffffff))
-		st = st.Background(rgb)
-	} else if s.Colors() > 1 {
-		st = st.Background(tcell.Color(rand.Int() % s.Colors()))
-	} else {
-		st = st.Reverse(rand.Int()%2 == 0)
-		gl = glyphs[rand.Int()%len(glyphs)]
-	}
-
-	for row := 0; row < lh; row++ {
-		for col := 0; col < lw; col++ {
-			s.SetCell(lx+col, ly+row, st, gl)
+func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
+	i := 0
+	var deferred []rune
+	dwidth := 0
+	zwj := false
+	for _, r := range str {
+		if r == '\u200d' {
+			if len(deferred) == 0 {
+				deferred = append(deferred, ' ')
+				dwidth = 1
+			}
+			deferred = append(deferred, r)
+			zwj = true
+			continue
 		}
+		if zwj {
+			deferred = append(deferred, r)
+			zwj = false
+			continue
+		}
+		switch runewidth.RuneWidth(r) {
+		case 0:
+			if len(deferred) == 0 {
+				deferred = append(deferred, ' ')
+				dwidth = 1
+			}
+		case 1:
+			if len(deferred) != 0 {
+				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+				i += dwidth
+			}
+			deferred = nil
+			dwidth = 1
+		case 2:
+			if len(deferred) != 0 {
+				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+				i += dwidth
+			}
+			deferred = nil
+			dwidth = 2
+		}
+		deferred = append(deferred, r)
 	}
-	s.Show()
+	if len(deferred) != 0 {
+		s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+		i += dwidth
+	}
 }
 
 // playCmd represents the play command
@@ -77,16 +102,21 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("play called")
 
-		tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 		s, e := tcell.NewScreen()
 		if e != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", e)
 			os.Exit(1)
 		}
+
+		encoding.Register()
+
 		if e = s.Init(); e != nil {
 			fmt.Fprintf(os.Stderr, "%v\n", e)
 			os.Exit(1)
 		}
+
+		plain := tcell.StyleDefault
+		bold := style.Bold(true)
 
 		s.SetStyle(tcell.StyleDefault.
 			Foreground(tcell.ColorBlack).
@@ -94,6 +124,66 @@ to quickly create a Cobra application.`,
 		s.Clear()
 
 		quit := make(chan struct{})
+
+		style = bold
+		putln(s, "Press ESC to Exit")
+		putln(s, "Character set: "+s.CharacterSet())
+		style = plain
+
+		putln(s, "English:   October")
+		putln(s, "Icelandic: október")
+		putln(s, "Arabic:    أكتوبر")
+		putln(s, "Russian:   октября")
+		putln(s, "Greek:     Οκτωβρίου")
+		putln(s, "Chinese:   十月 (note, two double wide characters)")
+		putln(s, "Combining: A\u030a (should look like Angstrom)")
+		putln(s, "Emoticon:  \U0001f618 (blowing a kiss)")
+		putln(s, "Airplane:  \u2708 (fly away)")
+		putln(s, "Command:   \u2318 (mac clover key)")
+		putln(s, "Enclose:   !\u20e3 (should be enclosed exclamation)")
+		putln(s, "ZWJ:       \U0001f9db\u200d\u2640 (female vampire)")
+		putln(s, "ZWJ:       \U0001f9db\u200d\u2642 (male vampire)")
+		putln(s, "Family:    \U0001f469\u200d\U0001f467\u200d\U0001f467 (woman girl girl)\n")
+		putln(s, "Region:    \U0001f1fa\U0001f1f8 (USA! USA!)\n")
+		putln(s, "")
+		putln(s, "Box:")
+		putln(s, string([]rune{
+			tcell.RuneULCorner,
+			tcell.RuneHLine,
+			tcell.RuneTTee,
+			tcell.RuneHLine,
+			tcell.RuneURCorner,
+		}))
+		putln(s, string([]rune{
+			tcell.RuneVLine,
+			tcell.RuneBullet,
+			tcell.RuneVLine,
+			tcell.RuneLantern,
+			tcell.RuneVLine,
+		})+"  (bullet, lantern/section)")
+		putln(s, string([]rune{
+			tcell.RuneLTee,
+			tcell.RuneHLine,
+			tcell.RunePlus,
+			tcell.RuneHLine,
+			tcell.RuneRTee,
+		}))
+		putln(s, string([]rune{
+			tcell.RuneVLine,
+			tcell.RuneDiamond,
+			tcell.RuneVLine,
+			tcell.RuneUArrow,
+			tcell.RuneVLine,
+		})+"  (diamond, up arrow)")
+		putln(s, string([]rune{
+			tcell.RuneLLCorner,
+			tcell.RuneHLine,
+			tcell.RuneBTee,
+			tcell.RuneHLine,
+			tcell.RuneLRCorner,
+		}))
+
+		s.Show()
 		go func() {
 			for {
 				ev := s.PollEvent()
@@ -112,24 +202,9 @@ to quickly create a Cobra application.`,
 			}
 		}()
 
-		cnt := 0
-		dur := time.Duration(0)
-	loop:
-		for {
-			select {
-			case <-quit:
-				break loop
-			case <-time.After(time.Millisecond * 50):
-			}
-			start := time.Now()
-			makebox(s)
-			cnt++
-			dur += time.Now().Sub(start)
-		}
+		<-quit
 
 		s.Fini()
-		fmt.Printf("Finished %d boxes in %s\n", cnt, dur)
-		fmt.Printf("Average is %0.3f ms / box\n", (float64(dur)/float64(cnt))/1000000.0)
 
 	},
 }
