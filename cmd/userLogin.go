@@ -36,18 +36,6 @@ var (
 	err      error
 )
 
-// Fieldnames need to be capitalized here to export
-// Neccessary for json parsing to work
-//type User struct {
-//Username  string
-//Highscore int
-//}
-//
-//type CurrentUser struct {
-//IsLoggedIn string
-//Username   string
-//}
-
 // loginCmd represents the login command
 var userLoginCmd = &cobra.Command{
 	Use:   "login",
