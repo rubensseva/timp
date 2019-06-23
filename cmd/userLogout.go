@@ -22,12 +22,12 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"encoding/json"
 	"fmt"
+	"encoding/json"
 	"io/ioutil"
-	"timp/cmd/model"
-
 	"github.com/spf13/cobra"
+
+	"timp/cmd/model"
 )
 
 // logoutCmd represents the logout command

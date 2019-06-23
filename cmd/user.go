@@ -23,8 +23,11 @@ package cmd
 
 import (
 	"fmt"
-
+  "io/ioutil"
 	"github.com/spf13/cobra"
+	"encoding/json"
+
+  "timp/cmd/model"
 )
 
 // userCmd represents the user command
@@ -34,6 +37,29 @@ var userCmd = &cobra.Command{
 	Long: `Specifier for users`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("user called")
+
+		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
+		var users []model.User
+		_ = json.Unmarshal([]byte(usersfile), &users)
+
+		// Current user
+		currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
+
+		var currentUser model.CurrentUser
+
+		_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
+
+    fmt.Println("\n--------------------------------")
+    fmt.Println("logged in user: ")
+    fmt.Println("name: " + currentUser.Username)
+    fmt.Println("logged in: " + currentUser.IsLoggedIn)
+    fmt.Println("--------------------------------")
+    fmt.Println("existing users: ")
+    for _, user := range users {
+      fmt.Println("name: " + user.Username)
+    }
+    fmt.Println("--------------------------------\n")
+
 	},
 }
 

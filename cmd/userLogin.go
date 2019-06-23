@@ -22,13 +22,13 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"encoding/json"
 	"fmt"
+	"encoding/json"
 	"io/ioutil"
-	"os"
-	"timp/cmd/model"
-
 	"github.com/spf13/cobra"
+	"os"
+
+	"timp/cmd/model"
 )
 
 var (

@@ -25,21 +25,54 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+
+  "io/ioutil"
+  "encoding/json"
+
+  "timp/cmd/model"
+
 )
 
 // newTextCmd represents the newText command
-var newTextCmd = &cobra.Command{
-	Use:   "newText",
+var textNewCmd = &cobra.Command{
+	Use:   "new",
 	Short: "Adds new text",
 	Long: `Adds a new text that may be run.
 example: timp newText /path/to/file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("newText called")
+		if len(args) != 1 {
+			fmt.Println("please specify one, and only one, username to create")
+			return
+		}
+
+		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
+		var texts []model.Text
+		_ = json.Unmarshal([]byte(textfile), &texts)
+
+		var is_a_text = false
+		for _, text := range texts {
+			if text.Text == args[0] {
+				is_a_text = true
+			}
+		}
+
+		if is_a_text {
+			fmt.Println("specified text " + args[0] + " is already a text")
+			return
+		}
+
+		fmt.Println("creating text ", args[0])
+		var newText = model.Text{args[0], ""}
+		texts = append(texts, newText)
+		writefile, _ := json.MarshalIndent(texts, "", " ")
+		_ = ioutil.WriteFile("cmd/resources/texts.json", writefile, 0644)
+		fmt.Println("create text success (hopefully)")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(newTextCmd)
+	textCmd.AddCommand(textNewCmd)
 
 	// Here you will define your flags and configuration settings.
 

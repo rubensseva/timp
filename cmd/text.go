@@ -25,6 +25,12 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+
+  "io/ioutil"
+
+  "encoding/json"
+
+  "timp/cmd/model"
 )
 
 // textCmd represents the text command
@@ -36,11 +42,21 @@ var textCmd = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("text called")
+
+		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
+		var texts []model.Text
+		_ = json.Unmarshal([]byte(textfile), &texts)
+
+    for _, text := range texts {
+      fmt.Println()
+      fmt.Println("Author: " + text.Author)
+      fmt.Println("Text: " + text.Text)
+    }
 	},
 }
 
 func init() {
-	lsCmd.AddCommand(textCmd)
+	rootCmd.AddCommand(textCmd)
 
 	// Here you will define your flags and configuration settings.
 
