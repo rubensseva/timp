@@ -30,16 +30,15 @@ import (
 // userCmd represents the user command
 var userCmd = &cobra.Command{
 	Use:   "user",
-	Short: "Lists users",
-	Long: `Lists all users. Use after ls command
-		example: timp ls user`,
+	Short: "user command",
+	Long: `Specifier for users`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("user called")
 	},
 }
 
 func init() {
-	lsCmd.AddCommand(userCmd)
+	rootCmd.AddCommand(userCmd)
 
 	// Here you will define your flags and configuration settings.
 

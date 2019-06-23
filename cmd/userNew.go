@@ -31,8 +31,8 @@ import (
 )
 
 // newUserCmd represents the newUser command
-var newUserCmd = &cobra.Command{
-	Use:   "newUser",
+var userNewCmd = &cobra.Command{
+	Use:   "new",
 	Short: "Add new user",
 	Long: `Adds a new user.
 Users are more like a profile, there are no passwords.
@@ -70,7 +70,7 @@ With a user, you may track score etc.`,
 }
 
 func init() {
-	rootCmd.AddCommand(newUserCmd)
+	userCmd.AddCommand(userNewCmd)
 
 	// Here you will define your flags and configuration settings.
 

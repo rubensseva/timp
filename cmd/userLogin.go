@@ -49,7 +49,7 @@ var (
 //}
 
 // loginCmd represents the login command
-var loginCmd = &cobra.Command{
+var userLoginCmd = &cobra.Command{
 	Use:   "login",
 	Short: "Login as user",
 	Long: `Login as a user, given username.
@@ -99,7 +99,7 @@ example: timp login my_username`,
 }
 
 func init() {
-	rootCmd.AddCommand(loginCmd)
+	userCmd.AddCommand(userLoginCmd)
 
 	// Here you will define your flags and configuration settings.
 

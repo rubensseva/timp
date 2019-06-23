@@ -31,7 +31,7 @@ import (
 )
 
 // logoutCmd represents the logout command
-var logoutCmd = &cobra.Command{
+var userLogoutCmd = &cobra.Command{
 	Use:   "logout",
 	Short: "Logout current user",
 	Long: `Logs out the user that is currently logged in.
@@ -45,7 +45,7 @@ No effect if no user is logged in`,
 }
 
 func init() {
-	rootCmd.AddCommand(logoutCmd)
+	userCmd.AddCommand(userLogoutCmd)
 
 	// Here you will define your flags and configuration settings.
 
