@@ -24,7 +24,6 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
@@ -32,31 +31,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var row = 0
-var style = tcell.StyleDefault
-var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
+var rowDemo = 0
+var styleDemo = tcell.StyleDefault
 
-func putln(s tcell.Screen, str string) {
+func putlnDemo(s tcell.Screen, str string) {
 
-	puts(s, style, 1, row, str)
-	row++
+	putsDemo(s, style, 1, rowDemo, str)
+	rowDemo++
 }
 
-func putlnGreen(s tcell.Screen, str string) {
-
-	puts(s, greenStyle, 1, row, str)
-	row++
-}
-
-func putText(s tcell.Screen, subStr string, text string) {
-
-	var finStr = strings.Replace(text, subStr, "", 1)
-	puts(s, greenStyle, 1, row, subStr)
-	puts(s, style, len(subStr)+1, row, finStr)
-	row++
-}
-
-func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
+func putsDemo(s tcell.Screen, style tcell.Style, x, y int, str string) {
 	i := 0
 	var deferred []rune
 	dwidth := 0
@@ -106,17 +90,13 @@ func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
 }
 
 // playCmd represents the play command
-var playCmd = &cobra.Command{
-	Use:   "play",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+var tcellDemo = &cobra.Command{
+	Use:   "tcellDemo",
+	Short: "Demo for tcell.",
+	Long: `Just a demo for unicode in tcell.
+Safe to remove`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("play called")
+		fmt.Println("tcell demo called")
 
 		s, e := tcell.NewScreen()
 		if e != nil {
@@ -135,20 +115,69 @@ to quickly create a Cobra application.`,
 		bold := style.Bold(true)
 
 		s.SetStyle(tcell.StyleDefault.
-			Foreground(tcell.ColorWhite).
-			Background(tcell.ColorBlack))
+			Foreground(tcell.ColorBlack).
+			Background(tcell.ColorWhite))
 		s.Clear()
 
 		quit := make(chan struct{})
 
 		style = bold
-		putln(s, "Press ESC to Exit")
-		putln(s, "Character set: "+s.CharacterSet())
+		putlnDemo(s, "Press ESC to Exit")
+		putlnDemo(s, "Character set: "+s.CharacterSet())
 		style = plain
 
-		putln(s, args[0])
-		putlnGreen(s, args[0])
-		putText(s, "hello", "hello from the other side")
+		putlnDemo(s, "English:   October")
+		putlnDemo(s, "Icelandic: október")
+		putlnDemo(s, "Arabic:    أكتوبر")
+		putlnDemo(s, "Russian:   октября")
+		putlnDemo(s, "Greek:     Οκτωβρίου")
+		putlnDemo(s, "Chinese:   十月 (note, two double wide characters)")
+		putlnDemo(s, "Combining: A\u030a (should look like Angstrom)")
+		putlnDemo(s, "Emoticon:  \U0001f618 (blowing a kiss)")
+		putlnDemo(s, "Airplane:  \u2708 (fly away)")
+		putlnDemo(s, "Command:   \u2318 (mac clover key)")
+		putlnDemo(s, "Enclose:   !\u20e3 (should be enclosed exclamation)")
+		putlnDemo(s, "ZWJ:       \U0001f9db\u200d\u2640 (female vampire)")
+		putlnDemo(s, "ZWJ:       \U0001f9db\u200d\u2642 (male vampire)")
+		putlnDemo(s, "Family:    \U0001f469\u200d\U0001f467\u200d\U0001f467 (woman girl girl)\n")
+		putlnDemo(s, "Region:    \U0001f1fa\U0001f1f8 (USA! USA!)\n")
+		putlnDemo(s, "")
+		putlnDemo(s, "Box:")
+		putlnDemo(s, string([]rune{
+			tcell.RuneULCorner,
+			tcell.RuneHLine,
+			tcell.RuneTTee,
+			tcell.RuneHLine,
+			tcell.RuneURCorner,
+		}))
+		putlnDemo(s, string([]rune{
+			tcell.RuneVLine,
+			tcell.RuneBullet,
+			tcell.RuneVLine,
+			tcell.RuneLantern,
+			tcell.RuneVLine,
+		})+"  (bullet, lantern/section)")
+		putlnDemo(s, string([]rune{
+			tcell.RuneLTee,
+			tcell.RuneHLine,
+			tcell.RunePlus,
+			tcell.RuneHLine,
+			tcell.RuneRTee,
+		}))
+		putlnDemo(s, string([]rune{
+			tcell.RuneVLine,
+			tcell.RuneDiamond,
+			tcell.RuneVLine,
+			tcell.RuneUArrow,
+			tcell.RuneVLine,
+		})+"  (diamond, up arrow)")
+		putlnDemo(s, string([]rune{
+			tcell.RuneLLCorner,
+			tcell.RuneHLine,
+			tcell.RuneBTee,
+			tcell.RuneHLine,
+			tcell.RuneLRCorner,
+		}))
 
 		s.Show()
 		go func() {
@@ -177,7 +206,7 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(playCmd)
+	rootCmd.AddCommand(tcellDemo)
 
 	// Here you will define your flags and configuration settings.
 
