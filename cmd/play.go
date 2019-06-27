@@ -32,29 +32,104 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var TEXT_BOX_WIDTH = 50
+
 var row = 0
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
 func putln(s tcell.Screen, str string) {
-
 	puts(s, style, 1, row, str)
 	row++
 }
 
 func putlnGreen(s tcell.Screen, str string) {
-
 	puts(s, greenStyle, 1, row, str)
 	row++
 }
 
 func putText(s tcell.Screen, subStr string, text string) {
-
 	var finStr = strings.Replace(text, subStr, "", 1)
-	puts(s, greenStyle, 1, row, subStr)
-	puts(s, style, len(subStr)+1, row, finStr)
+  var stringList []string
+  var currentString string
+  var widthCount = 0
+  var currentLineNum = 0
+
+  for _, r := range subStr {
+    if widthCount <= TEXT_BOX_WIDTH {
+      currentString = currentString + string(r)
+      widthCount++
+    } else {
+      currentString = currentString + string(r)
+      stringList = append(stringList, currentString)
+      currentString = ""
+      widthCount = 0
+      currentLineNum++
+    }
+
+  }
+
+  for _, r := range stringList {
+    puts(s, greenStyle, 1, row, r)
+    row++
+  }
+
+  var subLength = 0
+  for _, r := range stringList {
+    subLength += len(r)
+  }
+
+  var cutSubStr = subStr[subLength:]
+
+  puts(s, greenStyle, 1, row, cutSubStr)
+
+  cutStrFromFin := ""
+
+  if (len(finStr) >= (TEXT_BOX_WIDTH - len(cutSubStr))) {
+    cutStrFromFin = finStr[:(TEXT_BOX_WIDTH) - len(cutSubStr)]
+  }
+
+  puts(s, style, len(cutSubStr) + 1, row, cutStrFromFin)
 	row++
+
+  trimmedFinStr := finStr[len(cutStrFromFin):]
+
+  // lengthUsedFromFinStr := len(cutStrFromFin)
+
+  var stringListFin []string
+  var currentStringFin string
+  var widthCountFin = 0
+  var currentLineNumFin = 0
+  for _, r := range trimmedFinStr {
+    if widthCountFin <= TEXT_BOX_WIDTH {
+      currentStringFin = currentStringFin + string(r)
+      widthCountFin++
+    } else {
+      currentStringFin = currentStringFin + string(r)
+      stringListFin = append(stringListFin, currentStringFin)
+      currentStringFin = ""
+      widthCountFin = 0
+      currentLineNumFin++
+    }
+
+  }
+
+  for _, r := range stringListFin {
+    puts(s, style, 1, row, r)
+    row++
+  }
+
+  var finLength = 0
+  for _, r := range stringListFin {
+    finLength += len(r)
+  }
+
+  lastOfTrimmedFin := trimmedFinStr[finLength:]
+
+
+  puts(s, style, 1, row, lastOfTrimmedFin)
 }
+
 
 func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
 	i := 0
@@ -146,9 +221,9 @@ to quickly create a Cobra application.`,
 		putln(s, "Character set: "+s.CharacterSet())
 		style = plain
 
-		putln(s, args[0])
-		putlnGreen(s, args[0])
-		putText(s, "hello", "hello from the other side")
+    subString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye."
+    finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
+    putText(s,subString,finString)
 
 		s.Show()
 		go func() {
