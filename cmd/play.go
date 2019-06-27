@@ -25,11 +25,13 @@ import (
 	"fmt"
 	"os"
 	"strings"
+  "time"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
-	"github.com/mattn/go-runewidth"
 	"github.com/spf13/cobra"
+
+  "timp/cmd/tcell_helpers"
 )
 
 var TEXT_BOX_WIDTH = 50
@@ -39,16 +41,18 @@ var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
 func putln(s tcell.Screen, str string) {
-	puts(s, style, 1, row, str)
+	tcell_helpers.Puts(s, style, 1, row, str)
 	row++
 }
 
 func putlnGreen(s tcell.Screen, str string) {
-	puts(s, greenStyle, 1, row, str)
+	tcell_helpers.Puts(s, greenStyle, 1, row, str)
 	row++
 }
 
-func putText(s tcell.Screen, subStr string, text string) {
+func putText(s tcell.Screen, text string, progressIndex int) {
+  subStr := text[:progressIndex]
+
 	var finStr = strings.Replace(text, subStr, "", 1)
   var stringList []string
   var currentString string
@@ -70,7 +74,7 @@ func putText(s tcell.Screen, subStr string, text string) {
   }
 
   for _, r := range stringList {
-    puts(s, greenStyle, 1, row, r)
+    tcell_helpers.Puts(s, greenStyle, 1, row, r)
     row++
   }
 
@@ -81,7 +85,7 @@ func putText(s tcell.Screen, subStr string, text string) {
 
   var cutSubStr = subStr[subLength:]
 
-  puts(s, greenStyle, 1, row, cutSubStr)
+  tcell_helpers.Puts(s, greenStyle, 1, row, cutSubStr)
 
   cutStrFromFin := ""
 
@@ -89,7 +93,7 @@ func putText(s tcell.Screen, subStr string, text string) {
     cutStrFromFin = finStr[:(TEXT_BOX_WIDTH) - len(cutSubStr)]
   }
 
-  puts(s, style, len(cutSubStr) + 1, row, cutStrFromFin)
+  tcell_helpers.Puts(s, style, len(cutSubStr) + 1, row, cutStrFromFin)
 	row++
 
   trimmedFinStr := finStr[len(cutStrFromFin):]
@@ -115,7 +119,7 @@ func putText(s tcell.Screen, subStr string, text string) {
   }
 
   for _, r := range stringListFin {
-    puts(s, style, 1, row, r)
+    tcell_helpers.Puts(s, style, 1, row, r)
     row++
   }
 
@@ -127,69 +131,19 @@ func putText(s tcell.Screen, subStr string, text string) {
   lastOfTrimmedFin := trimmedFinStr[finLength:]
 
 
-  puts(s, style, 1, row, lastOfTrimmedFin)
-}
-
-
-func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
-	i := 0
-	var deferred []rune
-	dwidth := 0
-	zwj := false
-	for _, r := range str {
-		if r == '\u200d' {
-			if len(deferred) == 0 {
-				deferred = append(deferred, ' ')
-				dwidth = 1
-			}
-			deferred = append(deferred, r)
-			zwj = true
-			continue
-		}
-		if zwj {
-			deferred = append(deferred, r)
-			zwj = false
-			continue
-		}
-		switch runewidth.RuneWidth(r) {
-		case 0:
-			if len(deferred) == 0 {
-				deferred = append(deferred, ' ')
-				dwidth = 1
-			}
-		case 1:
-			if len(deferred) != 0 {
-				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-				i += dwidth
-			}
-			deferred = nil
-			dwidth = 1
-		case 2:
-			if len(deferred) != 0 {
-				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-				i += dwidth
-			}
-			deferred = nil
-			dwidth = 2
-		}
-		deferred = append(deferred, r)
-	}
-	if len(deferred) != 0 {
-		s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-		i += dwidth
-	}
+  tcell_helpers.Puts(s, style, 1, row, lastOfTrimmedFin)
 }
 
 // playCmd represents the play command
 var playCmd = &cobra.Command{
 	Use:   "play",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Play timp with given input text",
+  Long: `This command takes control of the terminal and starts the 
+  main feature of timp. Tcell is used to start a session 
+  where you may input the given text on screen, and progress 
+  is shown. NOT IMPLEMENTED YET: Stats will be shown after 
+  completion.`,
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("play called")
 
@@ -221,11 +175,31 @@ to quickly create a Cobra application.`,
 		putln(s, "Character set: "+s.CharacterSet())
 		style = plain
 
-    subString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye."
     finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
-    putText(s,subString,finString)
+    s.Clear()
+    row = 0
+    putText(s,finString,15)
+    s.Show()
+    time.Sleep(2*time.Second)
 
-		s.Show()
+    s.Clear()
+    row = 0
+    putText(s,finString,20)
+    s.Show()
+    time.Sleep(2*time.Second)
+
+    s.Clear()
+    row = 0
+    putText(s,finString,25)
+    s.Show()
+    time.Sleep(2*time.Second)
+
+    s.Clear()
+    row = 0
+    putText(s,finString,30)
+    s.Show()
+    time.Sleep(2*time.Second)
+
 		go func() {
 			for {
 				ev := s.PollEvent()
