@@ -25,7 +25,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-  "time"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
@@ -97,8 +96,6 @@ func putText(s tcell.Screen, text string, progressIndex int) {
 	row++
 
   trimmedFinStr := finStr[len(cutStrFromFin):]
-
-  // lengthUsedFromFinStr := len(cutStrFromFin)
 
   var stringListFin []string
   var currentStringFin string
@@ -176,29 +173,7 @@ var playCmd = &cobra.Command{
 		style = plain
 
     finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
-    s.Clear()
-    row = 0
-    putText(s,finString,15)
-    s.Show()
-    time.Sleep(2*time.Second)
-
-    s.Clear()
-    row = 0
-    putText(s,finString,20)
-    s.Show()
-    time.Sleep(2*time.Second)
-
-    s.Clear()
-    row = 0
     putText(s,finString,25)
-    s.Show()
-    time.Sleep(2*time.Second)
-
-    s.Clear()
-    row = 0
-    putText(s,finString,30)
-    s.Show()
-    time.Sleep(2*time.Second)
 
 		go func() {
 			for {
