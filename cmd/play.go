@@ -24,7 +24,6 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
@@ -35,101 +34,8 @@ import (
 
 var TEXT_BOX_WIDTH = 50
 
-var row = 0
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
-
-func putln(s tcell.Screen, str string) {
-	tcell_helpers.Puts(s, style, 1, row, str)
-	row++
-}
-
-func putlnGreen(s tcell.Screen, str string) {
-	tcell_helpers.Puts(s, greenStyle, 1, row, str)
-	row++
-}
-
-func putText(s tcell.Screen, text string, progressIndex int) {
-  subStr := text[:progressIndex]
-
-	var finStr = strings.Replace(text, subStr, "", 1)
-  var stringList []string
-  var currentString string
-  var widthCount = 0
-  var currentLineNum = 0
-
-  for _, r := range subStr {
-    if widthCount <= TEXT_BOX_WIDTH {
-      currentString = currentString + string(r)
-      widthCount++
-    } else {
-      currentString = currentString + string(r)
-      stringList = append(stringList, currentString)
-      currentString = ""
-      widthCount = 0
-      currentLineNum++
-    }
-
-  }
-
-  for _, r := range stringList {
-    tcell_helpers.Puts(s, greenStyle, 1, row, r)
-    row++
-  }
-
-  var subLength = 0
-  for _, r := range stringList {
-    subLength += len(r)
-  }
-
-  var cutSubStr = subStr[subLength:]
-
-  tcell_helpers.Puts(s, greenStyle, 1, row, cutSubStr)
-
-  cutStrFromFin := ""
-
-  if (len(finStr) >= (TEXT_BOX_WIDTH - len(cutSubStr))) {
-    cutStrFromFin = finStr[:(TEXT_BOX_WIDTH) - len(cutSubStr)]
-  }
-
-  tcell_helpers.Puts(s, style, len(cutSubStr) + 1, row, cutStrFromFin)
-	row++
-
-  trimmedFinStr := finStr[len(cutStrFromFin):]
-
-  var stringListFin []string
-  var currentStringFin string
-  var widthCountFin = 0
-  var currentLineNumFin = 0
-  for _, r := range trimmedFinStr {
-    if widthCountFin <= TEXT_BOX_WIDTH {
-      currentStringFin = currentStringFin + string(r)
-      widthCountFin++
-    } else {
-      currentStringFin = currentStringFin + string(r)
-      stringListFin = append(stringListFin, currentStringFin)
-      currentStringFin = ""
-      widthCountFin = 0
-      currentLineNumFin++
-    }
-
-  }
-
-  for _, r := range stringListFin {
-    tcell_helpers.Puts(s, style, 1, row, r)
-    row++
-  }
-
-  var finLength = 0
-  for _, r := range stringListFin {
-    finLength += len(r)
-  }
-
-  lastOfTrimmedFin := trimmedFinStr[finLength:]
-
-
-  tcell_helpers.Puts(s, style, 1, row, lastOfTrimmedFin)
-}
 
 // playCmd represents the play command
 var playCmd = &cobra.Command{
@@ -168,12 +74,12 @@ var playCmd = &cobra.Command{
 		quit := make(chan struct{})
 
 		style = bold
-		putln(s, "Press ESC to Exit")
-		putln(s, "Character set: "+s.CharacterSet())
+		tcell_helpers.PutText(s, "Press ESC to Exit", 0, 0, 0, 25)
+		tcell_helpers.PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 		style = plain
 
     finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
-    putText(s,finString,25)
+    tcell_helpers.PutText(s,finString,25, 10, 20, 40)
 
 		go func() {
 			for {
@@ -192,11 +98,10 @@ var playCmd = &cobra.Command{
 				}
 			}
 		}()
-
 		<-quit
-
 		s.Fini()
 
+    println("tcell complete! gg")
 	},
 }
 
