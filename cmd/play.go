@@ -29,7 +29,7 @@ import (
 	"github.com/gdamore/tcell/encoding"
 	"github.com/spf13/cobra"
 
-  "timp/cmd/tcell_helpers"
+	"timp/cmd/tcell_helpers"
 )
 
 var TEXT_BOX_WIDTH = 50
@@ -41,7 +41,7 @@ var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 var playCmd = &cobra.Command{
 	Use:   "play",
 	Short: "Play timp with given input text",
-  Long: `This command takes control of the terminal and starts the 
+	Long: `This command takes control of the terminal and starts the 
   main feature of timp. Tcell is used to start a session 
   where you may input the given text on screen, and progress 
   is shown. NOT IMPLEMENTED YET: Stats will be shown after 
@@ -78,8 +78,11 @@ var playCmd = &cobra.Command{
 		tcell_helpers.PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 		style = plain
 
-    finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
-    tcell_helpers.PutText(s,finString,25, 10, 20, 40)
+		finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
+		tcell_helpers.PutText(s, finString, 0, 10, 20, 40)
+
+		var string_typed = ""
+		var num_correct = 0
 
 		go func() {
 			for {
@@ -92,6 +95,12 @@ var playCmd = &cobra.Command{
 						return
 					case tcell.KeyCtrlL:
 						s.Sync()
+						break
+					case tcell.KeyRune:
+						string_typed = string_typed + string(ev.Rune())
+						num_correct++
+						tcell_helpers.PutText(s, finString, num_correct, 10, 20, 40)
+						s.Show()
 					}
 				case *tcell.EventResize:
 					s.Sync()
@@ -100,8 +109,7 @@ var playCmd = &cobra.Command{
 		}()
 		<-quit
 		s.Fini()
-
-    println("tcell complete! gg")
+		println("tcell complete! gg")
 	},
 }
 
