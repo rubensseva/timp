@@ -77,16 +77,18 @@ func textBoxFormatString(text string, textBoxWidth int) ([]string) {
 
   var widthCount = 0;
   var lineCount = 0;
+  var lastWord = 0;
 
   /**
     * Iterate over words, and split into correct list of strings
     * If adding the next word exeeds text box width we enter the if condition, and
     * make the words so far to a single string and append.
   */
-  for i, word := range words {
+  var i = 0
+  for _, word := range words {
     if (widthCount + len(word) + 1 >= textBoxWidth) {
       var tmpStr = "";
-      for j := 0; j <= i; j++ {
+      for j := lastWord; j < i; j++ {
         tmpStr = tmpStr + words[j];
         if (j != i) {
           tmpStr = tmpStr + " ";
@@ -95,14 +97,30 @@ func textBoxFormatString(text string, textBoxWidth int) ([]string) {
       wordsList = append(wordsList, tmpStr);
       widthCount = 0;
       lineCount++;
+      lastWord = i;
     }
 
-    // Adding 1 here because we need ot count whitespace
-    widthCount += len(word) + 1
+    // Add the last word(s)
+    if (i == len(words) - 1) {
+      var tmpStr = "";
+      for j := lastWord; j < len(words); j++ {
+        tmpStr = tmpStr + words[j];
+        if (j != i) {
+          tmpStr = tmpStr + " ";
+        }
+      }
+      wordsList = append(wordsList, tmpStr);
+    }
+
+    // Adding 1 here because we need to count whitespace
+    widthCount += len(word) + 1;
+    i++;
   }
 
   return wordsList;
 }
+
+
 
 
 func PutText(s tcell.Screen, text string, progressIndex int, rowStart int, colStart int, textBoxWidth int) {
