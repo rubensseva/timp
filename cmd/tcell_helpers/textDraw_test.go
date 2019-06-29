@@ -42,6 +42,19 @@ func TestTextBoxFormatString(t *testing.T) {
 }
 
 func TestTextBoxFormatString_StringWidthSmallerThanTextBox(t *testing.T) {
+	var str = "hello, this is a text to format"
+	var result = textBoxFormatString(str, 10)
+
+	var length = 0
+	for _, thing := range result {
+		length += len(thing)
+	}
+	if length != len(str) {
+		t.Error("Failed preserving length. Got: " + string(length) + " but should be: " + string(len(str)))
+	}
+}
+
+func TestTextBoxFormatString_PreservesLength(t *testing.T) {
 	var result = textBoxFormatString("hello, my friend", 20)
 
 	for i, thing := range result {

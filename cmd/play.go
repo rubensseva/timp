@@ -79,7 +79,6 @@ var playCmd = &cobra.Command{
 		style = plain
 
 		finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
-		tcell_helpers.PutText(s, finString, 0, 10, 20, 40)
 
 		var string_typed = ""
 		var num_correct = 0
