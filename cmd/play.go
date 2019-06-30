@@ -24,14 +24,18 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
 	"github.com/spf13/cobra"
 
+	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
+	"timp/cmd/utility"
 )
 
 const textBoxWidth = 50
@@ -80,8 +84,15 @@ var playCmd = &cobra.Command{
 		tcell_helpers.PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 		style = plain
 
-		finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
+		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
+		var texts []model.Text
+		_ = json.Unmarshal([]byte(textfile), &texts)
 
+		var randIndex = utility.RandomGen(0, len(texts))
+
+		textToRun := texts[randIndex]
+
+		tcell_helpers.PutText(s, textToRun.Text, 0, 10, 20, 40)
 		var stringTyped = ""
 		var numCorrect = 0
 
@@ -96,21 +107,34 @@ var playCmd = &cobra.Command{
 						return
 					case tcell.KeyCtrlL:
 						s.Sync()
-						break
+					case tcell.KeyBackspace2:
+						if numCorrect > 0 {
+							numCorrect--
+							tcell_helpers.PutText(s, textToRun.Text, numCorrect, 10, 20, 40)
+							s.Show()
+						}
 					case tcell.KeyRune:
 						stringTyped = stringTyped + string(ev.Rune())
-						numCorrect++
-						tcell_helpers.PutText(s, finString, numCorrect, 10, 20, 40)
+						if []rune(textToRun.Text)[numCorrect] == ev.Rune() {
+							numCorrect++
+						}
+						tcell_helpers.PutText(s, textToRun.Text, numCorrect, 10, 20, 40)
 						s.Show()
 					}
 				case *tcell.EventResize:
 					s.Sync()
+				}
+				if numCorrect >= len(textToRun.Text) {
+					close(quit)
+					return
 				}
 			}
 		}()
 		<-quit
 		s.Fini()
 		println("tcell complete! gg")
+		println(randIndex)
+		println(len(texts))
 	},
 }
 

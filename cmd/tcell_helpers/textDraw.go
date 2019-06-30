@@ -139,7 +139,7 @@ func PutText(s tcell.Screen, text string, progressIndex int, rowStart int, colSt
 	for _, stringLine := range formattedText {
 		if currentLength+len(stringLine) < progressIndex && !isAfter {
 			puts(s, greenStyle, colStart, row, stringLine)
-		} else {
+		} else if !isAfter {
 			puts(s, greenStyle, colStart, row, stringLine[:progressIndex-currentLength])
 			puts(s, style, colStart+(progressIndex-currentLength), row, stringLine[progressIndex-currentLength:])
 			isAfter = true
