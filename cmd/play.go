@@ -28,6 +28,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
+	"time"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
@@ -91,6 +93,8 @@ var playCmd = &cobra.Command{
 		var randIndex = utility.RandomGen(0, len(texts))
 
 		textToRun := texts[randIndex]
+		totNumOfWords := len(strings.Fields(textToRun.Text))
+		start := time.Now()
 
 		tcell_helpers.PutText(s, textToRun.Text, 0, 10, 20, 40)
 		var stringTyped = ""
@@ -132,7 +136,16 @@ var playCmd = &cobra.Command{
 		}()
 		<-quit
 		s.Fini()
-		println("tcell complete! gg")
+		t := time.Now()
+		elapsed := t.Sub(start)
+		println("tcell complete, with text: ")
+		println(textToRun.Text)
+		print("Elapsed time: ")
+		println(elapsed)
+		print("Words completed: ")
+		println(totNumOfWords)
+		print("Words per minute: ")
+		println(string(int(elapsed) / totNumOfWords))
 		println(randIndex)
 		println(len(texts))
 	},
