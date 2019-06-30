@@ -19,6 +19,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
@@ -32,7 +34,7 @@ import (
 	"timp/cmd/tcell_helpers"
 )
 
-var TEXT_BOX_WIDTH = 50
+const textBoxWidth = 50
 
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
@@ -80,8 +82,8 @@ var playCmd = &cobra.Command{
 
 		finString := "Hello, this is a text I just wrote. I like this text and I like to program. Do you like to program? I would like to know very much. bye bye. In addition I would like to say that the world is nice and that I like ice cream! Ice cream is very nice and so are apples."
 
-		var string_typed = ""
-		var num_correct = 0
+		var stringTyped = ""
+		var numCorrect = 0
 
 		go func() {
 			for {
@@ -96,9 +98,9 @@ var playCmd = &cobra.Command{
 						s.Sync()
 						break
 					case tcell.KeyRune:
-						string_typed = string_typed + string(ev.Rune())
-						num_correct++
-						tcell_helpers.PutText(s, finString, num_correct, 10, 20, 40)
+						stringTyped = stringTyped + string(ev.Rune())
+						numCorrect++
+						tcell_helpers.PutText(s, finString, numCorrect, 10, 20, 40)
 						s.Show()
 					}
 				case *tcell.EventResize:

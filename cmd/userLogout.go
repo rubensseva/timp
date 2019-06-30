@@ -19,12 +19,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+
 	"github.com/spf13/cobra"
 
 	"timp/cmd/model"
@@ -38,7 +41,7 @@ var userLogoutCmd = &cobra.Command{
 No effect if no user is logged in`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("logout called")
-		var data = model.CurrentUser{"false", "not-logged-in"}
+		var data = model.CurrentUser{IsLoggedIn: "false", Username: "not-logged-in"}
 		writefile, _ := json.MarshalIndent(data, "", " ")
 		_ = ioutil.WriteFile("cmd/resources/currentUser.json", writefile, 0644)
 	},

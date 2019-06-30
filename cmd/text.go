@@ -19,6 +19,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
@@ -26,11 +28,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-  "io/ioutil"
+	"io/ioutil"
 
-  "encoding/json"
+	"encoding/json"
 
-  "timp/cmd/model"
+	"timp/cmd/model"
 )
 
 // textCmd represents the text command
@@ -47,11 +49,11 @@ var textCmd = &cobra.Command{
 		var texts []model.Text
 		_ = json.Unmarshal([]byte(textfile), &texts)
 
-    for _, text := range texts {
-      fmt.Println()
-      fmt.Println("Author: " + text.Author)
-      fmt.Println("Text: " + text.Text)
-    }
+		for _, text := range texts {
+			fmt.Println()
+			fmt.Println("Author: " + text.Author)
+			fmt.Println("Text: " + text.Text)
+		}
 	},
 }
 

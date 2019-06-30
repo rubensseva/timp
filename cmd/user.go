@@ -19,22 +19,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
-	"fmt"
-  "io/ioutil"
-	"github.com/spf13/cobra"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 
-  "timp/cmd/model"
+	"github.com/spf13/cobra"
+
+	"timp/cmd/model"
 )
 
 // userCmd represents the user command
 var userCmd = &cobra.Command{
 	Use:   "user",
 	Short: "user command",
-	Long: `Specifier for users`,
+	Long:  `Specifier for users`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("user called")
 
@@ -49,16 +52,18 @@ var userCmd = &cobra.Command{
 
 		_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
 
-    fmt.Println("\n--------------------------------")
-    fmt.Println("logged in user: ")
-    fmt.Println("name: " + currentUser.Username)
-    fmt.Println("logged in: " + currentUser.IsLoggedIn)
-    fmt.Println("--------------------------------")
-    fmt.Println("existing users: ")
-    for _, user := range users {
-      fmt.Println("name: " + user.Username)
-    }
-    fmt.Println("--------------------------------\n")
+		fmt.Println()
+		fmt.Println("--------------------------------")
+		fmt.Println("logged in user: ")
+		fmt.Println("name: " + currentUser.Username)
+		fmt.Println("logged in: " + currentUser.IsLoggedIn)
+		fmt.Println("--------------------------------")
+		fmt.Println("existing users: ")
+		for _, user := range users {
+			fmt.Println("name: " + user.Username)
+		}
+		fmt.Println("--------------------------------")
+		fmt.Println()
 
 	},
 }

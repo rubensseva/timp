@@ -19,14 +19,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/cobra"
 
 	"timp/cmd/model"
 )
@@ -65,20 +68,20 @@ example: timp login my_username`,
 			return
 		}
 
-		var is_a_user = false
+		var isAUser = false
 		for _, user := range users {
 			if user.Username == args[0] {
-				is_a_user = true
+				isAUser = true
 			}
 		}
 
-		if !is_a_user {
+		if !isAUser {
 			fmt.Println("specified username is not a user. Is the username right? Is the user created?")
 			return
 		}
 
 		fmt.Println("loging in as ", args[0])
-		var data = model.CurrentUser{"true", args[0]}
+		var data = model.CurrentUser{IsLoggedIn: "true", Username: args[0]}
 		writefile, _ := json.MarshalIndent(data, "", " ")
 		_ = ioutil.WriteFile("cmd/resources/currentUser.json", writefile, 0644)
 		fmt.Println("loggin succes (hopefully)")

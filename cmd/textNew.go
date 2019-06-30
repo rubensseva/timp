@@ -19,6 +19,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
@@ -26,11 +28,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-  "io/ioutil"
-  "encoding/json"
+	"encoding/json"
+	"io/ioutil"
 
-  "timp/cmd/model"
-
+	"timp/cmd/model"
 )
 
 // newTextCmd represents the newText command
@@ -50,20 +51,20 @@ example: timp newText /path/to/file`,
 		var texts []model.Text
 		_ = json.Unmarshal([]byte(textfile), &texts)
 
-		var is_a_text = false
+		var isAText = false
 		for _, text := range texts {
 			if text.Text == args[0] {
-				is_a_text = true
+				isAText = true
 			}
 		}
 
-		if is_a_text {
+		if isAText {
 			fmt.Println("specified text " + args[0] + " is already a text")
 			return
 		}
 
 		fmt.Println("creating text ", args[0])
-		var newText = model.Text{args[0], ""}
+		var newText = model.Text{Text: args[0], Author: ""}
 		texts = append(texts, newText)
 		writefile, _ := json.MarshalIndent(texts, "", " ")
 		_ = ioutil.WriteFile("cmd/resources/texts.json", writefile, 0644)

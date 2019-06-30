@@ -19,12 +19,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
+// Package cmd represents cobra command
 package cmd
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+
 	"github.com/spf13/cobra"
 
 	"timp/cmd/model"
@@ -48,20 +51,20 @@ With a user, you may track score etc.`,
 		var users []model.User
 		_ = json.Unmarshal([]byte(usersfile), &users)
 
-		var is_a_user = false
+		var isAUser = false
 		for _, user := range users {
 			if user.Username == args[0] {
-				is_a_user = true
+				isAUser = true
 			}
 		}
 
-		if is_a_user {
+		if isAUser {
 			fmt.Println("specified username " + args[0] + " is already a user")
 			return
 		}
 
 		fmt.Println("creating user ", args[0])
-		var newUser = model.User{args[0], 0}
+		var newUser = model.User{Username: args[0], Highscore: 0}
 		users = append(users, newUser)
 		writefile, _ := json.MarshalIndent(users, "", " ")
 		_ = ioutil.WriteFile("cmd/resources/users.json", writefile, 0644)
