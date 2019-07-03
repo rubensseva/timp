@@ -136,20 +136,53 @@ func PutText(s tcell.Screen, text string, progressIndex int, rowStart int, colSt
 
 	var currentLength = 0
 	var isAfter = false
+
+  var boxPadding = 10
+
+  for i := 0; i <= textBoxWidth + boxPadding; i++ {
+    puts(s, style, colStart + i, row, "-")
+  }
+  row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+  row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+  row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+
 	for _, stringLine := range formattedText {
+		puts(s, style, colStart, row, "|")
+    var colStartInc = colStart + boxPadding
 		if currentLength+len(stringLine) < progressIndex && !isAfter {
-			puts(s, greenStyle, colStart, row, stringLine)
+			puts(s, greenStyle, colStartInc, row, stringLine)
 		} else if !isAfter {
-			puts(s, greenStyle, colStart, row, stringLine[:progressIndex-currentLength])
-			puts(s, style, colStart+(progressIndex-currentLength), row, stringLine[progressIndex-currentLength:])
+			puts(s, greenStyle, colStartInc, row, stringLine[:progressIndex-currentLength])
+			puts(s, style, colStartInc+(progressIndex-currentLength), row, stringLine[progressIndex-currentLength:])
+			puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
 			isAfter = true
 			row++
 			continue
 		}
 		if isAfter {
-			puts(s, style, colStart, row, stringLine)
+			puts(s, style, colStartInc, row, stringLine)
 		}
-		row++
 		currentLength = currentLength + len(stringLine)
+		puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+		row++
 	}
+
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+  row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+  row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+  row++
+  for i := 0; i <= textBoxWidth + boxPadding; i++ {
+    puts(s, style, colStart + i, row, "-")
+  }
 }

@@ -42,6 +42,9 @@ import (
 
 const textBoxWidth = 50
 
+const playTextBoxPos_x = 30
+const playTextBoxPos_y = 20
+
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
@@ -96,7 +99,7 @@ var playCmd = &cobra.Command{
 		totNumOfWords := len(strings.Fields(textToRun.Text))
 		start := time.Now()
 
-		tcell_helpers.PutText(s, textToRun.Text, 0, 10, 20, 40)
+		tcell_helpers.PutText(s, textToRun.Text, 0, playTextBoxPos_y, playTextBoxPos_x, 40)
 		var stringTyped = ""
 		var numCorrect = 0
 
@@ -114,7 +117,7 @@ var playCmd = &cobra.Command{
 					case tcell.KeyBackspace2:
 						if numCorrect > 0 {
 							numCorrect--
-							tcell_helpers.PutText(s, textToRun.Text, numCorrect, 10, 20, 40)
+							tcell_helpers.PutText(s, textToRun.Text, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
 							s.Show()
 						}
 					case tcell.KeyRune:
@@ -122,7 +125,7 @@ var playCmd = &cobra.Command{
 						if []rune(textToRun.Text)[numCorrect] == ev.Rune() {
 							numCorrect++
 						}
-						tcell_helpers.PutText(s, textToRun.Text, numCorrect, 10, 20, 40)
+						tcell_helpers.PutText(s, textToRun.Text, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
 				case *tcell.EventResize:
