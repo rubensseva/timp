@@ -43,7 +43,7 @@ example: timp newText /path/to/file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("newText called")
 		if len(args) != 1 {
-			fmt.Println("please specify one, and only one, username to create")
+			fmt.Println("args not equal to one.. Did you remember to specify text to add?")
 			return
 		}
 

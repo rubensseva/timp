@@ -72,7 +72,7 @@ func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
  */
 func textBoxFormatString(text string, textBoxWidth int) []string {
 	words := strings.Fields(text)
-	var wordsList []string
+	var lineList []string
 
 	var widthCount = 0
 	var lineCount = 0
@@ -93,7 +93,7 @@ func textBoxFormatString(text string, textBoxWidth int) []string {
 					tmpStr = tmpStr + " "
 				}
 			}
-			wordsList = append(wordsList, tmpStr)
+			lineList = append(lineList, tmpStr)
 			widthCount = 0
 			lineCount++
 			lastWord = i
@@ -108,15 +108,14 @@ func textBoxFormatString(text string, textBoxWidth int) []string {
 					tmpStr = tmpStr + " "
 				}
 			}
-			wordsList = append(wordsList, tmpStr)
+			lineList = append(lineList, tmpStr)
 		}
 
 		// Adding 1 here because we need to count whitespace
 		widthCount += len(word) + 1
 		i++
 	}
-
-	return wordsList
+	return lineList
 }
 
 /*
@@ -131,58 +130,65 @@ func PutText(s tcell.Screen, text string, progressIndex int, rowStart int, colSt
 	var row = rowStart
 	var style = tcell.StyleDefault
 	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
-
 	var formattedText = textBoxFormatString(text, textBoxWidth)
-
 	var currentLength = 0
 	var isAfter = false
+	var boxPadding = 10
 
-  var boxPadding = 10
+	// Draw first part of the box part of the textbox
+	for i := 0; i <= textBoxWidth+boxPadding; i++ {
+		puts(s, style, colStart+i, row, "-")
+	}
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
 
-  for i := 0; i <= textBoxWidth + boxPadding; i++ {
-    puts(s, style, colStart + i, row, "-")
-  }
-  row++
-	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-  row++
-	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-  row++
-	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-
+	// Main logic, handle and draw text input, also draw box in between.
+	// The isAfter variable indicates if we hace exceede the lines
+	// that are typed or are being typed.
 	for _, stringLine := range formattedText {
 		puts(s, style, colStart, row, "|")
-    var colStartInc = colStart + boxPadding
-		if currentLength+len(stringLine) < progressIndex && !isAfter {
+		var colStartInc = colStart + boxPadding
+		var stringLineLength = len([]rune(stringLine))
+
+		// Draw a line of text on three conditions, either before the line that is
+		// being type, on the line that is being typed, or after the line
+		// that is being typed respectively.
+		if currentLength+stringLineLength < progressIndex && !isAfter {
 			puts(s, greenStyle, colStartInc, row, stringLine)
 		} else if !isAfter {
-			puts(s, greenStyle, colStartInc, row, stringLine[:progressIndex-currentLength])
-			puts(s, style, colStartInc+(progressIndex-currentLength), row, stringLine[progressIndex-currentLength:])
-			puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+			puts(s, greenStyle, colStartInc, row, string([]rune(stringLine)[:progressIndex-currentLength]))
+			puts(s, style, colStartInc+(progressIndex-currentLength), row, string([]rune(stringLine)[progressIndex-currentLength:]))
+			puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
 			isAfter = true
 			row++
 			continue
-		}
-		if isAfter {
+		} else if isAfter {
 			puts(s, style, colStartInc, row, stringLine)
 		}
-		currentLength = currentLength + len(stringLine)
-		puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
+
+		currentLength = currentLength + stringLineLength
+		puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
 		row++
 	}
 
+	// Draw last part of the box part of the textbox
 	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-  row++
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
 	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-  row++
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
 	puts(s, style, colStart, row, "|")
-	puts(s, style, colStart + textBoxWidth + boxPadding, row, "|")
-  row++
-  for i := 0; i <= textBoxWidth + boxPadding; i++ {
-    puts(s, style, colStart + i, row, "-")
-  }
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
+	for i := 0; i <= textBoxWidth+boxPadding; i++ {
+		puts(s, style, colStart+i, row, "-")
+	}
 }

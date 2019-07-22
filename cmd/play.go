@@ -141,16 +141,17 @@ var playCmd = &cobra.Command{
 		s.Fini()
 		t := time.Now()
 		elapsed := t.Sub(start)
-		println("tcell complete, with text: ")
+		println("\n\nGame complete!, with text: \n")
 		println(textToRun.Text)
+		println("\nSTATS")
 		print("Elapsed time: ")
-		println(elapsed)
+		println(fmt.Sprintf("%.2fs", float32((elapsed.Seconds()))))
 		print("Words completed: ")
 		println(totNumOfWords)
 		print("Words per minute: ")
-		println(string(int(elapsed) / totNumOfWords))
-		println(randIndex)
-		println(len(texts))
+		println(fmt.Sprintf("%.3f", float32(totNumOfWords)/float32(float32(elapsed.Seconds())/60.0)))
+		println()
+		println()
 	},
 }
 
