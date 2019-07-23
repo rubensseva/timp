@@ -32,9 +32,19 @@ func stringInSlice(a string, list []string) bool {
 	return false
 }
 
-func IsStringProbablyEnglishSentence(s string) bool {
+type StringScore struct {
+	Text              string
+	Score             float32
+	IsProbablyEnglish bool
+}
+
+func IsStringProbablyEnglishSentence(s string) StringScore {
+	var stringScore StringScore
+	stringScore.Text = s
+	stringScore.Score = 0
+	stringScore.IsProbablyEnglish = false
 	if len(s) < 5 {
-		return false
+		return stringScore
 	}
 	words := strings.Fields(s)
 	dictionary, err := readLines("cmd/resources/words.txt")
@@ -44,18 +54,19 @@ func IsStringProbablyEnglishSentence(s string) bool {
 	var numOfWords = len(words)
 	var numOfWordsMatched = 0
 	for _, c := range words {
-		if stringInSlice(c, dictionary) {
+		if stringInSlice(strings.ToLower(c), dictionary) {
 			numOfWordsMatched++
 		}
 	}
 	var score = float32(numOfWordsMatched) / float32(numOfWords)
+	stringScore.Score = score
 	fmt.Println("\n\nCalculated score for: ")
 	fmt.Println(s)
 	fmt.Println(words)
 	fmt.Println(len(words))
 	fmt.Println(score)
 	if score > 0.5 {
-		return true
+		stringScore.IsProbablyEnglish = true
 	}
-	return false
+	return stringScore
 }
