@@ -24,11 +24,11 @@
 package cmd
 
 import (
-	"bufio"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"timp/cmd/utility"
 
 	"github.com/spf13/cobra"
 	"golang.org/x/net/html"
@@ -58,32 +58,52 @@ var wikiRandCmd = &cobra.Command{
 		// We have a random article, now to extract the url
 		fullurlStartIndex := strings.Index(string(bytes), "fullurl")
 		fullurlEndIndex := strings.Index(string(bytes), "editurl")
-		fmt.Println(fullurlStartIndex)
-		fmt.Println(string(bytes))
-		fmt.Println(string(bytes)[fullurlStartIndex:fullurlEndIndex])
 		var fullurl = string(bytes)[fullurlStartIndex+10 : fullurlEndIndex-3]
+		fmt.Print("\n\n\n\nFULL URL: ")
 		fmt.Println(fullurl)
 
 		url = fullurl
 		resp, _ = http.Get(url)
 		bytes, _ = ioutil.ReadAll(resp.Body)
 
-		fmt.Println("HTML:\n\n", string(bytes))
-		r := bufio.NewReader(bytes)
+		// fmt.Println("HTML:\n\n", string(bytes))
+
+		r := strings.NewReader(string(bytes))
+
+		var potentialText []string
+
 		z := html.NewTokenizer(r)
-		for {
-			tt = z.Next()
+		done := false
+		for done != true {
+			tt := z.Next()
 			switch tt {
 			case html.ErrorToken:
-				return z.Err()
+				fmt.Println("error")
+				fmt.Println(z.Err())
+				done = true
 			case html.TextToken:
-				if depth > 0 {
-					// emitBytes should copy the []byte it receives,
-					// if it doesn't process it immediately.
-					emitBytes(z.Text())
+				// emitBytes should copy the []byte it receives,
+				// if it doesn't process it immediately.
+				var s = string(z.Text())
+				if len(s) > 100 {
+					fmt.Println("appending")
+					potentialText = append(potentialText, s)
 				}
+				break
+			case html.EndTagToken:
+				fmt.Println("end")
+				break
 			}
 		}
+
+		var englishSentences []string
+		for _, c := range potentialText {
+			if utility.IsStringProbablyEnglishSentence(c) {
+				englishSentences = append(englishSentences, c)
+			}
+		}
+		fmt.Println(englishSentences)
+		fmt.Println(fullurl)
 	},
 }
 
