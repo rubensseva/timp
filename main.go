@@ -21,8 +21,8 @@ THE SOFTWARE.
 */
 package main
 
-import "timp/cmd"
+import "timp/cmd/commands"
 
 func main() {
-	cmd.Execute()
+	commands.Execute()
 }

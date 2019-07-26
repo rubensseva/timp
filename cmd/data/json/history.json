@@ -1,0 +1,218 @@
+[
+ {
+  "Id": 1,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "not logged in",
+  "TimePlayed": "2019-07-31T23:39:48.66891399+02:00",
+  "TimeSpent": 5.2399755,
+  "Wpm": 57.252174,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 2,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-07-31T23:46:54.788052186+02:00",
+  "TimeSpent": 4.195185,
+  "Wpm": 71.51055,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 3,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:48:14.731219822+02:00",
+  "TimeSpent": 3.6803834,
+  "Wpm": 81.513245,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 4,
+  "Text": {
+   "Text": "of the topic and provide significant coverage of it beyond a mere trivial mention. If notability cannot be established, the article is likely to be",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:49:05.115261789+02:00",
+  "TimeSpent": 32.431374,
+  "Wpm": 46.25151,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 5,
+  "Text": {
+   "Text": "\"The film tells the story of a twocareer couple and how they deal with the wifes urge to become a highpowered lawyer and the husbands desire to change jobs and become an environmentalist caring for the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:49:48.740063901+02:00",
+  "TimeSpent": 40.52098,
+  "Wpm": 53.30572,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 6,
+  "Text": {
+   "Text": "and Europe. There is a reserved place for tourists to see wild boars. H. H. Mir Ali Murad Khan Talpur II, head of the royal house, has forbidden all hunting except of the jackal and an annual culling of wild boars which become a mortal threat to adjacent farmers and their families when boar populations become too large for the forest to hold. The Mehrano reserve shares its boundary with the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:51:19.385727856+02:00",
+  "TimeSpent": 87.41791,
+  "Wpm": 48.731434,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 7,
+  "Text": {
+   "Text": "The mens football team currently plays in the Fourth Division, the fifth tier of Norwegian football, after being relegated from the",
+   "Author": "Wikipedia"
+  },
+  "Player": "not-logged-in",
+  "TimePlayed": "2019-07-31T23:52:12.160271244+02:00",
+  "TimeSpent": 25.31084,
+  "Wpm": 49.78104,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 8,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:03.739318883+02:00",
+  "TimeSpent": 3.5022519,
+  "Wpm": 85.65917,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 9,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:07.916905286+02:00",
+  "TimeSpent": 3.1947591,
+  "Wpm": 93.90379,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 10,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:11.537254506+02:00",
+  "TimeSpent": 2.9978714,
+  "Wpm": 100.071,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 11,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:16.514120321+02:00",
+  "TimeSpent": 4.41303,
+  "Wpm": 54.384403,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 12,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:23:13.032298721+02:00",
+  "TimeSpent": 4.153193,
+  "Wpm": 57.78687,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 13,
+  "Text": {
+   "Text": "The family now became involved in factional struggles between the leading bureaucratic factions in Baghdad, siding with the opposition to the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:23:47.706470947+02:00",
+  "TimeSpent": 25.80689,
+  "Wpm": 48.82417,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 14,
+  "Text": {
+   "Text": "living together, 16.7% had a female householder with no husband present, and 21.7% were nonfamilies. 20.0% of all households were made up of individuals and 11.7% had someone living alone who was 65 years of age or older. The average household size was 3.03 and the average family size was 3.51.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:37:44.028408819+02:00",
+  "TimeSpent": 1.9537832,
+  "Wpm": 1566.1923,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 15,
+  "Text": {
+   "Text": "also known as the Abdur Rab Serniabad Stadium, which has a 15,000 capacity. They have only won one competition in their history, the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:38:55.680534583+02:00",
+  "TimeSpent": 2.7085278,
+  "Wpm": 509.5019,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 16,
+  "Text": {
+   "Text": "project. In addition to sharing digital data, he made the fossils found available on request to researchers wanting to study them themselves.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:40:43.630386416+02:00",
+  "TimeSpent": 24.140636,
+  "Wpm": 54.67959,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 17,
+  "Text": {
+   "Text": "It serves as the upper attachment in part for the superficial muscles that are located on the posterior aspect of the forearm",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:41:08.88219222+02:00",
+  "TimeSpent": 20.983908,
+  "Wpm": 62.905346,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 18,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:54:10.207482056+02:00",
+  "TimeSpent": 4.698606,
+  "Wpm": 51.07898,
+  "DidFinishLegally": true
+ }
+]

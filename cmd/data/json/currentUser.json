@@ -1,0 +1,8 @@
+{
+ "IsLoggedIn": true,
+ "User": {
+  "Username": "Ruben",
+  "GamesPlayed": 0,
+  "AvgWPM": 0
+ }
+}
