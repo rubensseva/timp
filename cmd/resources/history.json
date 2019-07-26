@@ -58,5 +58,185 @@
   "TimeSpent": 105.155846,
   "Wpm": 41.652462,
   "DidFinishLegally": false
+ },
+ {
+  "Id": 6,
+  "Text": {
+   "Text": "In computer science and statistics, the Jaro–Winkler distance is a string metric measuring an edit distance between two sequences. It is a variant proposed in 1990 by William E. Winkler of the Jaro distance metric.",
+   "Author": ""
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:14:05.13658662+02:00",
+  "TimeSpent": 20.30554,
+  "Wpm": 103.42005,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 7,
+  "Text": {
+   "Text": "A long time ago, in a galaxy far far away, all this shit happened",
+   "Author": "George Lucas"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:14:20.852873776+02:00",
+  "TimeSpent": 13.178926,
+  "Wpm": 63.738117,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 8,
+  "Text": {
+   "Text": "A long time ago, in a galaxy far far away, all this shit happened",
+   "Author": "George Lucas"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:14:35.533358471+02:00",
+  "TimeSpent": 12.1823845,
+  "Wpm": 68.95202,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 9,
+  "Text": {
+   "Text": "In computer science and statistics, the Jaro–Winkler distance is a string metric measuring an edit distance between two sequences. It is a variant proposed in 1990 by William E. Winkler of the Jaro distance metric.",
+   "Author": ""
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:14:56.608611037+02:00",
+  "TimeSpent": 19.720993,
+  "Wpm": 106.485504,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 10,
+  "Text": {
+   "Text": "Internet Research (INTR) is a peer-reviewed academic journal, published by Emerald Publishing. It aims to describe, assess and foster understanding of the role of wide-area, multi-purpose computer networks such as the Internet.",
+   "Author": ""
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:45:03.604055761+02:00",
+  "TimeSpent": 3.8140776,
+  "Wpm": 503.39825,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 11,
+  "Text": {
+   "Text": "The growth of global trade and increasing security threats to the international movement of goods have forced customs administrations to shift their focus more and more to securing the international trade flow and away from the traditional task of collecting ",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:46:10.087233121+02:00",
+  "TimeSpent": 56.06353,
+  "Wpm": 42.80858,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 12,
+  "Text": {
+   "Text": ", became a student premier dancer in 1888, and was a premier dancer ballerina in 18891902.  Her noted roles include a youth in",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:48:13.858018371+02:00",
+  "TimeSpent": 36.564163,
+  "Wpm": 37.741875,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 13,
+  "Text": {
+   "Text": "Murad was very optimistic on establishing a New Iraq but has since been pessimistic blaming former Iraqi Prime Minister",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:50:55.218993459+02:00",
+  "TimeSpent": 75.77518,
+  "Wpm": 15.044504,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 14,
+  "Text": {
+   "Text": "The convocation center is unique among Illinois university athletic projects, because Chicago State University did not have to raise any money for the project.  The money was allocated from the State of Illinois treasury by then Senate President",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T23:53:00.220779783+02:00",
+  "TimeSpent": 106.090996,
+  "Wpm": 21.490986,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 15,
+  "Text": {
+   "Text": "The fruit is occasionally used in jam, jelly and pie making as a substitute for its cousin, the true quince",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:01:04.223206127+02:00",
+  "TimeSpent": 36.77514,
+  "Wpm": 32.63074,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 16,
+  "Text": {
+   "Text": "Additionally Norton was one of the original advocates of a society against animal and children cruelty",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:01:42.558933358+02:00",
+  "TimeSpent": 33.074383,
+  "Wpm": 29.025484,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 17,
+  "Text": {
+   "Text": "When roosting in palm trees, individual bats tend to occupy the space closest to the rachis stem of the palm frond",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:02:14.481208153+02:00",
+  "TimeSpent": 26.441965,
+  "Wpm": 47.651524,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 18,
+  "Text": {
+   "Text": "Kennedy married a Mr. Farrell in August 1774, before she made her singing debut, and she appeared under the name \"Mrs Farrell\" in her early career. She may have studied music with",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:03:27.142164841+02:00",
+  "TimeSpent": 68.274376,
+  "Wpm": 28.121822,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 19,
+  "Text": {
+   "Text": "show, where four women or men are locked up together with a single person, who tries to determine which of the four contestants is also single the other three contestants have boyfriends or girlfriends. If the lone single person figures out which of the four contestants is also single, the person wins 10,000",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:04:27.314946519+02:00",
+  "TimeSpent": 56.30425,
+  "Wpm": 56.478863,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 20,
+  "Text": {
+   "Text": "Stereoscopic viewing is achieved at a matching distance to the glasses. When placing the right view on top of a letter/A4 size paper and the left view below, viewing from arm length distance ca. 50 cm creates a stereo experience. Bigger over/under stereo image pairs on either paper or a monitor can be viewed from a proportional greater distance. In general, the prisms achieve a 19 viewing angle",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T00:06:12.78858008+02:00",
+  "TimeSpent": 94.21987,
+  "Wpm": 43.302967,
+  "DidFinishLegally": true
  }
 ]

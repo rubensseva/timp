@@ -26,7 +26,9 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
@@ -71,7 +73,8 @@ var wikiRandCmd = &cobra.Command{
 				case html.TextToken:
 					var s = string(z.Text())
 					if len(s) > 100 {
-						potentialText = append(potentialText, strings.Trim(s, " ,.)(][}{"))
+						potentialText = append(potentialText, s)
+						// potentialText = append(potentialText, strings.Trim(s, " ,.)(][}{"))
 					}
 					break
 				case html.EndTagToken:
@@ -101,7 +104,21 @@ var wikiRandCmd = &cobra.Command{
 			}
 		}
 
-		text := model.Text{Text: bestString, Author: "Wikipedia"}
+		reg, err := regexp.Compile("[^a-zA-Z0-9,._ -%!?/]+")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		var processedText string = reg.ReplaceAllString(bestString, "")
+		processedText = strings.Trim(processedText, " ,-/")
+
+		reg, err = regexp.Compile(`[\s\p{Zs}]{2,}`)
+		if err != nil {
+			log.Fatal(err)
+		}
+		processedText = reg.ReplaceAllString(processedText, " ")
+
+		text := model.Text{Text: processedText, Author: "Wikipedia"}
 
 		if len(englishSentences) > 0 {
 			fmt.Println("Runnning play function")
