@@ -1,0 +1,62 @@
+[
+ {
+  "Id": 1,
+  "Text": {
+   "Text": "Akeem Stewart, gold medalist and world record holder in Men's Discus Throw and Javelin Throw F43 category",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T22:31:50.094975598+02:00",
+  "TimeSpent": 29.683886,
+  "Wpm": 34.36208,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 2,
+  "Text": {
+   "Text": "document.documentElement.className=document.documentElement.className.replace(/(^|\\s)client-nojs(\\s|$)/,\"$1client-js$2\");RLCONF={\"wgCanonicalNamespace\":\"\",\"wgCanonicalSpecialPageName\":!1,\"wgNamespaceNumber\":0,\"wgPageName\":\"DSV_Saaz\",\"wgTitle\":\"DSV Saaz\",\"wgCurRevisionId\":764998544,\"wgRevisionId\":764998544,\"wgArticleId\":49332140,\"wgIsArticle\":!0,\"wgIsRedirect\":!1,\"wgAction\":\"view\",\"wgUserName\":null,\"wgUserGroups\":[\"*\"],\"wgCategories\":[\"CS1 Czech-language sources (cs)\",\"CS1 German-language sources (de)\",\"Articles containing German-language text\",\"All stub articles\",\"Football clubs in Czechoslovakia\",\"Association football clubs disestablished in 1945\",\"Czechoslovak First League clubs\",\"Defunct football clubs in the Czech Republic\",\"Defunct football clubs in former German territories\",\"Czech Republic football club stubs\"],\"wgBreakFrames\":!1,\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgSeparatorTransformTable\":[\"\",\"\"],\"wgDigitTransformTable\":[\"\",\"\"],\n\"wgDefaultDateFormat\":\"dmy\",\"wgMonthNames\":[\"\",\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\"],\"wgMonthNamesShort\":[\"\",\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"],\"wgRelevantPageName\":\"DSV_Saaz\",\"wgRelevantArticleId\":49332140,\"wgRequestId\":\"XTg2jwpAMFAAAGu3y9oAAACK\",\"wgCSPNonce\":!1,\"wgIsProbablyEditable\":!0,\"wgRelevantPageIsProbablyEditable\":!0,\"wgRestrictionEdit\":[],\"wgRestrictionMove\":[],\"wgMediaViewerOnClick\":!0,\"wgMediaViewerEnabledByDefault\":!0,\"wgPopupsReferencePreviews\":!1,\"wgPopupsConflictsWithNavPopupGadget\":!1,\"wgVisualEditor\":{\"pageLanguageCode\":\"en\",\"pageLanguageDir\":\"ltr\",\"pageVariantFallbacks\":\"en\"},\"wgMFDisplayWikibaseDescriptions\":{\"search\":!0,\"nearby\":!0,\"watchlist\":!0,\"tagline\":!1},\"wgWMESchemaEditAttemptStepOversample\":!1,\"wgPoweredByHHVM\":!0,\"wgULSCurrentAutonym\":\"English\",\"wgNoticeProject\":\"wikipedia\",\"wgWikibaseItemId\":\"Q1155767\",\n\"wgCentralAuthMobileDomain\":!1,\"wgEditSubmitButtonLabelPublish\":!0};RLSTATE={\"ext.gadget.charinsert-styles\":\"ready\",\"ext.globalCssJs.user.styles\":\"ready\",\"ext.globalCssJs.site.styles\":\"ready\",\"site.styles\":\"ready\",\"noscript\":\"ready\",\"user.styles\":\"ready\",\"ext.globalCssJs.user\":\"ready\",\"ext.globalCssJs.site\":\"ready\",\"user\":\"ready\",\"user.options\":\"ready\",\"user.tokens\":\"loading\",\"ext.cite.styles\":\"ready\",\"mediawiki.legacy.shared\":\"ready\",\"mediawiki.legacy.commonPrint\":\"ready\",\"wikibase.client.init\":\"ready\",\"ext.visualEditor.desktopArticleTarget.noscript\":\"ready\",\"ext.uls.interlanguage\":\"ready\",\"ext.wikimediaBadges\":\"ready\",\"ext.3d.styles\":\"ready\",\"mediawiki.skinning.interface\":\"ready\",\"skins.vector.styles\":\"ready\"};RLPAGEMODULES=[\"ext.cite.ux-enhancements\",\"site\",\"mediawiki.page.startup\",\"mediawiki.page.ready\",\"mediawiki.searchSuggest\",\"ext.gadget.teahouse\",\"ext.gadget.ReferenceTooltips\",\"ext.gadget.watchlist-notice\",\"ext.gadget.DRN-wizard\",\"ext.gadget.charinsert\",\n\"ext.gadget.refToolbar\",\"ext.gadget.extra-toolbar-buttons\",\"ext.gadget.switcher\",\"ext.centralauth.centralautologin\",\"mmv.head\",\"mmv.bootstrap.autostart\",\"ext.popups\",\"ext.visualEditor.desktopArticleTarget.init\",\"ext.visualEditor.targetLoader\",\"ext.eventLogging\",\"ext.wikimediaEvents\",\"ext.navigationTiming\",\"ext.uls.compactlinks\",\"ext.uls.interface\",\"ext.quicksurveys.init\",\"ext.centralNotice.geoIP\",\"ext.centralNotice.startUp\",\"skins.vector.js\"];",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T22:32:16.794209333+02:00",
+  "TimeSpent": 6.258762,
+  "Wpm": 412.2221,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 3,
+  "Text": {
+   "Text": "Do not translate text that appears unreliable or low-quality. If possible, verify the text with references provided in the foreign-language article",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T22:36:47.318983846+02:00",
+  "TimeSpent": 29.870348,
+  "Wpm": 42.1823,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 4,
+  "Text": {
+   "Text": "The particular concept would later play a more prominent role in some of Fear Factory’s later albums.\n",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T22:41:19.08913468+02:00",
+  "TimeSpent": 24.18573,
+  "Wpm": 42.173626,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 5,
+  "Text": {
+   "Text": "There were 84 households out of which 26.2% had children under the age of 18 living with them, 67.9% were married couples living together, 4.8% had a female householder with no husband present, and 25.0% were non-families. 20.2% of all households were made up of individuals and 6.0% had someone living alone who was 65 years of age or older. The average household size was 2.62 and the average family size was 3.00.\n",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-26T22:47:47.411381941+02:00",
+  "TimeSpent": 105.155846,
+  "Wpm": 41.652462,
+  "DidFinishLegally": false
+ }
+]

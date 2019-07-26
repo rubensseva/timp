@@ -28,6 +28,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"timp/cmd/model"
+	"timp/cmd/tcell_helpers"
 	"timp/cmd/utility"
 
 	"github.com/spf13/cobra"
@@ -41,69 +43,72 @@ type jsonMapper struct {
 // newTextCmd represents the newText command
 var wikiRandCmd = &cobra.Command{
 	Use:   "wikiRand",
-	Short: "Play with random wikipedia artivle",
+	Short: "Play with random wikipedia article",
 	Long: `Pulls a random article from wikipedia
 		and plays it immediatly`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("wikiRand called")
 
-		var url = "https://en.wikipedia.org/w/api.php?action=query&prop=info&generator=random&format=json&inprop=url"
-		resp, _ := http.Get(url)
-		bytes, _ := ioutil.ReadAll(resp.Body)
+		var englishSentences []utility.StringScore
+		for i := 0; i < 10; i++ {
 
-		fmt.Println("HTML:\n\n", string(bytes))
+			fmt.Println("Fetching random text from wikipedia...")
 
-		resp.Body.Close()
+			var url = "https://en.wikipedia.org/wiki/Special:Random"
+			var resp, _ = http.Get(url)
+			var bytes, _ = ioutil.ReadAll(resp.Body)
 
-		// We have a random article, now to extract the url
-		fullurlStartIndex := strings.Index(string(bytes), "fullurl")
-		fullurlEndIndex := strings.Index(string(bytes), "editurl")
-		var fullurl = string(bytes)[fullurlStartIndex+10 : fullurlEndIndex-3]
-		fmt.Print("\n\n\n\nFULL URL: ")
-		fmt.Println(fullurl)
+			r := strings.NewReader(string(bytes))
 
-		url = fullurl
-		resp, _ = http.Get(url)
-		bytes, _ = ioutil.ReadAll(resp.Body)
+			var potentialText []string
 
-		// fmt.Println("HTML:\n\n", string(bytes))
-
-		r := strings.NewReader(string(bytes))
-
-		var potentialText []string
-
-		z := html.NewTokenizer(r)
-		done := false
-		for done != true {
-			tt := z.Next()
-			switch tt {
-			case html.ErrorToken:
-				fmt.Println("error")
-				fmt.Println(z.Err())
-				done = true
-			case html.TextToken:
-				// emitBytes should copy the []byte it receives,
-				// if it doesn't process it immediately.
-				var s = string(z.Text())
-				if len(s) > 100 {
-					fmt.Println("appending")
-					potentialText = append(potentialText, s)
+			z := html.NewTokenizer(r)
+			done := false
+			for done != true {
+				tt := z.Next()
+				switch tt {
+				case html.ErrorToken:
+					done = true
+				case html.TextToken:
+					var s = string(z.Text())
+					if len(s) > 100 {
+						potentialText = append(potentialText, strings.Trim(s, " ,.)(][}{"))
+					}
+					break
+				case html.EndTagToken:
+					break
 				}
-				break
-			case html.EndTagToken:
-				fmt.Println("end")
+			}
+
+			for _, c := range potentialText {
+				var stringScore = utility.IsStringProbablyEnglishSentence(c)
+				if stringScore.IsProbablyEnglish {
+					englishSentences = append(englishSentences, stringScore)
+				}
+			}
+			if len(englishSentences) > 0 {
 				break
 			}
 		}
 
-		var englishSentences []string
-		for _, c := range potentialText {
-			if utility.IsStringProbablyEnglishSentence(c) {
-				englishSentences = append(englishSentences, c)
+		fmt.Println("Found " + string(len(englishSentences)) + " sentences. Finding most suitable sentence.")
+
+		var maxScore float32 = 0.0
+		var bestString string
+		for _, c := range englishSentences {
+			if c.Score > maxScore && len(c.Text) < 500 {
+				maxScore = c.Score
+				bestString = c.Text
 			}
 		}
-		fmt.Println(englishSentences)
-		fmt.Println(fullurl)
+
+		text := model.Text{Text: bestString, Author: "Wikipedia"}
+
+		if len(englishSentences) > 0 {
+			fmt.Println("Runnning play function")
+			tcell_helpers.Play(text)
+		} else {
+			fmt.Println("Was not able to find random wiki text, something might be wrong")
+		}
 	},
 }
 
