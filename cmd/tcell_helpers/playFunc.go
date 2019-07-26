@@ -1,14 +1,20 @@
 package tcell_helpers
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 	"time"
+	"timp/cmd/history"
+	"timp/cmd/model"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
 )
+
+const maxStringLength = 500
 
 const textBoxWidth = 50
 
@@ -18,7 +24,14 @@ const playTextBoxPos_y = 20
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
-func Play(text string) {
+func Play(text model.Text) {
+
+	if len(text.Text) > maxStringLength {
+		fmt.Println("Text to play is to long!")
+		fmt.Println("Max accepted length is: " + string(maxStringLength) + " but was: " + string(len(text.Text)))
+		return
+	}
+
 	s, e := tcell.NewScreen()
 	if e != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", e)
@@ -47,7 +60,7 @@ func Play(text string) {
 	PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 	style = plain
 
-	textToRun := text
+	textToRun := text.Text
 	totNumOfWords := len(strings.Fields(textToRun))
 	start := time.Now()
 
@@ -55,6 +68,7 @@ func Play(text string) {
 	var stringTyped = ""
 	var numCorrect = 0
 
+	var didFinishLegally bool = false
 	go func() {
 		for {
 			ev := s.PollEvent()
@@ -84,6 +98,7 @@ func Play(text string) {
 				s.Sync()
 			}
 			if numCorrect >= len(textToRun) {
+				didFinishLegally = true
 				close(quit)
 				return
 			}
@@ -104,4 +119,15 @@ func Play(text string) {
 	println(fmt.Sprintf("%.3f", float32(totNumOfWords)/float32(float32(elapsed.Seconds())/60.0)))
 	println()
 	println()
+
+	// Current user
+	currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
+	var currentUser model.CurrentUser
+	_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
+
+	var user string = "not logged in"
+	if currentuserfile != nil && currentUser.IsLoggedIn == "true" && currentUser.Username != "" {
+		user = currentUser.Username
+	}
+	history.AppendToHistory(text, user, elapsed, didFinishLegally)
 }

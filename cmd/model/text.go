@@ -12,10 +12,11 @@ type Text struct {
 
 // Represents values for a single play
 type PlayedEntry struct {
-	Id         int
-	Text       Text
-	Player     string
-	TimePlayed time.Time
-	TimeSpent  time.Duration
-	Wpm        float32
+	Id               int
+	Text             Text
+	Player           string
+	TimePlayed       time.Time
+	TimeSpent        float32
+	Wpm              float32
+	DidFinishLegally bool
 }

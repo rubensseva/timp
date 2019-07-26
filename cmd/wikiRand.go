@@ -28,6 +28,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
 	"timp/cmd/utility"
 
@@ -50,13 +51,11 @@ var wikiRandCmd = &cobra.Command{
 		var englishSentences []utility.StringScore
 		for i := 0; i < 10; i++ {
 
-			fmt.Println("wikiRand called")
+			fmt.Println("Fetching random text from wikipedia...")
 
 			var url = "https://en.wikipedia.org/wiki/Special:Random"
 			var resp, _ = http.Get(url)
 			var bytes, _ = ioutil.ReadAll(resp.Body)
-
-			// fmt.Println("HTML:\n\n", string(bytes))
 
 			r := strings.NewReader(string(bytes))
 
@@ -68,19 +67,14 @@ var wikiRandCmd = &cobra.Command{
 				tt := z.Next()
 				switch tt {
 				case html.ErrorToken:
-					fmt.Println("error")
-					fmt.Println(z.Err())
 					done = true
 				case html.TextToken:
-
 					var s = string(z.Text())
 					if len(s) > 100 {
-						fmt.Println("appending")
 						potentialText = append(potentialText, strings.Trim(s, " ,.)(][}{"))
 					}
 					break
 				case html.EndTagToken:
-					fmt.Println("end")
 					break
 				}
 			}
@@ -96,22 +90,22 @@ var wikiRandCmd = &cobra.Command{
 			}
 		}
 
-		fmt.Println(englishSentences)
+		fmt.Println("Found " + string(len(englishSentences)) + " sentences. Finding most suitable sentence.")
+
 		var maxScore float32 = 0.0
 		var bestString string
 		for _, c := range englishSentences {
-			if c.Score > maxScore {
+			if c.Score > maxScore && len(c.Text) < 500 {
 				maxScore = c.Score
 				bestString = c.Text
 			}
 		}
-		fmt.Println("\n\n")
-		fmt.Println(bestString)
-		fmt.Println(maxScore)
+
+		text := model.Text{Text: bestString, Author: "Wikipedia"}
 
 		if len(englishSentences) > 0 {
 			fmt.Println("Runnning play function")
-			tcell_helpers.Play(bestString)
+			tcell_helpers.Play(text)
 		} else {
 			fmt.Println("Was not able to find random wiki text, something might be wrong")
 		}

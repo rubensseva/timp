@@ -60,12 +60,9 @@ func IsStringProbablyEnglishSentence(s string) StringScore {
 	}
 	var score = float32(numOfWordsMatched) / float32(numOfWords)
 	stringScore.Score = score
-	fmt.Println("\n\nCalculated score for: ")
-	fmt.Println(s)
-	fmt.Println(words)
-	fmt.Println(len(words))
-	fmt.Println(score)
 	if score > 0.5 {
+		fmt.Println("Potential candidate with score: " + fmt.Sprintf("%.3f", float32(score)))
+		fmt.Println(words)
 		stringScore.IsProbablyEnglish = true
 	}
 	return stringScore
