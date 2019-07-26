@@ -149,7 +149,7 @@ var playCmd = &cobra.Command{
 		print("Words completed: ")
 		println(totNumOfWords)
 		print("Words per minute: ")
-		println(fmt.Sprintf("%.3f", float32(totNumOfWords)/float32(float32(elapsed.Seconds())/60.0)))
+		println(fmt.Sprintf("%.3f", utility.CalcWPM(textToRun, elapsed)))
 		println()
 		println()
 	},

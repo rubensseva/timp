@@ -42,7 +42,7 @@ type jsonMapper struct {
 // newTextCmd represents the newText command
 var wikiRandCmd = &cobra.Command{
 	Use:   "wikiRand",
-	Short: "Play with random wikipedia artivle",
+	Short: "Play with random wikipedia article",
 	Long: `Pulls a random article from wikipedia
 		and plays it immediatly`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -72,8 +72,7 @@ var wikiRandCmd = &cobra.Command{
 					fmt.Println(z.Err())
 					done = true
 				case html.TextToken:
-					// emitBytes should copy the []byte it receives,
-					// if it doesn't process it immediately.
+
 					var s = string(z.Text())
 					if len(s) > 100 {
 						fmt.Println("appending")
