@@ -1,6 +1,18 @@
 [
  {
-  "Text": "hello",
-  "Author": ""
+  "Text": "theyre taking the hobbits to isengard",
+  "Author": "Legolas"
+ },
+ {
+  "Text": "a long time ago in a galaxy far far away",
+  "Author": "George Lucas"
+ },
+ {
+  "Text": "Dont talk about fight club",
+  "Author": "Just dont"
+ },
+ {
+  "Text": "Make America great again",
+  "Author": "Donald Trump"
  }
 ]

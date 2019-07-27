@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"strings"
 	"time"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 )
 
 // RandomGen generates a random number between range

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"time"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 	"timp/cmd/utility"
 )
 
@@ -17,12 +17,19 @@ func max(i int, j int) int {
 }
 
 func readAllHistoryEntries() []model.PlayedEntry {
-	historyFile, _ := ioutil.ReadFile("cmd/resources/history.json")
+	historyFile, _ := ioutil.ReadFile("cmd/data/json/history.json")
 	var historyEntries []model.PlayedEntry
 	_ = json.Unmarshal([]byte(historyFile), &historyEntries)
 	if len(historyEntries) == 0 {
 		panic("Trying to get history, but no history exists. Generate some history first.")
 	}
+	return historyEntries
+}
+
+func readAllHistoryEntriesUnsafe() []model.PlayedEntry {
+	historyFile, _ := ioutil.ReadFile("cmd/data/json/history.json")
+	var historyEntries []model.PlayedEntry
+	_ = json.Unmarshal([]byte(historyFile), &historyEntries)
 	return historyEntries
 }
 
@@ -35,7 +42,7 @@ func GetAllHistoryEntries() []model.PlayedEntry {
 // Auto increments the id
 func AppendToHistory(text model.Text, player string, timeSpent time.Duration, didFinishLegally bool) {
 	fmt.Println("In apend to history")
-	var playedEntries = readAllHistoryEntries()
+	var playedEntries = readAllHistoryEntriesUnsafe()
 	var maxID = 0
 	for _, entry := range playedEntries {
 		maxID = max(maxID, entry.Id)

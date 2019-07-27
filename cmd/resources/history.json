@@ -262,5 +262,29 @@
   "TimeSpent": 19.458876,
   "Wpm": 64.751945,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 23,
+  "Text": {
+   "Text": "which peaked at #12 on the Australasian Singles Chart. The track was featured on the Compilation CD",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T17:33:35.499729283+02:00",
+  "TimeSpent": 30.774178,
+  "Wpm": 33.14467,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 24,
+  "Text": {
+   "Text": "The Insurance Cyclopeadia Being an Historical Treasury of Events and Circumstances Connected with the Origin and Progress of Insurance",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T17:34:38.64340884+02:00",
+  "TimeSpent": 32.986496,
+  "Wpm": 34.559597,
+  "DidFinishLegally": true
  }
 ]

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 )
 
 func readAllUsers() []model.User {

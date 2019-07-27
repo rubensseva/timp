@@ -1,14 +1,12 @@
 package tcell_helpers
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 	"time"
-	"timp/cmd/history"
-	"timp/cmd/model"
+	"timp/cmd/data"
+	"timp/cmd/data/model"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
@@ -120,14 +118,11 @@ func Play(text model.Text) {
 	println()
 	println()
 
-	// Current user
-	currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
-	var currentUser model.CurrentUser
-	_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
+	var currentUser model.CurrentUser = data.GetLoggedInUser()
 
 	var user string = "not logged in"
-	if currentuserfile != nil && currentUser.IsLoggedIn == "true" && currentUser.Username != "" {
+	if currentUser.Username != "" {
 		user = currentUser.Username
 	}
-	history.AppendToHistory(text, user, elapsed, didFinishLegally)
+	data.AppendToHistory(text, user, elapsed, didFinishLegally)
 }

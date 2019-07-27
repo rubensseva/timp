@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"time"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 	"timp/cmd/utility"
 )
 

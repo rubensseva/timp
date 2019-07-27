@@ -30,7 +30,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"timp/cmd/data"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 )
 
 // newUserCmd represents the newUser command

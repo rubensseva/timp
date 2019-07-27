@@ -31,7 +31,7 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 	"timp/cmd/tcell_helpers"
 	"timp/cmd/utility"
 

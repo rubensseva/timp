@@ -30,7 +30,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"timp/cmd/model"
+	"timp/cmd/data/model"
 )
 
 // textCmd represents the text command

@@ -1,0 +1,86 @@
+[
+ {
+  "Id": 1,
+  "Text": {
+   "Text": "The following players are listed by Spartaks website as Spartak2 players and are registered with the Premier League. They are eligible to play for the first team.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T17:43:03.5808826+02:00",
+  "TimeSpent": 37.107723,
+  "Wpm": 43.65668,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 2,
+  "Text": {
+   "Text": "At Edmonton, Beltran worked as a closer and saved five games with an ERA of 1.80. The Expos recalled Beltran in midAugust he posted a 7.53 ERA over 11 appearances. Beltran pitched the final inning of the last game played by the Expos, an 81 loss to the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T17:44:53.396678836+02:00",
+  "TimeSpent": 54.831165,
+  "Wpm": 52.52487,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 3,
+  "Text": {
+   "Text": "The blog is valuable to comic book fans, providing current and upcoming comic book reviews so readers can get a critics perspective before deciding to purchase. WCBR is also important to comic book authors who receive feedback on their work from reviewers and readers who discuss comics on the site like any other literary work. Reviews from WCBR are often reprinted and referred to as authoritative and thoughtful reviews.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-27T17:48:17.615081894+02:00",
+  "TimeSpent": 82.98945,
+  "Wpm": 49.88586,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 4,
+  "Text": {
+   "Text": "hello",
+   "Author": ""
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-27T17:48:45.167591314+02:00",
+  "TimeSpent": 1.7257394,
+  "Wpm": 34.767708,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 5,
+  "Text": {
+   "Text": "Dont talk about fight club",
+   "Author": "Just dont"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-27T17:51:11.36098042+02:00",
+  "TimeSpent": 4.924075,
+  "Wpm": 60.925144,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 6,
+  "Text": {
+   "Text": "theyre taking the hobbits to isengard",
+   "Author": "Legolas"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-27T17:51:22.844764154+02:00",
+  "TimeSpent": 9.827461,
+  "Wpm": 36.632046,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 7,
+  "Text": {
+   "Text": "Make America great again",
+   "Author": "Donald Trump"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-27T17:51:53.972329804+02:00",
+  "TimeSpent": 3.3225973,
+  "Wpm": 72.23264,
+  "DidFinishLegally": false
+ }
+]
