@@ -26,12 +26,9 @@ package commands
 
 import (
 	"fmt"
+	"timp/cmd/data"
 
 	"github.com/spf13/cobra"
-
-	"io/ioutil"
-
-	"encoding/json"
 
 	"timp/cmd/model"
 )
@@ -46,9 +43,7 @@ var textCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("text called")
 
-		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
-		var texts []model.Text
-		_ = json.Unmarshal([]byte(textfile), &texts)
+		var texts []model.Text = data.GetAllTexts()
 
 		for _, text := range texts {
 			fmt.Println()

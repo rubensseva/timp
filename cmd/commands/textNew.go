@@ -26,13 +26,10 @@ package commands
 
 import (
 	"fmt"
+	"timp/cmd/data"
+	"timp/cmd/model"
 
 	"github.com/spf13/cobra"
-
-	"encoding/json"
-	"io/ioutil"
-
-	"timp/cmd/model"
 )
 
 // newTextCmd represents the newText command
@@ -48,28 +45,8 @@ example: timp newText /path/to/file`,
 			return
 		}
 
-		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
-		var texts []model.Text
-		_ = json.Unmarshal([]byte(textfile), &texts)
-
-		var isAText = false
-		for _, text := range texts {
-			if text.Text == args[0] {
-				isAText = true
-			}
-		}
-
-		if isAText {
-			fmt.Println("specified text " + args[0] + " is already a text")
-			return
-		}
-
-		fmt.Println("creating text ", args[0])
-		var newText = model.Text{Text: args[0], Author: ""}
-		texts = append(texts, newText)
-		writefile, _ := json.MarshalIndent(texts, "", " ")
-		_ = ioutil.WriteFile("cmd/resources/texts.json", writefile, 0644)
-		fmt.Println("create text success (hopefully)")
+		var text = model.Text{Text: args[0], Author: ""}
+		data.AddText(text)
 	},
 }
 

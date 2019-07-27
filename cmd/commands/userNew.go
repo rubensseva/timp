@@ -25,12 +25,11 @@ THE SOFTWARE.
 package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/spf13/cobra"
 
+	"timp/cmd/data"
 	"timp/cmd/model"
 )
 
@@ -48,28 +47,8 @@ With a user, you may track score etc.`,
 			return
 		}
 
-		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
-		var users []model.User
-		_ = json.Unmarshal([]byte(usersfile), &users)
-
-		var isAUser = false
-		for _, user := range users {
-			if user.Username == args[0] {
-				isAUser = true
-			}
-		}
-
-		if isAUser {
-			fmt.Println("specified username " + args[0] + " is already a user")
-			return
-		}
-
-		fmt.Println("creating user ", args[0])
 		var newUser = model.User{Username: args[0], Highscore: 0}
-		users = append(users, newUser)
-		writefile, _ := json.MarshalIndent(users, "", " ")
-		_ = ioutil.WriteFile("cmd/resources/users.json", writefile, 0644)
-		fmt.Println("create user success (hopefully)")
+		data.AddUser(newUser)
 	},
 }
 

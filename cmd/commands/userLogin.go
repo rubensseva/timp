@@ -25,10 +25,9 @@ THE SOFTWARE.
 package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
+	"timp/cmd/data"
 
 	"github.com/spf13/cobra"
 
@@ -53,40 +52,8 @@ example: timp login my_username`,
 			return
 		}
 
-		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
-		var users []model.User
-		_ = json.Unmarshal([]byte(usersfile), &users)
-
-		// Current user
-		currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
-
-		var currentUser model.CurrentUser
-
-		_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
-
-		if currentUser.IsLoggedIn == "true" {
-			fmt.Println("already logged in as: ", currentUser.Username)
-			return
-		}
-
-		var isAUser = false
-		for _, user := range users {
-			if user.Username == args[0] {
-				isAUser = true
-			}
-		}
-
-		if !isAUser {
-			fmt.Println("specified username is not a user. Is the username right? Is the user created?")
-			return
-		}
-
-		fmt.Println("loging in as ", args[0])
-		var data = model.CurrentUser{IsLoggedIn: "true", Username: args[0]}
-		writefile, _ := json.MarshalIndent(data, "", " ")
-		_ = ioutil.WriteFile("cmd/resources/currentUser.json", writefile, 0644)
-		fmt.Println("loggin succes (hopefully)")
-
+		var userToLogin = model.User{Username: args[0], Highscore: 0}
+		data.LoginUser(userToLogin)
 	},
 }
 
