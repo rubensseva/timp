@@ -4,7 +4,7 @@ import "time"
 
 // PlayedEntry represents values for a single play
 type PlayedEntry struct {
-	Id               int
+	ID               int
 	Text             Text
 	Player           string
 	TimePlayed       time.Time

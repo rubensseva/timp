@@ -47,7 +47,7 @@ With a user, you may track score etc.`,
 			return
 		}
 
-		var newUser = model.User{Username: args[0], Highscore: 0}
+		var newUser = model.User{Username: args[0]}
 		data.AddUser(newUser)
 	},
 }

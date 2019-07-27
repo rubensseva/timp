@@ -11,7 +11,7 @@ func readLoggedInUser() model.CurrentUser {
 	currentuserfile, _ := ioutil.ReadFile("cmd/data/json/currentUser.json")
 	var currentUser model.CurrentUser
 	_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
-	if currentUser.Username == "" {
+	if currentUser.User.Username == "" {
 		panic("Tried to get currently logged in user, but no name is set")
 	}
 	return currentUser
@@ -31,7 +31,8 @@ func GetLoggedInUser() model.CurrentUser {
 
 // LogoutUser logs out whichever user is currently logged in
 func LogoutUser() {
-	var data = model.CurrentUser{IsLoggedIn: "false", Username: "not-logged-in"}
+	var tmpUser = model.User{Username: "not-logged-in"}
+	var data = model.CurrentUser{IsLoggedIn: false, User: tmpUser}
 	writefile, _ := json.MarshalIndent(data, "", " ")
 	_ = ioutil.WriteFile("cmd/data/json/currentUser.json", writefile, 0644)
 }
@@ -43,8 +44,8 @@ func LoginUser(newActiveUser model.User) {
 	var users = readAllUsersUnsafe()
 	var currentUser = readLoggedInUserUnsafe()
 
-	if currentUser.IsLoggedIn == "true" {
-		fmt.Println("already logged in as: ", currentUser.Username)
+	if currentUser.IsLoggedIn {
+		fmt.Println("already logged in as: ", currentUser.User.Username)
 		return
 	}
 
@@ -61,7 +62,8 @@ func LoginUser(newActiveUser model.User) {
 	}
 
 	fmt.Println("loging in as ", newActiveUser.Username)
-	var data = model.CurrentUser{IsLoggedIn: "true", Username: newActiveUser.Username}
+	var tmpUser = model.User{Username: newActiveUser.Username}
+	var data = model.CurrentUser{IsLoggedIn: true, User: tmpUser}
 	writefile, _ := json.MarshalIndent(data, "", " ")
 	_ = ioutil.WriteFile("cmd/data/json/currentUser.json", writefile, 0644)
 	fmt.Println("loggin succes (hopefully)")

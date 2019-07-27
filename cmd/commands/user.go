@@ -44,8 +44,8 @@ var userCmd = &cobra.Command{
 		fmt.Println()
 		fmt.Println("--------------------------------")
 		fmt.Println("logged in user: ")
-		fmt.Println("name: " + currentUser.Username)
-		fmt.Println("logged in: " + currentUser.IsLoggedIn)
+		fmt.Println("name: " + currentUser.User.Username)
+		fmt.Println("logged in: " + fmt.Sprintf("%b", currentUser.IsLoggedIn))
 		fmt.Println("--------------------------------")
 		fmt.Println("existing users: ")
 		for _, user := range users {

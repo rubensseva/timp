@@ -43,7 +43,7 @@ func GetRandomText() model.Text {
 
 // AddText adds a single text to text json file
 func AddText(text model.Text) {
-	var texts []model.Text = readAllTextsUnsafe()
+	var texts = readAllTextsUnsafe()
 
 	var isAText = false
 	for _, textEntry := range texts {

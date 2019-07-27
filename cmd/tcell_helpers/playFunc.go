@@ -22,6 +22,8 @@ const playTextBoxPos_y = 20
 var style = tcell.StyleDefault
 var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
+// Play renders text and starts game
+// Also prints stats and calls history append function
 func Play(text model.Text) {
 
 	if len(text.Text) > maxStringLength {
@@ -66,7 +68,7 @@ func Play(text model.Text) {
 	var stringTyped = ""
 	var numCorrect = 0
 
-	var didFinishLegally bool = false
+	var didFinishLegally = false
 	go func() {
 		for {
 			ev := s.PollEvent()
@@ -118,11 +120,11 @@ func Play(text model.Text) {
 	println()
 	println()
 
-	var currentUser model.CurrentUser = data.GetLoggedInUser()
+	var currentUser = data.GetLoggedInUser()
 
-	var user string = "not logged in"
-	if currentUser.Username != "" {
-		user = currentUser.Username
+	var user = "not logged in"
+	if currentUser.User.Username != "" {
+		user = currentUser.User.Username
 	}
 	data.AppendToHistory(text, user, elapsed, didFinishLegally)
 }

@@ -1,4 +1,6 @@
 {
- "IsLoggedIn": "true",
- "Username": "Tale"
+ "IsLoggedIn": true,
+ "User": {
+  "Username": "Tale"
+ }
 }
