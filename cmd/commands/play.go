@@ -31,9 +31,9 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"timp/cmd/data"
 	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
-	"timp/cmd/utility"
 )
 
 // playCmd represents the play command
@@ -51,9 +51,9 @@ var playCmd = &cobra.Command{
 		var texts []model.Text
 		_ = json.Unmarshal([]byte(textfile), &texts)
 
-		var randIndex = utility.RandomGen(0, len(texts))
+		// var randIndex = utility.RandomGen(0, len(texts))
 
-		textToRun := texts[randIndex]
+		textToRun := data.GetRandomText()
 
 		tcell_helpers.Play(textToRun)
 

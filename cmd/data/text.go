@@ -11,12 +11,16 @@ func readAllTexts() []model.Text {
 	textfile, _ := ioutil.ReadFile("cmd/data/json/texts.json")
 	var texts []model.Text
 	_ = json.Unmarshal([]byte(textfile), &texts)
+	if len(texts) == 0 {
+		panic("Trying to get texts, but no text is created. Create a text first.")
+	}
 	return texts
 }
 
 // GetAllTexts returns all texts from json file
 func GetAllTexts() []model.Text {
-	return readAllTexts()
+	var texts = readAllTexts()
+	return texts
 }
 
 // GetRandomText gets all texts from json file, and returns a

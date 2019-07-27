@@ -20,6 +20,9 @@ func readAllHistoryEntries() []model.PlayedEntry {
 	historyFile, _ := ioutil.ReadFile("cmd/resources/history.json")
 	var historyEntries []model.PlayedEntry
 	_ = json.Unmarshal([]byte(historyFile), &historyEntries)
+	if len(historyEntries) == 0 {
+		panic("Trying to get history, but no history exists. Generate some history first.")
+	}
 	return historyEntries
 }
 
