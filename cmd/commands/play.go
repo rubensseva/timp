@@ -25,14 +25,11 @@ THE SOFTWARE.
 package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/spf13/cobra"
 
 	"timp/cmd/data"
-	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
 )
 
@@ -47,11 +44,6 @@ var playCmd = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("play called")
-		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
-		var texts []model.Text
-		_ = json.Unmarshal([]byte(textfile), &texts)
-
-		// var randIndex = utility.RandomGen(0, len(texts))
 
 		textToRun := data.GetRandomText()
 

@@ -1,16 +1,8 @@
 package model
 
-import (
-	"time"
-)
+import "time"
 
-// Represented a text
-type Text struct {
-	Text   string
-	Author string
-}
-
-// Represents values for a single play
+// PlayedEntry represents values for a single play
 type PlayedEntry struct {
 	Id               int
 	Text             Text

@@ -1,11 +1,7 @@
 package model
 
+// User represents a user
 type User struct {
 	Username  string
 	Highscore int
-}
-
-type CurrentUser struct {
-	IsLoggedIn string
-	Username   string
 }
