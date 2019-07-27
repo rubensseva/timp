@@ -20,8 +20,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
 	"encoding/json"
@@ -33,30 +34,51 @@ import (
 	"timp/cmd/model"
 )
 
-// logoutCmd represents the logout command
-var userLogoutCmd = &cobra.Command{
-	Use:   "logout",
-	Short: "Logout current user",
-	Long: `Logs out the user that is currently logged in.
-No effect if no user is logged in`,
+// userCmd represents the user command
+var userCmd = &cobra.Command{
+	Use:   "user",
+	Short: "user command",
+	Long:  `Specifier for users`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("logout called")
-		var data = model.CurrentUser{IsLoggedIn: "false", Username: "not-logged-in"}
-		writefile, _ := json.MarshalIndent(data, "", " ")
-		_ = ioutil.WriteFile("cmd/resources/currentUser.json", writefile, 0644)
+		fmt.Println("user called")
+
+		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
+		var users []model.User
+		_ = json.Unmarshal([]byte(usersfile), &users)
+
+		// Current user
+		currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
+
+		var currentUser model.CurrentUser
+
+		_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
+
+		fmt.Println()
+		fmt.Println("--------------------------------")
+		fmt.Println("logged in user: ")
+		fmt.Println("name: " + currentUser.Username)
+		fmt.Println("logged in: " + currentUser.IsLoggedIn)
+		fmt.Println("--------------------------------")
+		fmt.Println("existing users: ")
+		for _, user := range users {
+			fmt.Println("name: " + user.Username)
+		}
+		fmt.Println("--------------------------------")
+		fmt.Println()
+
 	},
 }
 
 func init() {
-	userCmd.AddCommand(userLogoutCmd)
+	rootCmd.AddCommand(userCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// logoutCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// userCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// logoutCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// userCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

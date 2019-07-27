@@ -20,68 +20,69 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/spf13/cobra"
+
+	"encoding/json"
+	"io/ioutil"
 
 	"timp/cmd/model"
 )
 
-// newUserCmd represents the newUser command
-var userNewCmd = &cobra.Command{
+// newTextCmd represents the newText command
+var textNewCmd = &cobra.Command{
 	Use:   "new",
-	Short: "Add new user",
-	Long: `Adds a new user.
-Users are more like a profile, there are no passwords.
-With a user, you may track score etc.`,
+	Short: "Adds new text",
+	Long: `Adds a new text that may be run.
+example: timp newText /path/to/file`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("newUser called")
+		fmt.Println("newText called")
 		if len(args) != 1 {
-			fmt.Println("please specify one, and only one, username to create")
+			fmt.Println("args not equal to one.. Did you remember to specify text to add?")
 			return
 		}
 
-		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
-		var users []model.User
-		_ = json.Unmarshal([]byte(usersfile), &users)
+		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
+		var texts []model.Text
+		_ = json.Unmarshal([]byte(textfile), &texts)
 
-		var isAUser = false
-		for _, user := range users {
-			if user.Username == args[0] {
-				isAUser = true
+		var isAText = false
+		for _, text := range texts {
+			if text.Text == args[0] {
+				isAText = true
 			}
 		}
 
-		if isAUser {
-			fmt.Println("specified username " + args[0] + " is already a user")
+		if isAText {
+			fmt.Println("specified text " + args[0] + " is already a text")
 			return
 		}
 
-		fmt.Println("creating user ", args[0])
-		var newUser = model.User{Username: args[0], Highscore: 0}
-		users = append(users, newUser)
-		writefile, _ := json.MarshalIndent(users, "", " ")
-		_ = ioutil.WriteFile("cmd/resources/users.json", writefile, 0644)
-		fmt.Println("create user success (hopefully)")
+		fmt.Println("creating text ", args[0])
+		var newText = model.Text{Text: args[0], Author: ""}
+		texts = append(texts, newText)
+		writefile, _ := json.MarshalIndent(texts, "", " ")
+		_ = ioutil.WriteFile("cmd/resources/texts.json", writefile, 0644)
+		fmt.Println("create text success (hopefully)")
 	},
 }
 
 func init() {
-	userCmd.AddCommand(userNewCmd)
+	textCmd.AddCommand(textNewCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// newUserCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// newTextCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// newUserCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// newTextCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

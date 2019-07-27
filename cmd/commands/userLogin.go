@@ -20,8 +20,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
 	"encoding/json"

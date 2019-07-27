@@ -20,64 +20,54 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/spf13/cobra"
+
+	"io/ioutil"
+
+	"encoding/json"
 
 	"timp/cmd/model"
 )
 
-// userCmd represents the user command
-var userCmd = &cobra.Command{
-	Use:   "user",
-	Short: "user command",
-	Long:  `Specifier for users`,
+// textCmd represents the text command
+var textCmd = &cobra.Command{
+	Use:   "text",
+	Short: "Lists text",
+	Long: `Lists all available text. Use after ls command
+		example: timp ls text`,
+
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("user called")
+		fmt.Println("text called")
 
-		usersfile, _ := ioutil.ReadFile("cmd/resources/users.json")
-		var users []model.User
-		_ = json.Unmarshal([]byte(usersfile), &users)
+		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
+		var texts []model.Text
+		_ = json.Unmarshal([]byte(textfile), &texts)
 
-		// Current user
-		currentuserfile, _ := ioutil.ReadFile("cmd/resources/currentUser.json")
-
-		var currentUser model.CurrentUser
-
-		_ = json.Unmarshal([]byte(currentuserfile), &currentUser)
-
-		fmt.Println()
-		fmt.Println("--------------------------------")
-		fmt.Println("logged in user: ")
-		fmt.Println("name: " + currentUser.Username)
-		fmt.Println("logged in: " + currentUser.IsLoggedIn)
-		fmt.Println("--------------------------------")
-		fmt.Println("existing users: ")
-		for _, user := range users {
-			fmt.Println("name: " + user.Username)
+		for _, text := range texts {
+			fmt.Println()
+			fmt.Println("Author: " + text.Author)
+			fmt.Println("Text: " + text.Text)
 		}
-		fmt.Println("--------------------------------")
-		fmt.Println()
-
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(userCmd)
+	rootCmd.AddCommand(textCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// userCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// textCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// userCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// textCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

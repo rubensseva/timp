@@ -238,5 +238,29 @@
   "TimeSpent": 94.21987,
   "Wpm": 43.302967,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 21,
+  "Text": {
+   "Text": "Internet Research (INTR) is a peer-reviewed academic journal, published by Emerald Publishing. It aims to describe, assess and foster understanding of the role of wide-area, multi-purpose computer networks such as the Internet.",
+   "Author": ""
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T12:00:03.322456963+02:00",
+  "TimeSpent": 58.512527,
+  "Wpm": 32.813484,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 22,
+  "Text": {
+   "Text": "A forest rest house and a trekkers shed built there in 1930 are now used by park staff and visiting researchers.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Gharzol",
+  "TimePlayed": "2019-07-27T12:00:41.585720595+02:00",
+  "TimeSpent": 19.458876,
+  "Wpm": 64.751945,
+  "DidFinishLegally": true
  }
 ]

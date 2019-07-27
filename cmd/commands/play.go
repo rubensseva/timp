@@ -20,29 +20,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 
-	"github.com/gdamore/tcell"
 	"github.com/spf13/cobra"
 
 	"timp/cmd/model"
 	"timp/cmd/tcell_helpers"
 	"timp/cmd/utility"
 )
-
-const textBoxWidth = 50
-
-const playTextBoxPos_x = 30
-const playTextBoxPos_y = 20
-
-var style = tcell.StyleDefault
-var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 
 // playCmd represents the play command
 var playCmd = &cobra.Command{

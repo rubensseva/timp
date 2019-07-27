@@ -20,53 +20,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package cmd represents cobra command
-package cmd
+// Package commands represents the actual available commands to
+// use from command line
+package commands
 
 import (
+	"encoding/json"
 	"fmt"
-
-	"github.com/spf13/cobra"
-
 	"io/ioutil"
 
-	"encoding/json"
+	"github.com/spf13/cobra"
 
 	"timp/cmd/model"
 )
 
-// textCmd represents the text command
-var textCmd = &cobra.Command{
-	Use:   "text",
-	Short: "Lists text",
-	Long: `Lists all available text. Use after ls command
-		example: timp ls text`,
-
+// logoutCmd represents the logout command
+var userLogoutCmd = &cobra.Command{
+	Use:   "logout",
+	Short: "Logout current user",
+	Long: `Logs out the user that is currently logged in.
+No effect if no user is logged in`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("text called")
-
-		textfile, _ := ioutil.ReadFile("cmd/resources/texts.json")
-		var texts []model.Text
-		_ = json.Unmarshal([]byte(textfile), &texts)
-
-		for _, text := range texts {
-			fmt.Println()
-			fmt.Println("Author: " + text.Author)
-			fmt.Println("Text: " + text.Text)
-		}
+		fmt.Println("logout called")
+		var data = model.CurrentUser{IsLoggedIn: "false", Username: "not-logged-in"}
+		writefile, _ := json.MarshalIndent(data, "", " ")
+		_ = ioutil.WriteFile("cmd/resources/currentUser.json", writefile, 0644)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(textCmd)
+	userCmd.AddCommand(userLogoutCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// textCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// logoutCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// textCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// logoutCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
