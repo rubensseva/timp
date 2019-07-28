@@ -30,8 +30,6 @@ import (
 	"timp/cmd/data"
 
 	"github.com/spf13/cobra"
-
-	"timp/cmd/data/model"
 )
 
 var (
@@ -51,7 +49,7 @@ example: timp login my_username`,
 			fmt.Println("please specify one, and only one, username to login with")
 			return
 		}
-		var userToLogin = model.User{Username: args[0]}
+		var userToLogin = data.GetUser(args[0])
 		data.LoginUser(userToLogin)
 	},
 }

@@ -29,6 +29,23 @@ func GetAllUsers() []model.User {
 	return readAllUsers()
 }
 
+// GetUser by username
+func GetUser(username string) model.User {
+	var users = readAllUsersUnsafe()
+	var user model.User
+	var found = false
+	for _, user := range users {
+		if username == user.GetUsername() {
+			user = model.NewUserCopy(user)
+			found = true
+		}
+	}
+	if found == false {
+		fmt.Print("Warning! couldnt find user with username: " + username + ", returning user with zero-values")
+	}
+	return user
+}
+
 // AddUser gets all users and adds a user if the username
 // isnt already taken
 func AddUser(newUser model.User) {
@@ -37,17 +54,17 @@ func AddUser(newUser model.User) {
 
 	var isAUser = false
 	for _, user := range users {
-		if user.Username == newUser.Username {
+		if user.GetUsername() == newUser.GetUsername() {
 			isAUser = true
 		}
 	}
 
 	if isAUser {
-		fmt.Println("specified username " + newUser.Username + " is already a user")
+		fmt.Println("specified username " + newUser.GetUsername() + " is already a user")
 		return
 	}
 
-	fmt.Println("creating user ", newUser.Username)
+	fmt.Println("creating user ", newUser.GetUsername())
 	users = append(users, newUser)
 	writefile, _ := json.MarshalIndent(users, "", " ")
 	_ = ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)

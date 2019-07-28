@@ -30,7 +30,6 @@ import (
 	"github.com/spf13/cobra"
 
 	"timp/cmd/data"
-	"timp/cmd/data/model"
 )
 
 // newUserCmd represents the newUser command
@@ -47,7 +46,7 @@ With a user, you may track score etc.`,
 			return
 		}
 
-		var newUser = model.User{Username: args[0]}
+		var newUser = data.GetUser(args[0])
 		data.AddUser(newUser)
 	},
 }

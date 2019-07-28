@@ -122,9 +122,9 @@ func Play(text model.Text) {
 
 	var currentUser = data.GetLoggedInUser()
 
-	var user = "not logged in"
-	if currentUser.User.Username != "" {
-		user = currentUser.User.Username
+	var playername = "not logged in"
+	if currentUser.User.GetUsername() != "" {
+		playername = currentUser.User.GetUsername()
 	}
-	data.AppendToHistory(text, user, elapsed, didFinishLegally)
+	data.AppendToHistory(text, playername, elapsed, didFinishLegally)
 }
