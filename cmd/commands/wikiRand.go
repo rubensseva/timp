@@ -119,7 +119,7 @@ var wikiRandCmd = &cobra.Command{
 		}
 		processedText = reg.ReplaceAllString(processedText, " ")
 
-		text := model.Text{Text: processedText, Author: "Wikipedia"}
+		text := model.NewText(processedText, "Wikipedia")
 
 		if len(englishSentences) > 0 {
 			fmt.Println("Runnning play function")

@@ -47,8 +47,8 @@ var textCmd = &cobra.Command{
 
 		for _, text := range texts {
 			fmt.Println()
-			fmt.Println("Author: " + text.Author)
-			fmt.Println("Text: " + text.Text)
+			fmt.Println("Author: " + text.GetAuthor())
+			fmt.Println("Text: " + text.GetText())
 		}
 	},
 }

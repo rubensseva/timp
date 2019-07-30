@@ -45,7 +45,7 @@ example: timp newText /path/to/file`,
 			return
 		}
 
-		var text = model.Text{Text: args[0], Author: ""}
+		var text = model.NewText(args[0], "")
 		data.AddText(text)
 	},
 }

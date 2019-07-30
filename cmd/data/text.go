@@ -47,18 +47,18 @@ func AddText(text model.Text) {
 
 	var isAText = false
 	for _, textEntry := range texts {
-		if textEntry.Text == text.Text {
+		if textEntry.GetText() == text.GetText() {
 			isAText = true
 		}
 	}
 
 	if isAText {
-		fmt.Println("specified text " + text.Text + " is already a text")
+		fmt.Println("specified text " + text.GetText() + " is already a text")
 		return
 	}
 
-	fmt.Println("creating text ", text.Text)
-	var newText = model.Text{Text: text.Text, Author: text.Author}
+	fmt.Println("creating text ", text.GetText())
+	var newText = model.NewText(text.GetText(), text.GetAuthor())
 	texts = append(texts, newText)
 	writefile, _ := json.MarshalIndent(texts, "", " ")
 	_ = ioutil.WriteFile("cmd/data/json/texts.json", writefile, 0644)

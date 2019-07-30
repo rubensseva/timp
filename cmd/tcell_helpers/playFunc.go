@@ -26,9 +26,9 @@ var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 // Also prints stats and calls history append function
 func Play(text model.Text) {
 
-	if len(text.Text) > maxStringLength {
+	if len(text.GetText()) > maxStringLength {
 		fmt.Println("Text to play is to long!")
-		fmt.Println("Max accepted length is: " + string(maxStringLength) + " but was: " + string(len(text.Text)))
+		fmt.Println("Max accepted length is: " + string(maxStringLength) + " but was: " + string(len(text.GetText())))
 		return
 	}
 
@@ -60,7 +60,7 @@ func Play(text model.Text) {
 	PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 	style = plain
 
-	textToRun := text.Text
+	textToRun := text.GetText()
 	totNumOfWords := len(strings.Fields(textToRun))
 	start := time.Now()
 
@@ -123,8 +123,8 @@ func Play(text model.Text) {
 	var currentUser = data.GetLoggedInUser()
 
 	var playername = "not logged in"
-	if currentUser.User.GetUsername() != "" {
-		playername = currentUser.User.GetUsername()
+	if currentUser.GetUser().GetUsername() != "" {
+		playername = currentUser.GetUser().GetUsername()
 	}
 	data.AppendToHistory(text, playername, elapsed, didFinishLegally)
 }

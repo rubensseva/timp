@@ -45,13 +45,13 @@ func AppendToHistory(text model.Text, player string, timeSpent time.Duration, di
 	var playedEntries = readAllHistoryEntriesUnsafe()
 	var maxID = 0
 	for _, entry := range playedEntries {
-		maxID = max(maxID, entry.ID)
+		maxID = max(maxID, entry.GetID())
 	}
 
 	// wpm is float32
 	var wpm = utility.CalcWPM(text, timeSpent)
 
-	var newHistory = model.PlayedEntry{ID: maxID + 1, Text: text, Player: player, TimePlayed: time.Now(), TimeSpent: float32(timeSpent.Seconds()), Wpm: wpm, DidFinishLegally: didFinishLegally}
+	var newHistory = model.NewPlayedEntry(maxID + 1, text, player, time.Now(), float32(timeSpent.Seconds()), wpm, didFinishLegally)
 	playedEntries = append(playedEntries, newHistory)
 	writefile, _ := json.MarshalIndent(playedEntries, "", " ")
 	_ = ioutil.WriteFile("cmd/data/json/history.json", writefile, 0644)
