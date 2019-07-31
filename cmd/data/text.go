@@ -3,27 +3,40 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+  "log"
 	"io/ioutil"
 	"timp/cmd/data/model"
 	"timp/cmd/utility"
 )
 
 func readAllTexts() []model.Text {
-	textfile, _ := ioutil.ReadFile("cmd/data/json/texts.json")
-	var texts []model.Text
-	_ = json.Unmarshal([]byte(textfile), &texts)
-	if len(texts) == 0 {
+	textfile, fileErr := ioutil.ReadFile("cmd/data/json/texts.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
+	var textsJSON []model.TextJSON
+  JSONErr := json.Unmarshal([]byte(textfile), &textsJSON)
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
+	if len(textsJSON) == 0 {
 		panic("Trying to get texts, but no text is created. Create a text first.")
 	}
-	return texts
+	return model.TextJSONListToTRegular(textsJSON)
 }
 
 // readAllTextsUnsafe returns all texts but does not panic
 // if result is null
 func readAllTextsUnsafe() []model.Text {
-	textfile, _ := ioutil.ReadFile("cmd/data/json/texts.json")
+	textfile, fileErr := ioutil.ReadFile("cmd/data/json/texts.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
 	var texts []model.Text
-	_ = json.Unmarshal([]byte(textfile), &texts)
+  JSONErr := json.Unmarshal([]byte(textfile), &texts)
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
 	return texts
 }
 
@@ -60,7 +73,13 @@ func AddText(text model.Text) {
 	fmt.Println("creating text ", text.GetText())
 	var newText = model.NewText(text.GetText(), text.GetAuthor())
 	texts = append(texts, newText)
-	writefile, _ := json.MarshalIndent(texts, "", " ")
-	_ = ioutil.WriteFile("cmd/data/json/texts.json", writefile, 0644)
+	writefile, JSONErr := json.MarshalIndent(model.TextListToJSON(texts), "", " ")
+  if JSONErr != nil {
+    log.Fatal(JSONErr)
+  }
+  fileErr := ioutil.WriteFile("cmd/data/json/texts.json", writefile, 0644)
+  if fileErr != nil {
+    log.Fatal(fileErr)
+  }
 	fmt.Println("create text success (hopefully)")
 }

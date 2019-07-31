@@ -17,9 +17,15 @@ func max(i int, j int) int {
 }
 
 func readAllHistoryEntries() []model.PlayedEntry {
-	historyFile, _ := ioutil.ReadFile("cmd/data/json/history.json")
+	historyFile, fileErr := ioutil.ReadFile("cmd/data/json/history.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
 	var historyEntries []model.PlayedEntry
-	_ = json.Unmarshal([]byte(historyFile), &historyEntries)
+  JSONErr := json.Unmarshal([]byte(historyFile), &historyEntries)
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
 	if len(historyEntries) == 0 {
 		panic("Trying to get history, but no history exists. Generate some history first.")
 	}
@@ -27,9 +33,15 @@ func readAllHistoryEntries() []model.PlayedEntry {
 }
 
 func readAllHistoryEntriesUnsafe() []model.PlayedEntry {
-	historyFile, _ := ioutil.ReadFile("cmd/data/json/history.json")
+	historyFile, fileErr := ioutil.ReadFile("cmd/data/json/history.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
 	var historyEntries []model.PlayedEntry
-	_ = json.Unmarshal([]byte(historyFile), &historyEntries)
+  JSONErr := json.Unmarshal([]byte(historyFile), &historyEntries)
+  if JSONErr != nil {
+    panic(JSONErr) 
+  }
 	return historyEntries
 }
 
@@ -53,7 +65,13 @@ func AppendToHistory(text model.Text, player string, timeSpent time.Duration, di
 
 	var newHistory = model.NewPlayedEntry(maxID + 1, text, player, time.Now(), float32(timeSpent.Seconds()), wpm, didFinishLegally)
 	playedEntries = append(playedEntries, newHistory)
-	writefile, _ := json.MarshalIndent(playedEntries, "", " ")
-	_ = ioutil.WriteFile("cmd/data/json/history.json", writefile, 0644)
+	writefile, JSONErr := json.MarshalIndent(model.PlayedEntryListToJSON(playedEntries), "", " ")
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
+  fileErr := ioutil.WriteFile("cmd/data/json/history.json", writefile, 0644)
+  if fileErr != nil {
+    panic(fileErr)
+  }
 	fmt.Println("create text success (hopefully)")
 }

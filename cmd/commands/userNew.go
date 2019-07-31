@@ -30,6 +30,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"timp/cmd/data"
+	"timp/cmd/data/model"
 )
 
 // newUserCmd represents the newUser command
@@ -45,8 +46,14 @@ With a user, you may track score etc.`,
 			fmt.Println("please specify one, and only one, username to create")
 			return
 		}
+    //TODO: Use regex to check for all valid username format
+    if args[0] == "" || args[0] == " " {
+      fmt.Println("new user username must not be empty")
+      return
+    }
 
-		var newUser = data.GetUser(args[0])
+
+		var newUser = model.NewUser(args[0], 0, 0.0)
 		data.AddUser(newUser)
 	},
 }

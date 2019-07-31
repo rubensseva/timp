@@ -8,20 +8,32 @@ import (
 )
 
 func readAllUsers() []model.User {
-	usersfile, _ := ioutil.ReadFile("cmd/data/json/users.json")
-	var users []model.User
-	_ = json.Unmarshal([]byte(usersfile), &users)
-	if len(users) == 0 {
+	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
+	var usersJSON []model.UserJSON
+  JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
+	if len(usersJSON) == 0 {
 		panic("Trying to get users, but no user is created. Create a user first.")
 	}
-	return users
+	return model.UsersJSONListToRegular(usersJSON)
 }
 
 func readAllUsersUnsafe() []model.User {
-	usersfile, _ := ioutil.ReadFile("cmd/data/json/users.json")
-	var users []model.User
-	_ = json.Unmarshal([]byte(usersfile), &users)
-	return users
+	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
+  if fileErr != nil {
+    panic(fileErr)
+  }
+	var usersJSON []model.UserJSON
+  JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
+	return model.UsersJSONListToRegular(usersJSON)
 }
 
 // GetAllUsers returns all users from json file
@@ -41,7 +53,7 @@ func GetUser(username string) model.User {
 		}
 	}
 	if found == false {
-		fmt.Print("Warning! couldnt find user with username: " + username + ", returning user with zero-values")
+		fmt.Print("Warning! couldnt find user with username: " + username + " , returning user with zero-values")
 	}
 	return user
 }
@@ -65,8 +77,16 @@ func AddUser(newUser model.User) {
 	}
 
 	fmt.Println("creating user ", newUser.GetUsername())
+
 	users = append(users, newUser)
-	writefile, _ := json.MarshalIndent(users, "", " ")
-	_ = ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)
+
+	writefile, JSONErr := json.MarshalIndent(model.UsersListToJSON(users), "", " ")
+  if JSONErr != nil {
+    panic(JSONErr)
+  }
+  fileErr := ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)
+  if fileErr != nil {
+    panic(fileErr)
+  }
 	fmt.Println("create user success (hopefully)")
 }
