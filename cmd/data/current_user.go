@@ -12,15 +12,15 @@ func readLoggedInUser() model.CurrentUser {
 	if fileErr != nil {
 		panic(fileErr)
 	}
-	var currentUser model.CurrentUser
-	JSONErr := json.Unmarshal([]byte(currentuserfile), &currentUser)
+	var currentUserJSON model.CurrentUserJSON
+	JSONErr := json.Unmarshal([]byte(currentuserfile), &currentUserJSON)
 	if JSONErr != nil {
 		panic(JSONErr)
 	}
-	if currentUser.GetUser().GetUsername() == "" {
+	if currentUserJSON.User.Username == "" {
 		panic("Tried to get currently logged in user, but no name is set")
 	}
-	return currentUser
+	return currentUserJSON.ToRegularObj()
 }
 
 func readLoggedInUserUnsafe() model.CurrentUser {
@@ -48,7 +48,7 @@ func GetLoggedInUser() model.CurrentUser {
 func LogoutUser() {
 	var tmpUser = model.NewUser("not-logged-in", 0, 0.0)
 	var data = model.NewCurrentUser(false, tmpUser)
-	writefile, JSONErr := json.MarshalIndent(data, "", " ")
+	writefile, JSONErr := json.MarshalIndent(data.ToJSONobj(), "", " ")
 	if JSONErr != nil {
 		panic(JSONErr)
 	}

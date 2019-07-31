@@ -37,15 +37,15 @@ func readAllHistoryEntriesUnsafe() []model.PlayedEntry {
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
-	var historyEntries []model.PlayedEntry
-	JSONErr := json.Unmarshal([]byte(historyFile), &historyEntries)
+	var historyEntriesJSON []model.PlayedEntryJSON
+	JSONErr := json.Unmarshal([]byte(historyFile), &historyEntriesJSON)
 	if JSONErr != nil {
 		fmt.Println(JSONErr)
 	}
-	if len(historyEntries) == 0 {
+	if len(historyEntriesJSON) == 0 {
 		fmt.Println("Trying to get history, but no history exists. Generate some history first.")
 	}
-	return historyEntries
+	return model.PlayedEntryJSONListToRegular(historyEntriesJSON)
 }
 
 // GetAllHistoryEntries returns all history entries from json file

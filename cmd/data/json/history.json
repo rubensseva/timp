@@ -1,19 +1,86 @@
 [
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {},
- {}
+ {
+  "Id": 1,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "not logged in",
+  "TimePlayed": "2019-07-31T23:39:48.66891399+02:00",
+  "TimeSpent": 5.2399755,
+  "Wpm": 57.252174,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 2,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-07-31T23:46:54.788052186+02:00",
+  "TimeSpent": 4.195185,
+  "Wpm": 71.51055,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 3,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:48:14.731219822+02:00",
+  "TimeSpent": 3.6803834,
+  "Wpm": 81.513245,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 4,
+  "Text": {
+   "Text": "of the topic and provide significant coverage of it beyond a mere trivial mention. If notability cannot be established, the article is likely to be",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:49:05.115261789+02:00",
+  "TimeSpent": 32.431374,
+  "Wpm": 46.25151,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 5,
+  "Text": {
+   "Text": "\"The film tells the story of a twocareer couple and how they deal with the wifes urge to become a highpowered lawyer and the husbands desire to change jobs and become an environmentalist caring for the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:49:48.740063901+02:00",
+  "TimeSpent": 40.52098,
+  "Wpm": 53.30572,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 6,
+  "Text": {
+   "Text": "and Europe. There is a reserved place for tourists to see wild boars. H. H. Mir Ali Murad Khan Talpur II, head of the royal house, has forbidden all hunting except of the jackal and an annual culling of wild boars which become a mortal threat to adjacent farmers and their families when boar populations become too large for the forest to hold. The Mehrano reserve shares its boundary with the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Tale",
+  "TimePlayed": "2019-07-31T23:51:19.385727856+02:00",
+  "TimeSpent": 87.41791,
+  "Wpm": 48.731434,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 7,
+  "Text": {
+   "Text": "The mens football team currently plays in the Fourth Division, the fifth tier of Norwegian football, after being relegated from the",
+   "Author": "Wikipedia"
+  },
+  "Player": "not-logged-in",
+  "TimePlayed": "2019-07-31T23:52:12.160271244+02:00",
+  "TimeSpent": 25.31084,
+  "Wpm": 49.78104,
+  "DidFinishLegally": true
+ }
 ]
