@@ -1,10 +1,22 @@
 [
  {
-  "Username": "Ruben",
-  "Highscore": 0
+  "Username": "",
+  "GamesPlayed": 0,
+  "AvgWPM": 0
  },
  {
-  "Username": "Tale",
-  "Highscore": 0
+  "Username": "hello",
+  "GamesPlayed": 0,
+  "AvgWPM": 0
+ },
+ {
+  "Username": "ruben",
+  "GamesPlayed": 0,
+  "AvgWPM": 0
+ },
+ {
+  "Username": "my_new_user",
+  "GamesPlayed": 0,
+  "AvgWPM": 0
  }
 ]

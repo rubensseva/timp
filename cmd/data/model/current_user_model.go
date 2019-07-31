@@ -6,28 +6,30 @@ type CurrentUser struct {
 	user       User
 }
 
-type currentUserJSON struct {
-  IsLoggedIn bool
-  User      UserJSON
+type CurrentUserJSON struct {
+	IsLoggedIn bool
+	User       UserJSON
 }
 
 func NewCurrentUser(isLoggedIn bool, user User) CurrentUser {
-  return CurrentUser{isLoggedIn, user}
+	return CurrentUser{isLoggedIn, user}
 }
 
 func NewCurrentUserCopy(c CurrentUser) CurrentUser {
-  return CurrentUser{ c.isLoggedIn, c.user }
+	return CurrentUser{c.isLoggedIn, c.user}
 }
 
-func (u CurrentUser) ToJSONobj() currentUserJSON {
-  return currentUserJSON{u.isLoggedIn, u.user.ToJSONobj()}
+func (u CurrentUser) ToJSONobj() CurrentUserJSON {
+	return CurrentUserJSON{u.isLoggedIn, u.user.ToJSONobj()}
+}
+func (u CurrentUserJSON) ToRegularObj() CurrentUser {
+	return NewCurrentUser(u.IsLoggedIn, u.User.ToRegularObj())
 }
 
 func (c CurrentUser) GetIsLoggedIn() bool {
-  return c.isLoggedIn
+	return c.isLoggedIn
 }
 
 func (c CurrentUser) GetUser() User {
-  return c.user
+	return c.user
 }
-

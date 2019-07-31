@@ -50,6 +50,8 @@ example: timp login my_username`,
 			return
 		}
 		var userToLogin = data.GetUser(args[0])
+    fmt.Println("running login with user: " + userToLogin.GetUsername())
+    fmt.Println("running login with user: " + args[0])
 		data.LoginUser(userToLogin)
 	},
 }

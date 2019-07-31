@@ -8,9 +8,9 @@ type User struct {
 }
 
 type UserJSON struct {
-  Username string
-  GamesPlayed int
-  AvgWPM float32
+	Username    string
+	GamesPlayed int
+	AvgWPM      float32
 }
 
 func NewUser(username string, gamesPlayed int, avgWPM float32) User {
@@ -22,11 +22,11 @@ func NewUserCopy(u User) User {
 }
 
 func (u User) ToJSONobj() UserJSON {
-  return UserJSON{u.username, u.gamesPlayed, u.avgWPM}
+	return UserJSON{u.username, u.gamesPlayed, u.avgWPM}
 }
 
 func (u UserJSON) ToRegularObj() User {
-  return User{u.Username, u.GamesPlayed, u.AvgWPM}
+	return User{u.Username, u.GamesPlayed, u.AvgWPM}
 }
 
 func (u User) GetUsername() string {
@@ -42,17 +42,17 @@ func (u User) GetAvgWPM() float32 {
 }
 
 func UsersListToJSON(users []User) []UserJSON {
-  var usersJSON []UserJSON
-  for _, user := range users {
-    usersJSON = append(usersJSON, user.ToJSONobj())
-  }
-  return usersJSON
+	var usersJSON []UserJSON
+	for _, user := range users {
+		usersJSON = append(usersJSON, user.ToJSONobj())
+	}
+	return usersJSON
 }
 
 func UsersJSONListToRegular(usersJSON []UserJSON) []User {
-  var users []User
-  for _, userJSON := range usersJSON {
-    users = append(users, userJSON.ToRegularObj())
-  }
-  return users
+	var users []User
+	for _, userJSON := range usersJSON {
+		users = append(users, userJSON.ToRegularObj())
+	}
+	return users
 }

@@ -9,14 +9,14 @@ import (
 
 func readAllUsers() []model.User {
 	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
-  if fileErr != nil {
-    panic(fileErr)
-  }
+	if fileErr != nil {
+		panic(fileErr)
+	}
 	var usersJSON []model.UserJSON
-  JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
-  if JSONErr != nil {
-    panic(JSONErr)
-  }
+	JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
+	if JSONErr != nil {
+		panic(JSONErr)
+	}
 	if len(usersJSON) == 0 {
 		panic("Trying to get users, but no user is created. Create a user first.")
 	}
@@ -25,20 +25,23 @@ func readAllUsers() []model.User {
 
 func readAllUsersUnsafe() []model.User {
 	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
-  if fileErr != nil {
-    panic(fileErr)
-  }
+	if fileErr != nil {
+		fmt.Println(fileErr)
+	}
 	var usersJSON []model.UserJSON
-  JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
-  if JSONErr != nil {
-    panic(JSONErr)
-  }
+	JSONErr := json.Unmarshal([]byte(usersfile), &usersJSON)
+	if JSONErr != nil {
+		fmt.Println(JSONErr)
+	}
+	if len(usersJSON) == 0 {
+		fmt.Println("Trying to get users, but no user is created. Create a user first.")
+	}
 	return model.UsersJSONListToRegular(usersJSON)
 }
 
 // GetAllUsers returns all users from json file
 func GetAllUsers() []model.User {
-	return readAllUsers()
+	return readAllUsersUnsafe()
 }
 
 // GetUser by username
@@ -46,15 +49,24 @@ func GetUser(username string) model.User {
 	var users = readAllUsersUnsafe()
 	var user model.User
 	var found = false
-	for _, user := range users {
-		if username == user.GetUsername() {
-			user = model.NewUserCopy(user)
+  fmt.Println("")
+  fmt.Println("")
+	for _, u := range users {
+    fmt.Println(username, user.GetUsername())
+		if username == u.GetUsername() {
+			user = model.NewUserCopy(u)
 			found = true
 		}
 	}
 	if found == false {
-		fmt.Print("Warning! couldnt find user with username: " + username + " , returning user with zero-values")
-	}
+		fmt.Println("Warning! couldnt find user with username: " + username + " , returning user with zero-values")
+	} else {
+    if user.GetUsername() == "" {
+      fmt.Println("Warning! User was found, but username string is empty")
+    }
+    fmt.Println("In GetUser, found user with username: " + username + " , returning user")
+  }
+    fmt.Println("In GetUser, found user with username: " + user.GetUsername() + " , returning user")
 	return user
 }
 
@@ -81,12 +93,12 @@ func AddUser(newUser model.User) {
 	users = append(users, newUser)
 
 	writefile, JSONErr := json.MarshalIndent(model.UsersListToJSON(users), "", " ")
-  if JSONErr != nil {
-    panic(JSONErr)
-  }
-  fileErr := ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)
-  if fileErr != nil {
-    panic(fileErr)
-  }
+	if JSONErr != nil {
+		fmt.Println(JSONErr)
+	}
+	fileErr := ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)
+	if fileErr != nil {
+		fmt.Println(fileErr)
+	}
 	fmt.Println("create user success (hopefully)")
 }
