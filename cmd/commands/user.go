@@ -33,7 +33,7 @@ import (
 // userCmd represents the user command
 var userCmd = &cobra.Command{
 	Use:   "user",
-	Short: "Lists users",
+	Short: "Users main command, lists users",
 	Long:  `Lists all existing users, and also shows what user is logged in (if any)`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("user called")

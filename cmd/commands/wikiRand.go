@@ -38,7 +38,7 @@ type jsonMapper struct {
 // newTextCmd represents the newText command
 var wikiRandCmd = &cobra.Command{
 	Use:   "wikiRand",
-	Short: "Play with random wikipedia article",
+	Short: "wikipedia main command, play with random wikipedia article",
 	Long: `Pulls a random article from wikipedia
 		and plays it immediatly`,
 	Run: func(cmd *cobra.Command, args []string) {

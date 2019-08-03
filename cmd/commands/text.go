@@ -35,8 +35,8 @@ import (
 var textCmd = &cobra.Command{
 	Use:   "text",
 	Short: "Lists text",
-	Long: `Lists all available text. Use after ls command
-		example: timp ls text`,
+	Long: `Texts main command, lists all available text.
+		example: timp text`,
 
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("text called")

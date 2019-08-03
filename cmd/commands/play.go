@@ -34,7 +34,7 @@ import (
 // playCmd represents the play command
 var playCmd = &cobra.Command{
 	Use:   "play",
-	Short: "Play timp with given input text",
+	Short: "Play main command, plays timp with given input text",
 	Long: `This command takes control of the terminal and starts the 
   main feature of timp. Tcell is used to start a session 
   where you may input the given text on screen, and progress 

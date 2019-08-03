@@ -34,7 +34,7 @@ import (
 // textCmd represents the text command
 var historyCmd = &cobra.Command{
 	Use:   "history",
-	Short: "Lists history",
+	Short: "History main command, lists all history.",
 	Long: `Lists entire history
 		example: timp histoyr`,
 

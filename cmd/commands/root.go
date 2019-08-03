@@ -37,13 +37,13 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "timp",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Game for improving typing speed. (t)(imp) -> (type)(improve). ",
+	Long: `Timp is a typing game. The central component is a function that takes in a text,
+  then takes control of the terminal and lets the user type this text. Other functionality:
+    - Users: Add a user, login and logout user
+    - Texts: Add texts that persists between sessions, play a random text from these
+    - Generate: Fetch random texts from random wikipedia articles
+    - History: Logs all played sessions with player, wpm, date played etc.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },

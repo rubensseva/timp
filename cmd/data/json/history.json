@@ -202,5 +202,17 @@
   "TimeSpent": 20.983908,
   "Wpm": 62.905346,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 18,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:54:10.207482056+02:00",
+  "TimeSpent": 4.698606,
+  "Wpm": 51.07898,
+  "DidFinishLegally": true
  }
 ]
