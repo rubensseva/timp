@@ -48,6 +48,7 @@ var historyCmd = &cobra.Command{
 		for _, historyEntry := range historyEntries {
 			fmt.Println()
       fmt.Println("ID: " + fmt.Sprintf("%d", historyEntry.GetID()))
+			fmt.Println("Player: " + historyEntry.GetPlayer())
 			fmt.Println("Text: " + historyEntry.GetText().GetText())
 			fmt.Println("Author: " + historyEntry.GetText().GetAuthor())
 			fmt.Println("Date of play: " + historyEntry.GetTimePlayed().String())
