@@ -49,10 +49,10 @@ func GetUser(username string) model.User {
 	var users = readAllUsersUnsafe()
 	var user model.User
 	var found = false
-  fmt.Println("")
-  fmt.Println("")
+	fmt.Println("")
+	fmt.Println("")
 	for _, u := range users {
-    fmt.Println(username, user.GetUsername())
+		fmt.Println(username, user.GetUsername())
 		if username == u.GetUsername() {
 			user = model.NewUserCopy(u)
 			found = true
@@ -61,12 +61,12 @@ func GetUser(username string) model.User {
 	if found == false {
 		fmt.Println("Warning! couldnt find user with username: " + username + " , returning user with zero-values")
 	} else {
-    if user.GetUsername() == "" {
-      fmt.Println("Warning! User was found, but username string is empty")
-    }
-    fmt.Println("In GetUser, found user with username: " + username + " , returning user")
-  }
-    fmt.Println("In GetUser, found user with username: " + user.GetUsername() + " , returning user")
+		if user.GetUsername() == "" {
+			fmt.Println("Warning! User was found, but username string is empty")
+		}
+		fmt.Println("In GetUser, found user with username: " + username + " , returning user")
+	}
+	fmt.Println("In GetUser, found user with username: " + user.GetUsername() + " , returning user")
 	return user
 }
 

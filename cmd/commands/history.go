@@ -26,8 +26,8 @@ package commands
 
 import (
 	"fmt"
-	"timp/cmd/data"
 	"github.com/spf13/cobra"
+	"timp/cmd/data"
 	"timp/cmd/data/model"
 )
 
@@ -45,7 +45,7 @@ var historyCmd = &cobra.Command{
 
 		for _, historyEntry := range historyEntries {
 			fmt.Println()
-      fmt.Println("ID: " + fmt.Sprintf("%d", historyEntry.GetID()))
+			fmt.Println("ID: " + fmt.Sprintf("%d", historyEntry.GetID()))
 			fmt.Println("Player: " + historyEntry.GetPlayer())
 			fmt.Println("Text: " + historyEntry.GetText().GetText())
 			fmt.Println("Author: " + historyEntry.GetText().GetAuthor())

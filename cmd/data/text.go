@@ -72,10 +72,10 @@ func AddText(text model.Text) {
 		return
 	}
 
-  var author = "unknown"
-  if text.GetAuthor() != "" {
-    author = text.GetAuthor()
-  }
+	var author = "unknown"
+	if text.GetAuthor() != "" {
+		author = text.GetAuthor()
+	}
 
 	fmt.Println("creating text ", text.GetText(), " with author: ", author)
 	var newText = model.NewText(text.GetText(), author)

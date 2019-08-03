@@ -26,9 +26,9 @@ package commands
 
 import (
 	"fmt"
+	"github.com/spf13/cobra"
 	"os"
 	"timp/cmd/data"
-	"github.com/spf13/cobra"
 )
 
 var (
@@ -49,8 +49,8 @@ example: timp login my_username`,
 			return
 		}
 		var userToLogin = data.GetUser(args[0])
-    fmt.Println("running login with user: " + userToLogin.GetUsername())
-    fmt.Println("running login with user: " + args[0])
+		fmt.Println("running login with user: " + userToLogin.GetUsername())
+		fmt.Println("running login with user: " + args[0])
 		data.LoginUser(userToLogin)
 	},
 }

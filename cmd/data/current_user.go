@@ -62,7 +62,7 @@ func LogoutUser() {
 // LoginUser logs in a user
 // checks if another user is logged in, or if this user is already logged in
 func LoginUser(newActiveUser model.User) {
-  fmt.Println("Attemting to login user: " + newActiveUser.GetUsername())
+	fmt.Println("Attemting to login user: " + newActiveUser.GetUsername())
 
 	var users = readAllUsersUnsafe()
 	var currentUser = readLoggedInUserUnsafe()
@@ -88,7 +88,7 @@ func LoginUser(newActiveUser model.User) {
 
 	var tmpUser = model.NewUserCopy(newActiveUser)
 	var data = model.NewCurrentUser(true, tmpUser)
-  fmt.Println(string(data.GetUser().GetUsername()))
+	fmt.Println(string(data.GetUser().GetUsername()))
 	writefile, JSONErr := json.MarshalIndent(data.ToJSONobj(), "", " ")
 	if JSONErr != nil {
 		panic(JSONErr)

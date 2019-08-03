@@ -26,9 +26,9 @@ package commands
 
 import (
 	"fmt"
-	"timp/cmd/play"
-	"timp/cmd/net"
 	"github.com/spf13/cobra"
+	"timp/cmd/net"
+	"timp/cmd/play"
 )
 
 type jsonMapper struct {
@@ -45,7 +45,7 @@ var wikiRandCmd = &cobra.Command{
 
 		text := net.WikiGetRandText()
 
-	  fmt.Println("Runnning play function")
+		fmt.Println("Runnning play function")
 		tcell_helpers.Play(text)
 	},
 }

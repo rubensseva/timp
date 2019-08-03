@@ -26,10 +26,10 @@ package commands
 
 import (
 	"fmt"
-	"os"
-	"github.com/spf13/cobra"
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
 )
 
 var cfgFile string

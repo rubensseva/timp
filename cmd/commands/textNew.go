@@ -26,9 +26,9 @@ package commands
 
 import (
 	"fmt"
+	"github.com/spf13/cobra"
 	"timp/cmd/data"
 	"timp/cmd/data/model"
-	"github.com/spf13/cobra"
 )
 
 // newTextCmd represents the newText command
@@ -45,11 +45,11 @@ example: timp newText /path/to/file`,
 		}
 		var currentUser = data.GetLoggedInUser()
 
-    // When "" is passed on, data.AddText() will handle author empty value (currently sets to "unknown"
-    var loggedInUser = ""
-    if currentUser.GetIsLoggedIn() {
-      loggedInUser = currentUser.GetUser().GetUsername()
-    }
+		// When "" is passed on, data.AddText() will handle author empty value (currently sets to "unknown"
+		var loggedInUser = ""
+		if currentUser.GetIsLoggedIn() {
+			loggedInUser = currentUser.GetUser().GetUsername()
+		}
 		var text = model.NewText(args[0], loggedInUser)
 		data.AddText(text)
 	},
