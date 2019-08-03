@@ -82,5 +82,53 @@
   "TimeSpent": 25.31084,
   "Wpm": 49.78104,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 8,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:03.739318883+02:00",
+  "TimeSpent": 3.5022519,
+  "Wpm": 85.65917,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 9,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:07.916905286+02:00",
+  "TimeSpent": 3.1947591,
+  "Wpm": 93.90379,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 10,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:11.537254506+02:00",
+  "TimeSpent": 2.9978714,
+  "Wpm": 100.071,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 11,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:10:16.514120321+02:00",
+  "TimeSpent": 4.41303,
+  "Wpm": 54.384403,
+  "DidFinishLegally": true
  }
 ]

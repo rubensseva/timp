@@ -72,8 +72,13 @@ func AddText(text model.Text) {
 		return
 	}
 
-	fmt.Println("creating text ", text.GetText())
-	var newText = model.NewText(text.GetText(), text.GetAuthor())
+  var author = "unknown"
+  if text.GetAuthor() != "" {
+    author = text.GetAuthor()
+  }
+
+	fmt.Println("creating text ", text.GetText(), " with author: ", author)
+	var newText = model.NewText(text.GetText(), author)
 	texts = append(texts, newText)
 	writefile, JSONErr := json.MarshalIndent(model.TextListToJSON(texts), "", " ")
 	if JSONErr != nil {

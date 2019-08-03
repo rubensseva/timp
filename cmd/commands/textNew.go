@@ -44,8 +44,14 @@ example: timp newText /path/to/file`,
 			fmt.Println("args not equal to one.. Did you remember to specify text to add?")
 			return
 		}
+		var currentUser = data.GetLoggedInUser()
 
-		var text = model.NewText(args[0], "")
+    // When "" is passed on, data.AddText() will handle author empty value (currently sets to "unknown"
+    var loggedInUser = ""
+    if currentUser.GetIsLoggedIn() {
+      loggedInUser = currentUser.GetUser().GetUsername()
+    }
+		var text = model.NewText(args[0], loggedInUser)
 		data.AddText(text)
 	},
 }
