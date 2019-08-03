@@ -154,5 +154,53 @@
   "TimeSpent": 25.80689,
   "Wpm": 48.82417,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 14,
+  "Text": {
+   "Text": "living together, 16.7% had a female householder with no husband present, and 21.7% were nonfamilies. 20.0% of all households were made up of individuals and 11.7% had someone living alone who was 65 years of age or older. The average household size was 3.03 and the average family size was 3.51.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:37:44.028408819+02:00",
+  "TimeSpent": 1.9537832,
+  "Wpm": 1566.1923,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 15,
+  "Text": {
+   "Text": "also known as the Abdur Rab Serniabad Stadium, which has a 15,000 capacity. They have only won one competition in their history, the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:38:55.680534583+02:00",
+  "TimeSpent": 2.7085278,
+  "Wpm": 509.5019,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 16,
+  "Text": {
+   "Text": "project. In addition to sharing digital data, he made the fossils found available on request to researchers wanting to study them themselves.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:40:43.630386416+02:00",
+  "TimeSpent": 24.140636,
+  "Wpm": 54.67959,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 17,
+  "Text": {
+   "Text": "It serves as the upper attachment in part for the superficial muscles that are located on the posterior aspect of the forearm",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:41:08.88219222+02:00",
+  "TimeSpent": 20.983908,
+  "Wpm": 62.905346,
+  "DidFinishLegally": true
  }
 ]

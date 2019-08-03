@@ -26,9 +26,7 @@ package commands
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
-
 	"timp/cmd/data"
 	"timp/cmd/data/model"
 )

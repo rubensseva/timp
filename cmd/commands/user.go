@@ -27,15 +27,14 @@ package commands
 import (
 	"fmt"
 	"timp/cmd/data"
-
 	"github.com/spf13/cobra"
 )
 
 // userCmd represents the user command
 var userCmd = &cobra.Command{
 	Use:   "user",
-	Short: "user command",
-	Long:  `Specifier for users`,
+	Short: "Lists users",
+	Long:  `Lists all existing users, and also shows what user is logged in (if any)`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("user called")
 
@@ -45,7 +44,7 @@ var userCmd = &cobra.Command{
 		fmt.Println("--------------------------------")
 		fmt.Println("logged in user: ")
 		fmt.Println("name: " + currentUser.GetUser().GetUsername())
-		fmt.Println("logged in: " + fmt.Sprintf("%b", currentUser.GetIsLoggedIn()))
+		fmt.Println("logged in: " + fmt.Sprintf("%t", currentUser.GetIsLoggedIn()))
 		fmt.Println("--------------------------------")
 		fmt.Println("existing users: ")
 		for _, user := range users {

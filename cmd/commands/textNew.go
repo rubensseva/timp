@@ -28,7 +28,6 @@ import (
 	"fmt"
 	"timp/cmd/data"
 	"timp/cmd/data/model"
-
 	"github.com/spf13/cobra"
 )
 

@@ -28,7 +28,6 @@ import (
 	"fmt"
 	"os"
 	"timp/cmd/data"
-
 	"github.com/spf13/cobra"
 )
 
@@ -41,7 +40,7 @@ var (
 var userLoginCmd = &cobra.Command{
 	Use:   "login",
 	Short: "Login as user",
-	Long: `Login as a user, given username.
+	Long: `Login as a user, given username. Checks if username exists.
 example: timp login my_username`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("login called")
