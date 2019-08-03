@@ -30,7 +30,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"timp/cmd/data"
-	"timp/cmd/tcell_helpers"
+	"timp/cmd/play"
 )
 
 // playCmd represents the play command

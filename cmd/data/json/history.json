@@ -130,5 +130,29 @@
   "TimeSpent": 4.41303,
   "Wpm": 54.384403,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 12,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:23:13.032298721+02:00",
+  "TimeSpent": 4.153193,
+  "Wpm": 57.78687,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 13,
+  "Text": {
+   "Text": "The family now became involved in factional struggles between the leading bureaucratic factions in Baghdad, siding with the opposition to the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-03T12:23:47.706470947+02:00",
+  "TimeSpent": 25.80689,
+  "Wpm": 48.82417,
+  "DidFinishLegally": true
  }
 ]

@@ -56,15 +56,15 @@ func Play(text model.Text) {
 	quit := make(chan struct{})
 
 	style = bold
-	PutText(s, "Press ESC to Exit", 0, 0, 0, 25)
-	PutText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
+	putText(s, "Press ESC to Exit", 0, 0, 0, 25)
+	putText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 	style = plain
 
 	textToRun := text.GetText()
 	totNumOfWords := len(strings.Fields(textToRun))
 	start := time.Now()
 
-	PutText(s, textToRun, 0, playTextBoxPos_y, playTextBoxPos_x, 40)
+	putText(s, textToRun, 0, playTextBoxPos_y, playTextBoxPos_x, 40)
 	var stringTyped = ""
 	var numCorrect = 0
 
@@ -83,7 +83,7 @@ func Play(text model.Text) {
 				case tcell.KeyBackspace2:
 					if numCorrect > 0 {
 						numCorrect--
-						PutText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+						putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
 				case tcell.KeyRune:
@@ -91,7 +91,7 @@ func Play(text model.Text) {
 					if []rune(textToRun)[numCorrect] == ev.Rune() {
 						numCorrect++
 					}
-					PutText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+					putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
 					s.Show()
 				}
 			case *tcell.EventResize:

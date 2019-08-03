@@ -32,7 +32,7 @@ import (
 	"regexp"
 	"strings"
 	"timp/cmd/data/model"
-	"timp/cmd/tcell_helpers"
+	"timp/cmd/play"
 	"timp/cmd/utility"
 
 	"github.com/spf13/cobra"

@@ -126,7 +126,7 @@ func textBoxFormatString(text string, textBoxWidth int) []string {
 * Handles what part of text is already typed and
 * what part of text is not complete
  */
-func PutText(s tcell.Screen, text string, progressIndex int, rowStart int, colStart int, textBoxWidth int) {
+func putText(s tcell.Screen, text string, progressIndex int, rowStart int, colStart int, textBoxWidth int) {
 	var row = rowStart
 	var style = tcell.StyleDefault
 	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
