@@ -64,8 +64,8 @@ func Play(text model.Text) {
 	totNumOfWords := len(strings.Fields(textToRun))
 	start := time.Now()
 
-	putText(s, textToRun, 0, playTextBoxPos_y, playTextBoxPos_x, 40)
 	var stringTyped = ""
+	putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 	var numCorrect = 0
 
 	var didFinishLegally = false
@@ -83,7 +83,8 @@ func Play(text model.Text) {
 				case tcell.KeyBackspace2:
 					if numCorrect > 0 {
 						numCorrect--
-						putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+            stringTyped = stringTyped[:len(stringTyped) - 1]
+						putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
 				case tcell.KeyRune:
@@ -91,7 +92,7 @@ func Play(text model.Text) {
 					if []rune(textToRun)[numCorrect] == ev.Rune() {
 						numCorrect++
 					}
-					putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+					putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 					s.Show()
 				}
 			case *tcell.EventResize:

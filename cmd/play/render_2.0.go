@@ -3,6 +3,7 @@ package play
 
 import (
 	"github.com/gdamore/tcell"
+  "fmt"
 
 )
 
@@ -98,7 +99,7 @@ func putText2(s tcell.Screen, text string, subText string, rowStart int, colStar
 	// The isAfter variable indicates if we hace exceede the lines
 	// that are typed or are being typed.
 	for i, letterCharacter := range text {
-    if len(subText) >= i {
+    if len(subText) > i {
     // TODO: this can be made simpler by just assigning style var
       if rune(subText[i]) == letterCharacter {
         puts(s, greenStyle, currentLength, row, string(letterCharacter))
@@ -109,17 +110,24 @@ func putText2(s tcell.Screen, text string, subText string, rowStart int, colStar
       puts(s, style, currentLength, row, string(letterCharacter))
     }
 
-    currentLength++
 
-    lengthToSpace, isLastWord := getLengthToWhitespace(text, i)
-    if !isLastWord {
-      if lengthToSpace + currentLength > textBoxWidth {
+    lengthToSpace, isInString := getLengthToWhitespace(text, i + 1)
+
+    puts(s, redStyle, 1, 20, "lts: " + fmt.Sprintf("%d", lengthToSpace))
+    puts(s, redStyle, 1, 21, "ilw: " + fmt.Sprintf("%t", isInString))
+    puts(s, redStyle, 1, 22, "i: " + fmt.Sprintf("%d", i))
+    puts(s, redStyle, 1, 23, "textboxwidth: " + fmt.Sprintf("%d", textBoxWidth))
+    puts(s, redStyle, 1, 24, "i: " + fmt.Sprintf("%d", currentLength))
+
+    puts(s, redStyle, 1, 50, "typing: " + subText)
+
+    if isInString {
+      if lengthToSpace + currentLength - colStart > textBoxWidth {
         row++
         currentLength = colStart + boxPadding
+        continue
       }
     }
+    currentLength++
   }
 }
-
-
-

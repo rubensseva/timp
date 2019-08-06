@@ -214,5 +214,257 @@
   "TimeSpent": 4.698606,
   "Wpm": 51.07898,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 19,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:41:24.866155056+02:00",
+  "TimeSpent": 29.071585,
+  "Wpm": 10.319355,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 20,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:41:45.29763908+02:00",
+  "TimeSpent": 15.620368,
+  "Wpm": 19.205694,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 21,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:45:03.425792593+02:00",
+  "TimeSpent": 4.6725335,
+  "Wpm": 51.363995,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 22,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:46:01.400322438+02:00",
+  "TimeSpent": 1.1517313,
+  "Wpm": 260.47742,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 23,
+  "Text": {
+   "Text": "This is another new text that is very nice! I like texts, and I like to type. A lot actually.",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:46:16.338255452+02:00",
+  "TimeSpent": 14.047592,
+  "Wpm": 85.42389,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 24,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:50:13.749521195+02:00",
+  "TimeSpent": 10.179019,
+  "Wpm": 23.577911,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 25,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:58:32.204064854+02:00",
+  "TimeSpent": 10.306257,
+  "Wpm": 29.10853,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 26,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:59:30.072729616+02:00",
+  "TimeSpent": 7.342107,
+  "Wpm": 40.860207,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 27,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:00:57.490254976+02:00",
+  "TimeSpent": 8.897026,
+  "Wpm": 26.975306,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 28,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:05:39.625017669+02:00",
+  "TimeSpent": 15.051328,
+  "Wpm": 19.931795,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 29,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:14:03.804484308+02:00",
+  "TimeSpent": 16.913054,
+  "Wpm": 14.190223,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 30,
+  "Text": {
+   "Text": "and was the first record Harry released in which she reverted to using Deborah as her name instead of Debbie.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:15:01.450603707+02:00",
+  "TimeSpent": 44.959667,
+  "Wpm": 26.69059,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 31,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:16:36.412749076+02:00",
+  "TimeSpent": 4.6526585,
+  "Wpm": 51.583412,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 32,
+  "Text": {
+   "Text": "This is another new text that is very nice! I like texts, and I like to type. A lot actually.",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:17:05.018248099+02:00",
+  "TimeSpent": 26.225685,
+  "Wpm": 45.756668,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 33,
+  "Text": {
+   "Text": "\"Effect of Oral Semaglutide Compared With Placebo and Subcutaneous Semaglutide on Glycemic Control in Patients With Type 2 Diabetes\"",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:18:31.611828832+02:00",
+  "TimeSpent": 10.994396,
+  "Wpm": 103.689186,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 34,
+  "Text": {
+   "Text": "Many guerrilla tactics react to the delays and inefficiencies in attempting to follow proper or legal channels.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:19:52.70822142+02:00",
+  "TimeSpent": 18.960276,
+  "Wpm": 53.796684,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 35,
+  "Text": {
+   "Text": "In the list below the winner of the award for each year is shown first, followed by the other nominees.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:21:06.660318309+02:00",
+  "TimeSpent": 19.692757,
+  "Wpm": 60.936108,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 36,
+  "Text": {
+   "Text": "supposedly collapsed on a workman while being erected, killing him. Years afterwards a dying old man confessed to having witnessed the murder when awoken from a drunken sleep in a field nearby.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:24:15.668540792+02:00",
+  "TimeSpent": 21.991976,
+  "Wpm": 87.30457,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 37,
+  "Text": {
+   "Text": "Her painting are said to imitate antique tapestries, and she mainly exhibited in Florence during the late 1880s. Among her works are a canvas painted in",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:27:19.06812442+02:00",
+  "TimeSpent": 32.701878,
+  "Wpm": 47.703682,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 38,
+  "Text": {
+   "Text": "as well as the 111th in club history. The team was competing for the American League West Division title after a 4year absence from playoff contention, with a payroll just above $77 million.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:28:55.057937666+02:00",
+  "TimeSpent": 37.741398,
+  "Wpm": 52.462284,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 39,
+  "Text": {
+   "Text": "The name of the village is related to the local mineral springs of the same name, used by the local population for the purpose of treatment. At the toponomy",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:35:38.391130762+02:00",
+  "TimeSpent": 33.224297,
+  "Wpm": 52.37131,
+  "DidFinishLegally": false
  }
 ]
