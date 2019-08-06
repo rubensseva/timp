@@ -3,6 +3,7 @@ package play
 
 import (
 	"github.com/gdamore/tcell"
+	"github.com/mattn/go-runewidth"
   "fmt"
 
 )
@@ -20,54 +21,58 @@ func getLengthToWhitespace(str string, index int) (int, bool) {
 
 
 
-//func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
-//	i := 0
-//	var deferred []rune
-//	dwidth := 0
-//	zwj := false
-//	for _, r := range str {
-//		if r == '\u200d' {
-//			if len(deferred) == 0 {
-//				deferred = append(deferred, ' ')
-//				dwidth = 1
-//			}
-//			deferred = append(deferred, r)
-//			zwj = true
-//			continue
-//		}
-//		if zwj {
-//			deferred = append(deferred, r)
-//			zwj = false
-//			continue
-//		}
-//		switch runewidth.RuneWidth(r) {
-//		case 0:
-//			if len(deferred) == 0 {
-//				deferred = append(deferred, ' ')
-//				dwidth = 1
-//			}
-//		case 1:
-//			if len(deferred) != 0 {
-//				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-//				i += dwidth
-//			}
-//			deferred = nil
-//			dwidth = 1
-//		case 2:
-//			if len(deferred) != 0 {
-//				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-//				i += dwidth
-//			}
-//			deferred = nil
-//			dwidth = 2
-//		}
-//		deferred = append(deferred, r)
-//	}
-//	if len(deferred) != 0 {
-//		s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-//		i += dwidth
-//	}
-//}
+/**
+ * This function was found in the tcell repo
+ * zwj stands for zero-width-joiner
+ */
+func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
+	i := 0
+	var deferred []rune
+	dwidth := 0
+	zwj := false
+	for _, r := range str {
+		if r == '\u200d' {
+			if len(deferred) == 0 {
+				deferred = append(deferred, ' ')
+				dwidth = 1
+			}
+			deferred = append(deferred, r)
+			zwj = true
+			continue
+		}
+		if zwj {
+			deferred = append(deferred, r)
+			zwj = false
+			continue
+		}
+		switch runewidth.RuneWidth(r) {
+		case 0:
+			if len(deferred) == 0 {
+				deferred = append(deferred, ' ')
+				dwidth = 1
+			}
+		case 1:
+			if len(deferred) != 0 {
+				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+				i += dwidth
+			}
+			deferred = nil
+			dwidth = 1
+		case 2:
+			if len(deferred) != 0 {
+				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+				i += dwidth
+			}
+			deferred = nil
+			dwidth = 2
+		}
+		deferred = append(deferred, r)
+	}
+	if len(deferred) != 0 {
+		s.SetContent(x+i, y, deferred[0], deferred[1:], style)
+		i += dwidth
+	}
+}
 
 
 func putText2(s tcell.Screen, text string, subText string, rowStart int, colStart int, textBoxWidth int) {
@@ -99,6 +104,7 @@ func putText2(s tcell.Screen, text string, subText string, rowStart int, colStar
 	// The isAfter variable indicates if we hace exceede the lines
 	// that are typed or are being typed.
 	for i, letterCharacter := range text {
+	puts(s, style, colStart, row, "|")
     if len(subText) > i {
     // TODO: this can be made simpler by just assigning style var
       if rune(subText[i]) == letterCharacter {
@@ -129,5 +135,20 @@ func putText2(s tcell.Screen, text string, subText string, rowStart int, colStar
       }
     }
     currentLength++
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
   }
+
+  // Draw last part of textbox
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	row++
+	puts(s, style, colStart, row, "|")
+	puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
+	for i := 0; i <= textBoxWidth+boxPadding; i++ {
+		puts(s, style, colStart+i, row, "-")
+	}
 }
