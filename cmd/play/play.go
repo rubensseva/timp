@@ -83,7 +83,7 @@ func Play(text model.Text) {
 				case tcell.KeyBackspace2:
 					if numCorrect > 0 {
 						numCorrect--
-            stringTyped = stringTyped[:len(stringTyped) - 1]
+						stringTyped = stringTyped[:len(stringTyped)-1]
 						putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
