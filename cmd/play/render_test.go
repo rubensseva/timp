@@ -1,4 +1,4 @@
-package tcell_helpers
+package play
 
 import (
 	"testing"

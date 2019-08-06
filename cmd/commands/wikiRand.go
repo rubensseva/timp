@@ -46,7 +46,7 @@ var wikiRandCmd = &cobra.Command{
 		text := net.WikiGetRandText()
 
 		fmt.Println("Runnning play function")
-		tcell_helpers.Play(text)
+		play.Play(text)
 	},
 }
 
