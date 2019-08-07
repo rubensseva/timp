@@ -8,7 +8,7 @@ import (
 
 // Returns length to next whitespace
 // If whitespace was found, boolean is true, else false
-func getLengthToWhitespace(str string, index int) (int, bool) {
+func getLengthToWhitespace(str []rune, index int) (int, bool) {
 	for i, c := range str[index:] {
 		if c == []rune(" ")[0] {
 			return i, true
@@ -70,16 +70,14 @@ func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
 	}
 }
 
-func putText2(s tcell.Screen, text string, subText string, rowStart int, colStart int, textBoxWidth int) {
+func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStart int, textBoxWidth int) {
 
 	var row = rowStart
 	var style = tcell.StyleDefault
 	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 	var redStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(250, 50, 50))
-	// var formattedText = textBoxFormatString(text, textBoxWidth)
 	var boxPadding = 10
 	var currentLength = colStart + boxPadding
-	// var isAfter = false
 
 	// Draw first part of the box part of the textbox
 	for i := 0; i <= textBoxWidth+boxPadding; i++ {
@@ -119,7 +117,37 @@ func putText2(s tcell.Screen, text string, subText string, rowStart int, colStar
 		puts(s, redStyle, 1, 23, "textboxwidth: "+fmt.Sprintf("%d", textBoxWidth))
 		puts(s, redStyle, 1, 24, "i: "+fmt.Sprintf("%d", currentLength))
 
-		puts(s, redStyle, 1, 50, "typing: "+subText)
+		var typeInfoLim = 40
+
+		if len(subText) < typeInfoLim {
+			puts(s, redStyle, 1, 50, "typing: "+string(subText))
+		} else {
+			puts(s, redStyle, 1, 50, "typing: "+string(subText[len(subText)-40:]))
+		}
+
+		if len(text) < typeInfoLim+len(subText) {
+			puts(s, redStyle, 1, 52, "typing: "+string(text[len(subText):]))
+		} else {
+			puts(s, redStyle, 1, 52, "typing: "+string(text[(len(subText)):(len(subText)+typeInfoLim - 1)]))
+		}
+
+
+    var offset = 20
+    if len(subText) < offset {
+      if len(text) < typeInfoLim+len(subText) {
+        puts(s, redStyle, 1, 54, "typing: "+string(text[len(subText):]))
+      } else {
+        puts(s, redStyle, 1, 54, "typing: "+string(text[(len(subText)):(len(subText)+typeInfoLim - 1)]))
+      }
+    } else {
+      if len(text) < typeInfoLim+len(subText) - offset {
+        puts(s, redStyle, 1, 54, "typing: "+string(text[len(subText) - offset:]))
+      } else {
+        puts(s, greenStyle, 1, 54, "typing: "+string(text[(len(subText) - offset):(len(subText)+typeInfoLim - 1 - offset - 19)]))
+        puts(s, redStyle, 29, 54, string(text[(len(subText) - offset + 20):(len(subText)+typeInfoLim - 1 - offset)]))
+      }
+    }
+
 
 		if isInString {
 			if lengthToSpace+currentLength-colStart > textBoxWidth {
