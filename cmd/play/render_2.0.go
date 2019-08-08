@@ -132,20 +132,38 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 		}
 
 
-    var offset = 20
+    var offset = 10
+
     if len(subText) < offset {
+
       if len(text) < typeInfoLim+len(subText) {
         puts(s, redStyle, 1, 54, "typing: "+string(text[len(subText):]))
       } else {
         puts(s, redStyle, 1, 54, "typing: "+string(text[(len(subText)):(len(subText)+typeInfoLim - 1)]))
       }
+
+    // If subtext is longer than offsett, we draw with offset
     } else {
+
+      // If we are almost done, displayed text should shrink
       if len(text) < typeInfoLim+len(subText) - offset {
-        puts(s, redStyle, 1, 54, "typing: "+string(text[len(subText) - offset:]))
+
+        // If there is enough text to still draw beyond offset 
+        //if (len(text) - len(subText) + offset) > offset {
+          puts(s, greenStyle, 1, 54, "typing: "+string(text[len(subText) - offset:len(subText)]))
+          puts(s, redStyle, 19, 54, string(text[len(subText):]))
+
+        // Almost no text left to draw
+        //} else {
+          //puts(s, greenStyle, 1, 54, "typing: "+string(text[len(subText) - offset:]))
+        //}
+
+      // Middle of typing, full text left to right
       } else {
-        puts(s, greenStyle, 1, 54, "typing: "+string(text[(len(subText) - offset):(len(subText)+typeInfoLim - 1 - offset - 19)]))
-        puts(s, redStyle, 29, 54, string(text[(len(subText) - offset + 20):(len(subText)+typeInfoLim - 1 - offset)]))
+        puts(s, greenStyle, 1, 54, "typing: "+string(text[(len(subText) - offset):(len(subText)+typeInfoLim - 1 - offset - 9)]))
+        puts(s, redStyle, 19, 54, string(text[(len(subText) - offset + 10):(len(subText)+typeInfoLim - 1 - offset)]))
       }
+
     }
 
 
