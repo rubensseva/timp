@@ -214,5 +214,1121 @@
   "TimeSpent": 4.698606,
   "Wpm": 51.07898,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 19,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:41:24.866155056+02:00",
+  "TimeSpent": 29.071585,
+  "Wpm": 10.319355,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 20,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:41:45.29763908+02:00",
+  "TimeSpent": 15.620368,
+  "Wpm": 19.205694,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 21,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:45:03.425792593+02:00",
+  "TimeSpent": 4.6725335,
+  "Wpm": 51.363995,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 22,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:46:01.400322438+02:00",
+  "TimeSpent": 1.1517313,
+  "Wpm": 260.47742,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 23,
+  "Text": {
+   "Text": "This is another new text that is very nice! I like texts, and I like to type. A lot actually.",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:46:16.338255452+02:00",
+  "TimeSpent": 14.047592,
+  "Wpm": 85.42389,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 24,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:50:13.749521195+02:00",
+  "TimeSpent": 10.179019,
+  "Wpm": 23.577911,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 25,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:58:32.204064854+02:00",
+  "TimeSpent": 10.306257,
+  "Wpm": 29.10853,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 26,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T21:59:30.072729616+02:00",
+  "TimeSpent": 7.342107,
+  "Wpm": 40.860207,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 27,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:00:57.490254976+02:00",
+  "TimeSpent": 8.897026,
+  "Wpm": 26.975306,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 28,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:05:39.625017669+02:00",
+  "TimeSpent": 15.051328,
+  "Wpm": 19.931795,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 29,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:14:03.804484308+02:00",
+  "TimeSpent": 16.913054,
+  "Wpm": 14.190223,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 30,
+  "Text": {
+   "Text": "and was the first record Harry released in which she reverted to using Deborah as her name instead of Debbie.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:15:01.450603707+02:00",
+  "TimeSpent": 44.959667,
+  "Wpm": 26.69059,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 31,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:16:36.412749076+02:00",
+  "TimeSpent": 4.6526585,
+  "Wpm": 51.583412,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 32,
+  "Text": {
+   "Text": "This is another new text that is very nice! I like texts, and I like to type. A lot actually.",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:17:05.018248099+02:00",
+  "TimeSpent": 26.225685,
+  "Wpm": 45.756668,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 33,
+  "Text": {
+   "Text": "\"Effect of Oral Semaglutide Compared With Placebo and Subcutaneous Semaglutide on Glycemic Control in Patients With Type 2 Diabetes\"",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:18:31.611828832+02:00",
+  "TimeSpent": 10.994396,
+  "Wpm": 103.689186,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 34,
+  "Text": {
+   "Text": "Many guerrilla tactics react to the delays and inefficiencies in attempting to follow proper or legal channels.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:19:52.70822142+02:00",
+  "TimeSpent": 18.960276,
+  "Wpm": 53.796684,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 35,
+  "Text": {
+   "Text": "In the list below the winner of the award for each year is shown first, followed by the other nominees.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:21:06.660318309+02:00",
+  "TimeSpent": 19.692757,
+  "Wpm": 60.936108,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 36,
+  "Text": {
+   "Text": "supposedly collapsed on a workman while being erected, killing him. Years afterwards a dying old man confessed to having witnessed the murder when awoken from a drunken sleep in a field nearby.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:24:15.668540792+02:00",
+  "TimeSpent": 21.991976,
+  "Wpm": 87.30457,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 37,
+  "Text": {
+   "Text": "Her painting are said to imitate antique tapestries, and she mainly exhibited in Florence during the late 1880s. Among her works are a canvas painted in",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:27:19.06812442+02:00",
+  "TimeSpent": 32.701878,
+  "Wpm": 47.703682,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 38,
+  "Text": {
+   "Text": "as well as the 111th in club history. The team was competing for the American League West Division title after a 4year absence from playoff contention, with a payroll just above $77 million.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:28:55.057937666+02:00",
+  "TimeSpent": 37.741398,
+  "Wpm": 52.462284,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 39,
+  "Text": {
+   "Text": "The name of the village is related to the local mineral springs of the same name, used by the local population for the purpose of treatment. At the toponomy",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:35:38.391130762+02:00",
+  "TimeSpent": 33.224297,
+  "Wpm": 52.37131,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 40,
+  "Text": {
+   "Text": "The competition was a show jumping competition with two rounds and optionally one jumpoff. The height of the fences were up to 1.60 meters. All teams were allowed to start in the second round. The competition is endowed with 200,000",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:50:13.997099539+02:00",
+  "TimeSpent": 50.73032,
+  "Wpm": 47.308983,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 41,
+  "Text": {
+   "Text": "serving as Quartermaster of the 5th Horse Artillery Regiment, and later holding the position of regimental",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:53:15.076473584+02:00",
+  "TimeSpent": 25.066793,
+  "Wpm": 38.29768,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 42,
+  "Text": {
+   "Text": "i.e. those divisions that are not on full strength and would only be mobilised in a national emergency. The post was held by a",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:54:50.202802706+02:00",
+  "TimeSpent": 7.1882324,
+  "Wpm": 200.32741,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 43,
+  "Text": {
+   "Text": "The 201112 season saw success for the club after they were crowned champions of Division One, winning promotion to the Premier Division.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T22:56:11.258634452+02:00",
+  "TimeSpent": 73.54003,
+  "Wpm": 17.949408,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 44,
+  "Text": {
+   "Text": "channel 53, but continued to operate the station under a local marketing agreement before buying the station back outright in 2000.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T23:21:59.61452905+02:00",
+  "TimeSpent": 32.07791,
+  "Wpm": 39.279366,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 45,
+  "Text": {
+   "Text": "announced it enter the elections as an alliance force with the smaller political parties including the DPTT.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T23:27:18.405491048+02:00",
+  "TimeSpent": 33.833275,
+  "Wpm": 30.147837,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 46,
+  "Text": {
+   "Text": "This is another new text that is very nice! I like texts, and I like to type. A lot actually.",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T23:29:40.451476676+02:00",
+  "TimeSpent": 9.964814,
+  "Wpm": 120.42372,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 47,
+  "Text": {
+   "Text": "The Bruce Peninsulas shoreline has several lighthouses, necessary to provide guidance to the many ships that would pass by her shores.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-06T23:30:48.942889768+02:00",
+  "TimeSpent": 19.228207,
+  "Wpm": 65.52873,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 48,
+  "Text": {
+   "Text": "two years later, though on this occasion he scored only 0 and 11, and Scotland lost by seven wickets.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T18:49:57.171694999+02:00",
+  "TimeSpent": 30.154825,
+  "Wpm": 37.804897,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 49,
+  "Text": {
+   "Text": "After an introduction to the game and lots of practice on fundamentals, he began to play competitively.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T18:52:37.236398351+02:00",
+  "TimeSpent": 29.92604,
+  "Wpm": 34.084026,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 50,
+  "Text": {
+   "Text": "in 1991. According to Kim Thayil, it was never properly finished \"There was drums and bass and some rhythm guitar and some scratch vocals and that was about it.\" because the band did not like the arrangement, but was eventually salvaged by the \"magic of",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T18:54:36.72597569+02:00",
+  "TimeSpent": 57.782085,
+  "Wpm": 46.727287,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 51,
+  "Text": {
+   "Text": "by opening the Advanced Search box, entering \"3087420\" in the \"Unique Feature Id\" form, and clicking on \"Search Database\".",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:11:55.024911808+02:00",
+  "TimeSpent": 38.805046,
+  "Wpm": 29.377623,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 52,
+  "Text": {
+   "Text": "and later a Buddhist shrine newly established in a former hotel took over that function, where a new cult has now formed.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:14:51.502311844+02:00",
+  "TimeSpent": 36.507996,
+  "Wpm": 36.156464,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 53,
+  "Text": {
+   "Text": "",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:21:11.012002549+02:00",
+  "TimeSpent": 0.002439142,
+  "Wpm": 0,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 54,
+  "Text": {
+   "Text": "The differences between editions lies mainly in the addition and subtraction of some magical colleges as well as some modifications to combat mechanics.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:22:07.572158169+02:00",
+  "TimeSpent": 47.082684,
+  "Wpm": 29.310139,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 55,
+  "Text": {
+   "Text": ". Its venom tipped spines, with distinctive globular swellings below the tip, can inflict a painful sting if handled the pain lasts as long as several hours. This capacity, perhaps coupled with its reddishbrown color, has given it the common name Fire Urchin.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:27:28.570522896+02:00",
+  "TimeSpent": 4.4122367,
+  "Wpm": 584.7375,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 56,
+  "Text": {
+   "Text": ". He painted several pictures for the churches at Bologna including for the Cappuccini, a picture of the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:28:32.450256405+02:00",
+  "TimeSpent": 34.332653,
+  "Wpm": 31.456932,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 57,
+  "Text": {
+   "Text": "Senior club appearances and goals counted for the domestic league only and correct as of 2 June 2019",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:30:15.616079206+02:00",
+  "TimeSpent": 70.431435,
+  "Wpm": 15.334063,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 58,
+  "Text": {
+   "Text": "She walked a total of 40 shows that season, making her an international success. After signing with",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:31:03.378669866+02:00",
+  "TimeSpent": 23.464758,
+  "Wpm": 43.469444,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 59,
+  "Text": {
+   "Text": "working to a fixed schedule and enjoying \"the detail and planning involved.\" She sees a psychiatrist once a week and still has the occasional",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:31:43.647209758+02:00",
+  "TimeSpent": 33.79111,
+  "Wpm": 42.61476,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 60,
+  "Text": {
+   "Text": "led by Javelin Venture Partners in 2014. The company expanded into madetomeasure blazers and offtherack products in 2014.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:40:55.216263556+02:00",
+  "TimeSpent": 29.915255,
+  "Wpm": 36.101982,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 61,
+  "Text": {
+   "Text": "It grows to a maximum length of 15cm 5.9in. It swims alone or in pairs and occasionally in small aggregations. Its coloring is divided on the diagonal between black and white. It has gold",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T19:47:16.378970806+02:00",
+  "TimeSpent": 60.616795,
+  "Wpm": 33.65404,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 62,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:11:15.72955236+02:00",
+  "TimeSpent": 9.144195,
+  "Wpm": 26.246159,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 63,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:12:43.021083601+02:00",
+  "TimeSpent": 8.5505495,
+  "Wpm": 35.085464,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 64,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:14:10.217155962+02:00",
+  "TimeSpent": 4.341066,
+  "Wpm": 55.28596,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 65,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:15:15.791455494+02:00",
+  "TimeSpent": 3.6089656,
+  "Wpm": 66.501045,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 66,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:16:22.107340723+02:00",
+  "TimeSpent": 7.6129274,
+  "Wpm": 39.406654,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 67,
+  "Text": {
+   "Text": "Payne provided all of the initial funding and data processing services for the company. He went on to form the first ISP in northwestern Connecticut",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:20:31.288988901+02:00",
+  "TimeSpent": 35.72409,
+  "Wpm": 41.988472,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 68,
+  "Text": {
+   "Text": "In retirement from playing McCarthy became involved in team management and coaching. He has served as",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:23:45.762998243+02:00",
+  "TimeSpent": 15.48404,
+  "Wpm": 61.99932,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 69,
+  "Text": {
+   "Text": "was elected by the councillors after the election.Candidates were required to be at least 21 years old and to have the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:27:01.411972151+02:00",
+  "TimeSpent": 11.639304,
+  "Wpm": 108.2539,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 70,
+  "Text": {
+   "Text": ". The team lost the Bowl final match to end 10th in the 2002 Australia Sevens and 2002 Singapore Sevens.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:28:07.448609505+02:00",
+  "TimeSpent": 37.237396,
+  "Wpm": 32.225666,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 71,
+  "Text": {
+   "Text": "that enables immersive handson interactions between consumers and brands. Founded in 2005, the company facilitates brandsponsored House Parties, inhome events through which consumers and their invited guests can experience new products, television shows, software, books etc. Each House Party also features an online community where partygoers can access exclusive content, share photos and videos, and blog about their parties.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:30:12.227105658+02:00",
+  "TimeSpent": 11.693874,
+  "Wpm": 302.7226,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 72,
+  "Text": {
+   "Text": "On the Status of the \"City of Makhachkala\" Urban Okrug with IntraUrban Divisions, the Status and the Borders of the IntraCity Districts Comprising the \"City of Makhachkala\" Urban Okrug with IntraUrban Divisions, and on Amending Various Legislative Acts of the Republic of Dagestan",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:31:01.78360126+02:00",
+  "TimeSpent": 20.05127,
+  "Wpm": 128.67015,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 73,
+  "Text": {
+   "Text": "Croatia was admitted to the UEFA at the end of the season. It obtained a place in the preliminary rounds of the two major European competitions, while it was too late for the third one.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:32:21.101428424+02:00",
+  "TimeSpent": 31.537634,
+  "Wpm": 66.58711,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 74,
+  "Text": {
+   "Text": "Use is restricted in some countries due to its toxicity, especially acute inhalation toxicity. IPBC is also becoming recognized as a contact",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:33:12.269007517+02:00",
+  "TimeSpent": 32.0197,
+  "Wpm": 41.22462,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 75,
+  "Text": {
+   "Text": "is a key document for understanding the most sophisticated tea ceremony in Chinese history. It stands as the monumental treatise on tea after",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:33:51.092854612+02:00",
+  "TimeSpent": 12.732714,
+  "Wpm": 108.38224,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 76,
+  "Text": {
+   "Text": "The mall, which opened in 1977, has expanded and been redesigned several times most recently in 2002 and again in 2009",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:34:40.208027799+02:00",
+  "TimeSpent": 16.085428,
+  "Wpm": 78.33177,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 77,
+  "Text": {
+   "Text": "is about 20mm. The forewings are orange, suffused with fiery red scales and irrorated speckled with black. There is an orange antemedial line, as well as an illdefined orange postmedial line. The hindwings are orange with a broad black marginal band.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:35:32.649307401+02:00",
+  "TimeSpent": 16.392382,
+  "Wpm": 150.06972,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 78,
+  "Text": {
+   "Text": "with whom the owner of Kennedy Aeroplanes Ltd., C. J. H. MackenzieKennedy, had ostensibly worked prior to setting up the company. The aeroplane was a notorious failure its size meant that construction had to take place in an open field as none of the hangars near",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:36:09.536924426+02:00",
+  "TimeSpent": 14.40008,
+  "Wpm": 191.6656,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 79,
+  "Text": {
+   "Text": "He was pursuing a Ph.D. in Physics under a National Defense Science and Engineering Graduate Fellowship.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:36:54.64631499+02:00",
+  "TimeSpent": 15.342175,
+  "Wpm": 62.572617,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 80,
+  "Text": {
+   "Text": ". The top section is a crosssectional view with bordered pits shown between adjacent cells, and the bottom section is a radial view with numerous bordered pits shown.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:37:29.984804339+02:00",
+  "TimeSpent": 9.625123,
+  "Wpm": 174.54323,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 81,
+  "Text": {
+   "Text": "where he met the members who would form Jeff Killed John, later to be known as Bullet for My Valentine.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:38:09.771687147+02:00",
+  "TimeSpent": 23.18123,
+  "Wpm": 51.766018,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 82,
+  "Text": {
+   "Text": "With ten seconds left in this UCLAs homecoming game and the Bruins behind by four points, Bruin quarterback",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:38:49.462002892+02:00",
+  "TimeSpent": 33.555134,
+  "Wpm": 32.185837,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 83,
+  "Text": {
+   "Text": "Taxonomists can disagree as to whether two genera are sufficiently distinct to be kept separate or not. While agreeing that the genus",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:40:03.513434181+02:00",
+  "TimeSpent": 10.258875,
+  "Wpm": 128.66908,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 84,
+  "Text": {
+   "Text": "The shopping center was sold to RamcoGershenson Properties Trust in 2014 for approximately $150 million.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:40:52.861749709+02:00",
+  "TimeSpent": 20.056604,
+  "Wpm": 44.873,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 85,
+  "Text": {
+   "Text": ". The match started off with both divas brawling outside the ring. After some backandforth action, Phoenix attempted the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T20:43:54.304254017+02:00",
+  "TimeSpent": 24.392292,
+  "Wpm": 46.736076,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 86,
+  "Text": {
+   "Text": ". The Conferences, which brought together public figures from both countries, became a precursor of the upcoming transformation from fierce confrontation to cooperation between the two superpowers.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:09:32.841921466+02:00",
+  "TimeSpent": 37.950485,
+  "Wpm": 42.6872,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 87,
+  "Text": {
+   "Text": "Many trekkers to Adi Kailash often make a diversion to view Om Parvat. Om Parvat is located near Nabhi Dhang camp Nepal on",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:10:17.970048531+02:00",
+  "TimeSpent": 36.969437,
+  "Wpm": 37.328133,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 88,
+  "Text": {
+   "Text": ". Pauly died prior to publication of the fourth volume of the initial edition. After his death, edition of the encyclopedia was continued by",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:11:24.57796049+02:00",
+  "TimeSpent": 22.906164,
+  "Wpm": 62.865177,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 89,
+  "Text": {
+   "Text": "The company expanded to become one of the leading cabinet makers in Scotland, and branches were opened in Glasgow and Manchester. W. R. Reid ran the company until he sold it in 1902, at the same time that he bought",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:12:39.805386922+02:00",
+  "TimeSpent": 49.057384,
+  "Wpm": 48.9223,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 90,
+  "Text": {
+   "Text": "Anguitas area has been populated since ancient times. Anguita has remains of a Roman camp, although it is possible that it has been a",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:13:46.648908283+02:00",
+  "TimeSpent": 24.948917,
+  "Wpm": 57.717934,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 91,
+  "Text": {
+   "Text": "depicting the sanctuary was excavated and it revealed that both the cella and the vestibule were decorated with",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:15:20.762913406+02:00",
+  "TimeSpent": 27.269085,
+  "Wpm": 39.60529,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 92,
+  "Text": {
+   "Text": "was built and in 1925 the then manager of the hut, Hans Eisenmann, created a climbing area through the Wilde Gschlo, the presentday Jubilumssteig. In 1938 there were further modifications and extensions, including another sleeping block, the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:19:23.055636558+02:00",
+  "TimeSpent": 95.82276,
+  "Wpm": 23.167772,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 93,
+  "Text": {
+   "Text": ". In Danville, Pearson became a prominent attorney and was elected to the state circuit court. After moving to",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:21:10.185607052+02:00",
+  "TimeSpent": 36.401745,
+  "Wpm": 31.317179,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 94,
+  "Text": {
+   "Text": "while Elliott was dispatched by boat to urge the smaller American gunboats at the rear of the line of battle into closer action. The battle ended with the surrender of the entire British squadron.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:22:23.665726301+02:00",
+  "TimeSpent": 49.626835,
+  "Wpm": 41.106792,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 95,
+  "Text": {
+   "Text": "an introduction to the general theory of infinite processes and of analytic functions with an account of the principal transcendental functions",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:24:27.168284686+02:00",
+  "TimeSpent": 45.66245,
+  "Wpm": 27.59379,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 96,
+  "Text": {
+   "Text": "The newspaper is distributed to more than 30,000 homes through subscription and to churches across Canada. It is also available to subscribers in digital format.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-07T21:26:20.697076605+02:00",
+  "TimeSpent": 42.845806,
+  "Wpm": 35.00926,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 97,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T00:06:33.411519343+02:00",
+  "TimeSpent": 4.961023,
+  "Wpm": 60.4714,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 98,
+  "Text": {
+   "Text": "This is a new text",
+   "Author": ""
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T00:07:01.395686614+02:00",
+  "TimeSpent": 6.4237823,
+  "Wpm": 46.701458,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 99,
+  "Text": {
+   "Text": "It predicts the movement from neighbour macroblocks in same frame. A possible criterion could be to copy the motion vector from a neighboring block. These modes are used in uniform zones of the picture where there is not much movement.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T00:07:58.918933398+02:00",
+  "TimeSpent": 44.350418,
+  "Wpm": 54.114483,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 100,
+  "Text": {
+   "Text": "fighting a variety of journeymanlevel competition with two exceptions He lost a split decision to",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T00:08:31.057486253+02:00",
+  "TimeSpent": 28.45739,
+  "Wpm": 31.626232,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 101,
+  "Text": {
+   "Text": "remained until the mid20th century when, as the large areas were not profitable and the maintenance costs of these farms were high, they began to be subdivided into smaller plots.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T00:13:05.180260431+02:00",
+  "TimeSpent": 40.38322,
+  "Wpm": 44.572968,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 102,
+  "Text": {
+   "Text": "The garden includes specimens from the Eastern and Western hemispheres, organized in reference to a meridian line.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:36:38.785887729+02:00",
+  "TimeSpent": 5.3039303,
+  "Wpm": 192.31023,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 103,
+  "Text": {
+   "Text": "in the late 1950s Fabrizi started occasionally appearing in films, considering the acting career just a hobby, being her true profession the restaurateur and gastronome.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:42:53.386551723+02:00",
+  "TimeSpent": 35.29617,
+  "Wpm": 42.49753,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 104,
+  "Text": {
+   "Text": "In 1975, Kennelly was elected to the Hartford Court of Common Council, a position she held until 1979. She served as the",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:47:32.357891066+02:00",
+  "TimeSpent": 8.658156,
+  "Wpm": 152.4574,
+  "DidFinishLegally": false
+ },
+ {
+  "Id": 105,
+  "Text": {
+   "Text": "as the first in Norway to hold such a position. He was also head of the Palaeontological Museum of Oslo.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:47:57.080375922+02:00",
+  "TimeSpent": 23.878761,
+  "Wpm": 50.253864,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 106,
+  "Text": {
+   "Text": "Text made by me",
+   "Author": "Ruben"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:48:03.199517711+02:00",
+  "TimeSpent": 4.5895543,
+  "Wpm": 52.29266,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 107,
+  "Text": {
+   "Text": "during the time when the Thai design industry made its shift from precomputer to computer based design. After completing his bachelors degree he continued his studies in New York at",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:48:40.66406021+02:00",
+  "TimeSpent": 36.76364,
+  "Wpm": 48.96142,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 108,
+  "Text": {
+   "Text": "appeared to be running again leading a faction of 1014 MPs. A contest was avoided on the weekend before the contest where a deal was worked out that saw English withdraw in return for the deputy leadership and finance portfolio.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:49:26.851070368+02:00",
+  "TimeSpent": 44.38363,
+  "Wpm": 54.073994,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 109,
+  "Text": {
+   "Text": "to unite the northern frontier forces, which Cui Lin considered a better way of dealing with the non",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:49:47.252342698+02:00",
+  "TimeSpent": 18.30177,
+  "Wpm": 59.01069,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 110,
+  "Text": {
+   "Text": "appeared to be running again leading a faction of 1014 MPs. A contest was avoided on the weekend before the contest where a deal was worked out that saw English withdraw in return for the deputy leadership and finance portfolio.",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:50:31.365576959+02:00",
+  "TimeSpent": 42.265903,
+  "Wpm": 56.78336,
+  "DidFinishLegally": true
+ },
+ {
+  "Id": 111,
+  "Text": {
+   "Text": "The representatives of plains indigenous peoples demanded for the group to be recognised formally as",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T19:51:42.675009799+02:00",
+  "TimeSpent": 23.289345,
+  "Wpm": 38.64428,
+  "DidFinishLegally": true
  }
 ]

@@ -1,66 +1,13 @@
-package tcell_helpers
+package play
 
 import (
 	"github.com/gdamore/tcell"
-	"github.com/mattn/go-runewidth"
 
 	"strings"
 )
 
 /**
- * This function was found in the tcell repo
- * zwj stands for zero-width-joiner
- */
-func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
-	i := 0
-	var deferred []rune
-	dwidth := 0
-	zwj := false
-	for _, r := range str {
-		if r == '\u200d' {
-			if len(deferred) == 0 {
-				deferred = append(deferred, ' ')
-				dwidth = 1
-			}
-			deferred = append(deferred, r)
-			zwj = true
-			continue
-		}
-		if zwj {
-			deferred = append(deferred, r)
-			zwj = false
-			continue
-		}
-		switch runewidth.RuneWidth(r) {
-		case 0:
-			if len(deferred) == 0 {
-				deferred = append(deferred, ' ')
-				dwidth = 1
-			}
-		case 1:
-			if len(deferred) != 0 {
-				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-				i += dwidth
-			}
-			deferred = nil
-			dwidth = 1
-		case 2:
-			if len(deferred) != 0 {
-				s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-				i += dwidth
-			}
-			deferred = nil
-			dwidth = 2
-		}
-		deferred = append(deferred, r)
-	}
-	if len(deferred) != 0 {
-		s.SetContent(x+i, y, deferred[0], deferred[1:], style)
-		i += dwidth
-	}
-}
-
-/**
+ * -----> LEGACY <------
  * Private helper function
  * Takes in a string to format and a width
  * Returns a list of strings
@@ -119,6 +66,7 @@ func textBoxFormatString(text string, textBoxWidth int) []string {
 }
 
 /*
+* ------> Legacy <------
 * PutText Draws text to screen
 * Params: tcell screen, the actual text and progress on text,
 * position and width of textbox.

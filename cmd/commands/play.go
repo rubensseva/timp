@@ -45,7 +45,7 @@ var playCmd = &cobra.Command{
 
 		textToRun := data.GetRandomText()
 
-		tcell_helpers.Play(textToRun)
+		play.Play(textToRun)
 
 	},
 }

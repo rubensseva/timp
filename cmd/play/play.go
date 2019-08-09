@@ -1,4 +1,4 @@
-package tcell_helpers
+package play
 
 import (
 	"fmt"
@@ -60,13 +60,12 @@ func Play(text model.Text) {
 	putText(s, "Character set: "+s.CharacterSet(), 0, 2, 0, 25)
 	style = plain
 
-	textToRun := text.GetText()
-	totNumOfWords := len(strings.Fields(textToRun))
+	textToRun := []rune(text.GetText())
+	totNumOfWords := len(strings.Fields(string(textToRun)))
 	start := time.Now()
 
-	putText(s, textToRun, 0, playTextBoxPos_y, playTextBoxPos_x, 40)
-	var stringTyped = ""
-	var numCorrect = 0
+	var stringTyped = []rune("")
+	putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 
 	var didFinishLegally = false
 	go func() {
@@ -81,35 +80,43 @@ func Play(text model.Text) {
 				case tcell.KeyCtrlL:
 					s.Sync()
 				case tcell.KeyBackspace2:
-					if numCorrect > 0 {
-						numCorrect--
-						putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+					s.Clear()
+					if len(stringTyped) > 0 {
+						stringTyped = stringTyped[:len(stringTyped)-1]
+						putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
 				case tcell.KeyRune:
-					stringTyped = stringTyped + string(ev.Rune())
-					if []rune(textToRun)[numCorrect] == ev.Rune() {
-						numCorrect++
-					}
-					putText(s, textToRun, numCorrect, playTextBoxPos_y, playTextBoxPos_x, 40)
+					s.Clear()
+					stringTyped = append(stringTyped, ev.Rune())
+					putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 					s.Show()
 				}
 			case *tcell.EventResize:
 				s.Sync()
 			}
-			if numCorrect >= len(textToRun) {
+			if len(stringTyped) >= len(textToRun) {
 				didFinishLegally = true
 				close(quit)
 				return
 			}
 		}
 	}()
+	go func() {
+		for {
+			puts(s, style, 1, 10, fmt.Sprintf("time: %.3f", time.Now().Sub(start).Seconds()))
+			puts(s, style, 1, 11, fmt.Sprintf("wpm: %.3f", float32(totNumOfWords)/float32(float32(time.Now().Sub(start).Seconds())/60.0)))
+			s.Show()
+			time.Sleep(1 * time.Millisecond)
+		}
+	}()
 	<-quit
+
 	s.Fini()
 	t := time.Now()
 	elapsed := t.Sub(start)
 	println("\n\nGame complete!, with text: \n")
-	println(textToRun)
+	println(string(textToRun))
 	println("\nSTATS")
 	print("Elapsed time: ")
 	println(fmt.Sprintf("%.2fs", float32((elapsed.Seconds()))))

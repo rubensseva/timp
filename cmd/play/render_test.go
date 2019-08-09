@@ -1,4 +1,4 @@
-package tcell_helpers
+package play
 
 import (
 	"testing"
@@ -68,5 +68,32 @@ func TestTextBoxFormatString_PreservesLength(t *testing.T) {
 			t.Fail()
 			break
 		}
+	}
+}
+
+func TestGetLengthToSpace(t *testing.T) {
+	num, inString := getLengthToWhitespace("Hello what is up", 6)
+	if num == 0 {
+		t.Error("num was 0")
+	}
+	if num != 4 {
+		t.Error("num was not 4")
+	}
+	if !inString {
+		t.Error("isLast should be true but was false")
+	}
+
+	num, inString = getLengthToWhitespace("Hey hey heeeey", 10)
+	if inString {
+		t.Error("Should not be in string")
+	}
+
+	num, inString = getLengthToWhitespace("Once upon a time in a galaxy far far away", 0)
+	if num != 4 {
+		t.Error("num should be 4")
+	}
+	num, inString = getLengthToWhitespace("Once upon a time in a galaxy far far away", 7)
+	if num != 2 {
+		t.Error("num should be 2")
 	}
 }
