@@ -32,25 +32,36 @@ import (
 	"timp/cmd/data"
 )
 
+var num_of_threads int
 
 // newTextCmd represents the newText command
 var wikiRandNewCmd = &cobra.Command{
 	Use:   "new",
-	Short: "Add 10 wikipedia texts to text",
-	Long: `Adds 10 wikipedia texts to text`,
+	Short: "Add wikipedia texts",
+	Long: `Adds a number of wikipedia texts to the
+  text database concurrently.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 
 		fmt.Println("Runnning play function")
     channels := make(chan model.Text)
 
-    for i := 0; i < 500; i++ {
+    if num_of_threads == 0 {
+      num_of_threads = 10
+    }
+
+    fmt.Printf("Fetching %v texts\n", num_of_threads)
+    if num_of_threads > 100 {
+      fmt.Println("Warning: fetching a very large amount of texts concurrently. Program might crash.")
+    }
+
+    for i := 0; i < num_of_threads; i++ {
       go func() {
         channels <- net.WikiGetRandText()
       }()
     }
 
-    for i := 0; i < 500; i++ {
+    for i := 0; i < num_of_threads; i++ {
       data.AddText(<-channels)
     }
 
@@ -69,4 +80,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// newTextCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	wikiRandCmd.PersistentFlags().IntVarP(&num_of_threads, "threads", "t", 2, "How many texts to get, and how many threads to run")
 }
