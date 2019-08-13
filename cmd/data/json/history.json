@@ -1330,5 +1330,17 @@
   "TimeSpent": 23.289345,
   "Wpm": 38.64428,
   "DidFinishLegally": true
+ },
+ {
+  "Id": 112,
+  "Text": {
+   "Text": "18661920 was born in the house of local sacristan next to the church. Estonian military commander",
+   "Author": "Wikipedia"
+  },
+  "Player": "Ruben",
+  "TimePlayed": "2019-08-09T20:23:02.563523059+02:00",
+  "TimeSpent": 1.0336069,
+  "Wpm": 928.7864,
+  "DidFinishLegally": false
  }
 ]

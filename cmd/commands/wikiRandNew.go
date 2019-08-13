@@ -32,77 +32,39 @@ import (
 	"timp/cmd/data"
 )
 
+var num_of_threads int
 
 // newTextCmd represents the newText command
 var wikiRandNewCmd = &cobra.Command{
 	Use:   "new",
-	Short: "Add 10 wikipedia texts to text",
-	Long: `Adds 10 wikipedia texts to text`,
+	Short: "Add wikipedia texts",
+	Long: `Adds a number of wikipedia texts to the
+  text database concurrently.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 
 		fmt.Println("Runnning play function")
-    channel_1 := make(chan struct{})
-    channel_2 := make(chan struct{})
-    channel_3 := make(chan struct{})
-    channel_4 := make(chan struct{})
-    channel_5 := make(chan struct{})
-    channel_6 := make(chan struct{})
-    channel_7 := make(chan struct{})
-    var text_1 model.Text
-    var text_2 model.Text
-    var text_3 model.Text
-    var text_4 model.Text
-    var text_5 model.Text
-    var text_6 model.Text
-    var text_7 model.Text
+    channels := make(chan model.Text)
 
-    go func() {
-      text_1 = net.WikiGetRandText()
-      channel_1 <- struct{}{}
-    }()
-    go func() {
-      text_2 = net.WikiGetRandText()
-      channel_2 <- struct{}{}
-    }()
-    go func() {
-      text_3 = net.WikiGetRandText()
-      channel_3 <- struct{}{}
-    }()
-    go func() {
-      text_4 = net.WikiGetRandText()
-      channel_4 <- struct{}{}
-    }()
-    go func() {
-      text_5 = net.WikiGetRandText()
-      channel_5 <- struct{}{}
-    }()
-    go func() {
-      text_6 = net.WikiGetRandText()
-      channel_6 <- struct{}{}
-    }()
-    go func() {
-      text_7 = net.WikiGetRandText()
-      channel_7 <- struct{}{}
-    }()
+    if num_of_threads == 0 {
+      num_of_threads = 10
+    }
 
+    fmt.Printf("Fetching %v texts\n", num_of_threads)
+    if num_of_threads > 100 {
+      fmt.Println("Warning: fetching a very large amount of texts concurrently. Program might crash.")
+    }
 
+    for i := 0; i < num_of_threads; i++ {
+      go func() {
+        channels <- net.WikiGetRandText()
+      }()
+    }
 
+    for i := 0; i < num_of_threads; i++ {
+      data.AddText(<-channels)
+    }
 
-    <-channel_1
-    <-channel_2
-    <-channel_3
-    <-channel_4
-    <-channel_5
-    <-channel_6
-    <-channel_7
-		data.AddText(text_1)
-		data.AddText(text_2)
-		data.AddText(text_3)
-		data.AddText(text_4)
-		data.AddText(text_5)
-		data.AddText(text_6)
-		data.AddText(text_7)
 	},
 }
 
@@ -118,4 +80,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// newTextCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	wikiRandCmd.PersistentFlags().IntVarP(&num_of_threads, "threads", "t", 2, "How many texts to get, and how many threads to run")
 }
