@@ -79,6 +79,13 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 	var boxPadding = 10
 	var currentLength = colStart + boxPadding
 
+  // For alternative typing box
+  var continous_box_offset = 10
+  var continous_box_length = 50
+  var continous_box_row_start = 50
+  var contionous_box_col_start = 1
+  var contionous_box_col = contionous_box_col_start
+
 	// Draw first part of the box part of the textbox
 	for i := 0; i <= textBoxWidth+boxPadding; i++ {
 		puts(s, style, colStart+i, row, "-")
@@ -117,53 +124,22 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 		puts(s, redStyle, 1, 23, "textboxwidth: "+fmt.Sprintf("%d", textBoxWidth))
 		puts(s, redStyle, 1, 24, "i: "+fmt.Sprintf("%d", currentLength))
 
-		var typeInfoLim = 40
-
-		if len(subText) < typeInfoLim {
-			puts(s, redStyle, 1, 50, "typing: "+string(subText))
-		} else {
-			puts(s, redStyle, 1, 50, "typing: "+string(subText[len(subText)-40:]))
-		}
-
-		if len(text) < typeInfoLim+len(subText) {
-			puts(s, redStyle, 1, 52, "typing: "+string(text[len(subText):]))
-		} else {
-			puts(s, redStyle, 1, 52, "typing: "+string(text[(len(subText)):(len(subText)+typeInfoLim - 1)]))
-		}
 
 
-    var offset = 10
-
-    if len(subText) < offset {
-
-      if len(text) < typeInfoLim+len(subText) {
-        puts(s, redStyle, 1, 54, "typing: "+string(text[len(subText):]))
-      } else {
-        puts(s, redStyle, 1, 54, "typing: "+string(text[(len(subText)):(len(subText)+typeInfoLim - 1)]))
-      }
-
-    // If subtext is longer than offsett, we draw with offset
+    // Alternative scrolling textbox
+    if i < len(subText) - continous_box_offset || i > len(subText) + continous_box_length {
+      // pass
     } else {
-
-      // If we are almost done, displayed text should shrink
-      if len(text) < typeInfoLim+len(subText) - offset {
-
-        // If there is enough text to still draw beyond offset 
-        //if (len(text) - len(subText) + offset) > offset {
-          puts(s, greenStyle, 1, 54, "typing: "+string(text[len(subText) - offset:len(subText)]))
-          puts(s, redStyle, 19, 54, string(text[len(subText):]))
-
-        // Almost no text left to draw
-        //} else {
-          //puts(s, greenStyle, 1, 54, "typing: "+string(text[len(subText) - offset:]))
-        //}
-
-      // Middle of typing, full text left to right
+      if len(subText) > i {
+        if rune(subText[i]) == letterCharacter {
+			    puts(s, greenStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
+        } else {
+			    puts(s, redStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
+        }
       } else {
-        puts(s, greenStyle, 1, 54, "typing: "+string(text[(len(subText) - offset):(len(subText)+typeInfoLim - 1 - offset - 9)]))
-        puts(s, redStyle, 19, 54, string(text[(len(subText) - offset + 10):(len(subText)+typeInfoLim - 1 - offset)]))
+			    puts(s, redStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
       }
-
+      contionous_box_col++
     }
 
 
