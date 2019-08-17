@@ -76,23 +76,16 @@ func puts(s tcell.Screen, style tcell.Style, x, y int, str string) {
 /**
  * Draws text on terminal screen, given text and subtext
 */
-func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStart int, textBoxWidth int) {
+func renderTextbox(s tcell.Screen, text []rune, subText []rune, rowStart int, colStart int, textBoxWidth int) {
 
-  // Variables for main text box
-	var row = rowStart
 	var defaultStyle = tcell.StyleDefault
 	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 	var redStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(200, 70, 70))
-  var currentLetterStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50)).Background(tcell.NewRGBColor(50, 150, 50))
+  // var currentLetterStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50)).Background(tcell.NewRGBColor(50, 150, 50))
+
+	var row = rowStart
 	var boxPadding = 10
 	var currentLength = colStart + boxPadding
-
-  // Variables for alternative typing box
-  var continous_box_offset = 10
-  var continous_box_length = 50
-  var continous_box_row_start = 50
-  var contionous_box_col_start = 1
-  var contionous_box_col = contionous_box_col_start
 
 	// Draw first part of the box part of the main textbox
 	for i := 0; i <= textBoxWidth+boxPadding; i++ {
@@ -108,13 +101,10 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 	puts(s, defaultStyle, colStart, row, "|")
 	puts(s, defaultStyle, colStart+textBoxWidth+boxPadding, row, "|")
 
-	// Main logic, loop through all characters in text and 
-  // draw the text boxes
+	// Main logic, loop through all characters in text and draw
 	for i, letterCharacter := range text {
 		puts(s, defaultStyle, colStart, row, "|")
 
-
-    // Main text box
     var style tcell.Style
 		if len(subText) > i {
 			if rune(subText[i]) == letterCharacter {
@@ -137,26 +127,6 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 		currentLength++
     puts(s, style, colStart+textBoxWidth+boxPadding, row, "|")
 
-    // Alternative scrolling textbox
-    if i < len(subText) - continous_box_offset || i > len(subText) + continous_box_length {
-      // Pass
-    } else {
-      var style tcell.Style
-      if len(subText) == i + 1 {
-        style = currentLetterStyle
-      } else if len(subText) > i {
-        if rune(subText[i]) == letterCharacter {
-          style = greenStyle
-        } else {
-          style = redStyle
-        }
-      } else {
-        style = redStyle
-      }
-			puts(s, style, contionous_box_col, continous_box_row_start, string(letterCharacter))
-      contionous_box_col++
-    }
-
 	}
 
 	// Draw last part of textbox
@@ -176,4 +146,43 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
   // General info
   puts(s, redStyle, 1, 23, "textboxwidth: "+fmt.Sprintf("%d", textBoxWidth))
   puts(s, redStyle, 1, 24, "i: "+fmt.Sprintf("%d", currentLength))
+}
+
+
+/**
+ * Draws text on terminal screen, given text and subtext
+*/
+func renderScrollingTextbox(s tcell.Screen, text []rune, subText []rune, rowStart int, colStart int, textBoxWidth int) {
+
+	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
+	var redStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(200, 70, 70))
+  var currentLetterStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(200, 70, 70)).Background(tcell.NewRGBColor(10, 10, 10))
+
+  var continous_box_offset = 10
+  var continous_box_length = 50
+  var continous_box_row_start = 50
+  var contionous_box_col_start = 1
+  var contionous_box_col = contionous_box_col_start
+
+	// Main logic, loop through all characters and draw
+	for i, letterCharacter := range text {
+    if i < len(subText) - continous_box_offset || i > len(subText) + continous_box_length {
+      // Pass
+    } else {
+      var style tcell.Style
+      if len(subText) == i {
+        style = currentLetterStyle
+      } else if len(subText) > i {
+        if rune(subText[i]) == letterCharacter {
+          style = greenStyle
+        } else {
+          style = redStyle
+        }
+      } else {
+        style = redStyle
+      }
+			puts(s, style, contionous_box_col, continous_box_row_start, string(letterCharacter))
+      contionous_box_col++
+    }
+	}
 }

@@ -65,7 +65,8 @@ func Play(text model.Text) {
 	start := time.Now()
 
 	var stringTyped = []rune("")
-	putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+	renderTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+	renderScrollingTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 
 	var didFinishLegally = false
 	go func() {
@@ -83,13 +84,15 @@ func Play(text model.Text) {
 					s.Clear()
 					if len(stringTyped) > 0 {
 						stringTyped = stringTyped[:len(stringTyped)-1]
-						putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+						renderTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+						renderScrollingTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 						s.Show()
 					}
 				case tcell.KeyRune:
 					s.Clear()
 					stringTyped = append(stringTyped, ev.Rune())
-					putText2(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+					renderTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
+					renderScrollingTextbox(s, textToRun, stringTyped, playTextBoxPos_y, playTextBoxPos_x, 40)
 					s.Show()
 				}
 			case *tcell.EventResize:
