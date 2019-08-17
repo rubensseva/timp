@@ -76,6 +76,7 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 	var style = tcell.StyleDefault
 	var greenStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50))
 	var redStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(250, 50, 50))
+  var currentLetterStyle = tcell.StyleDefault.Foreground(tcell.NewRGBColor(50, 250, 50)).Background(tcell.NewRGBColor(20, 20, 20))
 	var boxPadding = 10
 	var currentLength = colStart + boxPadding
 
@@ -128,17 +129,21 @@ func putText2(s tcell.Screen, text []rune, subText []rune, rowStart int, colStar
 
     // Alternative scrolling textbox
     if i < len(subText) - continous_box_offset || i > len(subText) + continous_box_length {
-      // pass
+      // Pass
     } else {
-      if len(subText) > i {
+      var style tcell.Style
+      if len(subText) == i + 1 {
+        style = currentLetterStyle
+      } else if len(subText) > i {
         if rune(subText[i]) == letterCharacter {
-			    puts(s, greenStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
+          style = greenStyle
         } else {
-			    puts(s, redStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
+          style = redStyle
         }
       } else {
-			    puts(s, redStyle, contionous_box_col, continous_box_row_start, string(letterCharacter))
+        style = redStyle
       }
+			puts(s, style, contionous_box_col, continous_box_row_start, string(letterCharacter))
       contionous_box_col++
     }
 
