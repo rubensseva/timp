@@ -21,8 +21,23 @@ THE SOFTWARE.
 */
 package main
 
-import "timp/cmd/commands"
+import (
+  "timp/cmd/commands"
+  "os"
+  "fmt"
+)
 
 func main() {
+  // Check if  data folder exists
+  if _, err := os.Stat(os.Getenv("HOME") + "/.timp"); os.IsNotExist(err) {
+    if err != nil {
+      fmt.Println(err)
+    }
+    // Create the timp folder if it doesnt exist
+    err := os.MkdirAll(os.Getenv("HOME") + "/.timp", os.ModePerm)
+    if err != nil {
+      fmt.Println(err)
+    }
+  }
 	commands.Execute()
 }
