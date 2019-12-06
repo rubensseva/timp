@@ -3,6 +3,7 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+  "os"
 	"io/ioutil"
 	"time"
 	"timp/cmd/data/model"
@@ -17,7 +18,7 @@ func max(i int, j int) int {
 }
 
 func readAllHistoryEntries() []model.PlayedEntry {
-	historyFile, fileErr := ioutil.ReadFile("cmd/data/json/history.json")
+	historyFile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/history.json")
 	if fileErr != nil {
 		panic(fileErr)
 	}
@@ -33,7 +34,7 @@ func readAllHistoryEntries() []model.PlayedEntry {
 }
 
 func readAllHistoryEntriesUnsafe() []model.PlayedEntry {
-	historyFile, fileErr := ioutil.ReadFile("cmd/data/json/history.json")
+	historyFile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/history.json")
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
@@ -72,7 +73,7 @@ func AppendToHistory(text model.Text, player string, timeSpent time.Duration, di
 	if JSONErr != nil {
 		panic(JSONErr)
 	}
-	fileErr := ioutil.WriteFile("cmd/data/json/history.json", writefile, 0644)
+	fileErr := ioutil.WriteFile(os.Getenv("HOME") + "/.timp/history.json", writefile, 0644)
 	if fileErr != nil {
 		panic(fileErr)
 	}

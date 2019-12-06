@@ -3,12 +3,13 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+  "os"
 	"io/ioutil"
 	"timp/cmd/data/model"
 )
 
 func readLoggedInUser() model.CurrentUser {
-	currentuserfile, fileErr := ioutil.ReadFile("cmd/data/json/currentUser.json")
+	currentuserfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/currentUser.json")
 	if fileErr != nil {
 		panic(fileErr)
 	}
@@ -24,7 +25,7 @@ func readLoggedInUser() model.CurrentUser {
 }
 
 func readLoggedInUserUnsafe() model.CurrentUser {
-	currentuserfile, fileErr := ioutil.ReadFile("cmd/data/json/currentUser.json")
+	currentuserfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/currentUser.json")
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
@@ -52,7 +53,7 @@ func LogoutUser() {
 	if JSONErr != nil {
 		panic(JSONErr)
 	}
-	fileErr := ioutil.WriteFile("cmd/data/json/currentUser.json", writefile, 0644)
+	fileErr := ioutil.WriteFile(os.Getenv("HOME") + "/.timp/currentUser.json", writefile, 0644)
 	if fileErr != nil {
 		panic(fileErr)
 	}
@@ -93,7 +94,7 @@ func LoginUser(newActiveUser model.User) {
 	if JSONErr != nil {
 		panic(JSONErr)
 	}
-	fileErr := ioutil.WriteFile("cmd/data/json/currentUser.json", writefile, 0644)
+	fileErr := ioutil.WriteFile(os.Getenv("HOME") + "/.timp/currentUser.json", writefile, 0644)
 	if fileErr != nil {
 		panic(fileErr)
 	}

@@ -3,13 +3,14 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+  "os"
 	"io/ioutil"
 	"timp/cmd/data/model"
 	"timp/cmd/utility"
 )
 
 func readAllTexts() []model.Text {
-	textfile, fileErr := ioutil.ReadFile("cmd/data/json/texts.json")
+	textfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/texts.json")
 	if fileErr != nil {
 		panic(fileErr)
 	}
@@ -27,7 +28,7 @@ func readAllTexts() []model.Text {
 // readAllTextsUnsafe returns all texts but does not panic
 // if result is null
 func readAllTextsUnsafe() []model.Text {
-	textfile, fileErr := ioutil.ReadFile("cmd/data/json/texts.json")
+	textfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/texts.json")
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
@@ -84,7 +85,7 @@ func AddText(text model.Text) {
 	if JSONErr != nil {
 		fmt.Println(JSONErr)
 	}
-	fileErr := ioutil.WriteFile("cmd/data/json/texts.json", writefile, 0644)
+	fileErr := ioutil.WriteFile(os.Getenv("HOME") + "/.timp/texts.json", writefile, 0644)
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}

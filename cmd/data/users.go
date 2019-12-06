@@ -3,12 +3,13 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+  "os"
 	"io/ioutil"
 	"timp/cmd/data/model"
 )
 
 func readAllUsers() []model.User {
-	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
+	usersfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/users.json")
 	if fileErr != nil {
 		panic(fileErr)
 	}
@@ -24,7 +25,7 @@ func readAllUsers() []model.User {
 }
 
 func readAllUsersUnsafe() []model.User {
-	usersfile, fileErr := ioutil.ReadFile("cmd/data/json/users.json")
+	usersfile, fileErr := ioutil.ReadFile(os.Getenv("HOME") + "/.timp/users.json")
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
@@ -96,7 +97,7 @@ func AddUser(newUser model.User) {
 	if JSONErr != nil {
 		fmt.Println(JSONErr)
 	}
-	fileErr := ioutil.WriteFile("cmd/data/json/users.json", writefile, 0644)
+	fileErr := ioutil.WriteFile(os.Getenv("HOME") + "/.timp/users.json", writefile, 0644)
 	if fileErr != nil {
 		fmt.Println(fileErr)
 	}
