@@ -47,7 +47,7 @@ func IsStringProbablyEnglishSentence(s string) StringScore {
 		return stringScore
 	}
 	words := strings.Fields(s)
-	dictionary, err := readLines("cmd/resources/20k.txt")
+	dictionary, err := readLines(os.Getenv("HOME") + "/.timp/20k.txt")
 	if err != nil {
 		log.Fatalf("readlines, %s", err)
 	}
