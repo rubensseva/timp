@@ -6,8 +6,8 @@ import (
   "os"
 	"io/ioutil"
 	"time"
-	"timp/cmd/data/model"
-	"timp/cmd/utility"
+	"github.com/rubensseva/timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/utility"
 )
 
 func max(i int, j int) int {

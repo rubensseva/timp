@@ -5,8 +5,8 @@ import (
 	"fmt"
   "os"
 	"io/ioutil"
-	"timp/cmd/data/model"
-	"timp/cmd/utility"
+	"github.com/rubensseva/timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/utility"
 )
 
 func readAllTexts() []model.Text {

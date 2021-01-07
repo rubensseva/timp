@@ -27,8 +27,8 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"timp/cmd/net"
-	"timp/cmd/play"
+	"github.com/rubensseva/timp/cmd/net"
+	"github.com/rubensseva/timp/cmd/play"
 )
 
 type jsonMapper struct {

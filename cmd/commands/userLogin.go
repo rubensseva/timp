@@ -28,7 +28,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
-	"timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/data"
 )
 
 var (

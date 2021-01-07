@@ -27,9 +27,9 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"timp/cmd/net"
-	"timp/cmd/data/model"
-	"timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/net"
+	"github.com/rubensseva/timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/data"
 )
 
 var num_of_threads int

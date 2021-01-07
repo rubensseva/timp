@@ -27,8 +27,8 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"timp/cmd/data"
-	"timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/data/model"
 )
 
 // newUserCmd represents the newUser command

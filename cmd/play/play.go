@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 	"time"
-	"timp/cmd/data"
-	"timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/data/model"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"

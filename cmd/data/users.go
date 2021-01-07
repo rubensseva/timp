@@ -5,7 +5,7 @@ import (
 	"fmt"
   "os"
 	"io/ioutil"
-	"timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/data/model"
 )
 
 func readAllUsers() []model.User {

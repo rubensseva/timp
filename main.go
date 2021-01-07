@@ -22,7 +22,7 @@ THE SOFTWARE.
 package main
 
 import (
-  "timp/cmd/commands"
+  "github.com/rubensseva/timp/cmd/commands"
   "os"
   "fmt"
 )

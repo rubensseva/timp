@@ -27,7 +27,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/data"
 )
 
 // logoutCmd represents the logout command

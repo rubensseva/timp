@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
-	"timp/cmd/data/model"
-	"timp/cmd/utility"
+	"github.com/rubensseva/timp/cmd/data/model"
+	"github.com/rubensseva/timp/cmd/utility"
 )
 
 func WikiGetRandText() model.Text {

@@ -27,8 +27,8 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"timp/cmd/data"
-	"timp/cmd/play"
+	"github.com/rubensseva/timp/cmd/data"
+	"github.com/rubensseva/timp/cmd/play"
 )
 
 // playCmd represents the play command
